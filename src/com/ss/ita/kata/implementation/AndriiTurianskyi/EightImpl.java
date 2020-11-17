@@ -1,4 +1,4 @@
-package com.ss.ita.kata.AndriiTurianskyi;
+package com.ss.ita.kata.implementation.AndriiTurianskyi;
 
 import com.ss.ita.kata.Eight;
 
