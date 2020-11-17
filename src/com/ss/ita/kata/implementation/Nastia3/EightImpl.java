@@ -2,10 +2,6 @@ package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Eight;
 
-public class EightImpl implements Eight {
+public class EightImpl {
 
-    @Override
-    public int Liters(double time) {
-        return 0;
-    }
 }
