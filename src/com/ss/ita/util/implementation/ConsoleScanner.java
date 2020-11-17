@@ -60,6 +60,14 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public BigInteger readBigInt() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigInteger()) {
+                BigInteger n = scanner.nextBigInteger();
+                return n;
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(BigInteger). Try again...");
+            }
+        }
     }
 }
