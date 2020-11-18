@@ -37,11 +37,6 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public int Liters(double time) {
-        return 0;
-    }
-
-    @Override
     public int liters(double time) {
         return 0;
     }
