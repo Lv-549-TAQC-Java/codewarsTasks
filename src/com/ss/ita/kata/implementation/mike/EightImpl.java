@@ -5,4 +5,10 @@ public class EightImpl implements com.ss.ita.kata.Eight {
     public int Liters(double time) {
         return  (int) (time / 2);
     }
+
+    @Override
+    public double getVolumeOfCuboid(double length, double width, double height) {
+        return (double)(length*width*height);
+    }
+
 }
