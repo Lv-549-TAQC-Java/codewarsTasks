@@ -6,6 +6,6 @@ public class EightImpl implements Eight {
 
     @Override
     public int Liters(double time) {
-        return 1;
+        return 0;
     }
 }
