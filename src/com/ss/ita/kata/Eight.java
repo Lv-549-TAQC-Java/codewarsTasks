@@ -1,5 +1,5 @@
 package com.ss.ita.kata;
 
 public interface Eight {
-    int Liters(double time);
+    int liters(double time);
 }
