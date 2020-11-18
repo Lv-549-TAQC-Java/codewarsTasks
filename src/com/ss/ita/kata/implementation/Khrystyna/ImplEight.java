@@ -4,6 +4,11 @@ import com.ss.ita.kata.Eight;
 
 public class ImplEight implements Eight {
     @Override
+    public int Liters(double time) {
+        return Double.valueOf(time / 2).intValue();
+    }
+
+    @Override
     public int[] countPositivesSumNegatives(int[] input) {
         int[] result = new int[2];
         for (int item : input) {
@@ -37,11 +42,6 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public int Liters(double time) {
-        return 0;
-    }
-
-    @Override
     public int liters(double time) {
         return 0;
     }
@@ -56,6 +56,7 @@ public class ImplEight implements Eight {
         return 0;
     }
 
+    @Override
     public int[] squareOrSquareRoot(int[] array) {
         for (int i = 0; i < array.length; i++) {
             double sqrt = Math.sqrt(array[i]);
