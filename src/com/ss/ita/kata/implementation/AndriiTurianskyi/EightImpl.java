@@ -40,7 +40,7 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if ((n%1!=0)||(n < 2)) {
+        if ((n % 1 != 0) || (n < 2)) {
             return false;
         }
         double factorial = 1;
@@ -49,6 +49,7 @@ public class EightImpl implements Eight {
         }
         return ((factorial + 1) / (n * n)) % 1 == 0;
     }
+
     @Override
     public double twoDecimalPlaces(double number) {
         return 0;
