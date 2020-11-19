@@ -3,7 +3,7 @@ package com.ss.ita.kata.implementation.vadkostuk;
 import com.ss.ita.kata.Seven;
 import com.ss.ita.kata.Six;
 
-public class ImplSix implements Six {
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
         long n = 0;
