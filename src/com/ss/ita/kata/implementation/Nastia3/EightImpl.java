@@ -1,6 +1,7 @@
 package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Eight;
+import java.text.DecimalFormat;
 
 public class EightImpl implements Eight {
 
@@ -21,7 +22,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = (df.format(mpg * 1.609344f / 4.54609188f));
+        float f = Float.parseFloat(s);
+        return f;
     }
 
     @Override
