@@ -1,9 +1,8 @@
-package com.ss.ita.kata.implementation.vadkostuk;
+package com.ss.ita.kata.implementation.AndriiTurianskyi;
 
 import com.ss.ita.kata.Eight;
 
-public class ImplEight implements Eight {
-
+public class EightImpl implements Eight {
     @Override
     public int Liters(double time) {
         return 0;
@@ -21,7 +20,7 @@ public class ImplEight implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return Math.round(mpg * 1.609344f / 4.54609188f);
+        return 0;
     }
 
     @Override
@@ -31,7 +30,23 @@ public class ImplEight implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        } else {
+            int[] resultArray = new int[2];
+            int countOfPositives = 0;
+            int sumOfNegative = 0;
+            for (int value : input) {
+                if (value > 0) {
+                    countOfPositives++;
+                } else if (value < 0) {
+                    sumOfNegative += value;
+                }
+            }
+            resultArray[0] = countOfPositives;
+            resultArray[1] = sumOfNegative;
+            return resultArray;
+        }
     }
 
     @Override
