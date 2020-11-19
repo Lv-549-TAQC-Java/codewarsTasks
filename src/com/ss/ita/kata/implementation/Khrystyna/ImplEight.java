@@ -42,6 +42,7 @@ public class ImplEight implements Eight {
                 divisibleNumbers.add(number);
             }
         }
+
         int[] resultArray = new int[divisibleNumbers.size()];
         for (int i = 0; i < resultArray.length; i++) {
             resultArray[i] = divisibleNumbers.get(i);
