@@ -2,7 +2,7 @@ package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Seven;
 
-public class ImplSeven implements Seven {
+public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         return 0;
