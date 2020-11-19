@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Eight;
 
@@ -6,7 +6,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int Liters(double time) {
-        return 0;
+        return (int)Math.floor(time/2);
     }
 
     @Override
@@ -26,7 +26,16 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            {
+                if (Math.sqrt(array[i]) == (int) Math.sqrt(array[i])) {
+                    array[i] = (int) Math.sqrt(array[i]);
+                } else {
+                    array[i] = array[i] * array[i];
+                }
+            }
+        }
+        return array;
     }
 
     @Override
