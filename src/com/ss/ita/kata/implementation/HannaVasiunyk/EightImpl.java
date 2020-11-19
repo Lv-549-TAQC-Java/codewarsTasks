@@ -8,7 +8,7 @@ public class EightImpl implements Eight {
     public int Liters(double time) {
         final double WATER = 0.5;
         double count = time * WATER;
-        return ((int) count);
+        return (int) count;
     }
 
     @Override
@@ -23,7 +23,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final double imperial = 4.54609188;
+        final double km = 1.61;
+        float convert =  (mpg / (float)imperial) * (float)km;
+        return Math.round(convert * 100) / 100.f;
     }
 
     @Override
