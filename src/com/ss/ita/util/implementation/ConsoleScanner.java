@@ -47,8 +47,17 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double readDouble() {
-        return 0;
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                return scanner.nextDouble();
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(double). Try again...");
+            }
+        }
     }
+
+
 
     @Override
     public double[] readDoubleArray() {

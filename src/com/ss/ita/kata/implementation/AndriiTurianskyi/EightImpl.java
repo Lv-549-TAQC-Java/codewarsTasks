@@ -1,9 +1,12 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.AndriiTurianskyi;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-
+    @Override
+    public int Liters(double time) {
+        return 0;
+    }
 
     @Override
     public int liters(double time) {
@@ -12,7 +15,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
@@ -22,26 +25,28 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        int size = array.length;
-        int[] myArray = new int[size];
-        for (int i = 0; i < array.length; i++){
-            double sr = Math.sqrt(array[i]);
-
-            if ((sr - Math.floor(sr)) == 0){
-                myArray[i]=(int)sr;
-
-            }else{
-                myArray[i] = array[i] * array[i];
-            }
-
-        }
-
-        return myArray;
+        return new int[0];
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        } else {
+            int[] resultArray = new int[2];
+            int countOfPositives = 0;
+            int sumOfNegative = 0;
+            for (int value : input) {
+                if (value > 0) {
+                    countOfPositives++;
+                } else if (value < 0) {
+                    sumOfNegative += value;
+                }
+            }
+            resultArray[0] = countOfPositives;
+            resultArray[1] = sumOfNegative;
+            return resultArray;
+        }
     }
 
     @Override
@@ -56,7 +61,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number*100d)/100d;
     }
 
     @Override
