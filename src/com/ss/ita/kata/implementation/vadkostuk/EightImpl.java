@@ -4,7 +4,7 @@ import com.ss.ita.kata.Eight;
 
 import java.util.ArrayList;
 
-public class ImplEight implements Eight {
+public class EightImpl implements Eight {
     @Override
     public int Liters(double time) {
         return 0;
