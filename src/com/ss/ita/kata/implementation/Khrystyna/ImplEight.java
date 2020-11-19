@@ -47,11 +47,6 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
-    }
-
-    @Override
     public int[] squareOrSquareRoot(int[] array) {
         for (int i = 0; i < array.length; i++) {
             double sqrt = Math.sqrt(array[i]);
@@ -62,6 +57,11 @@ public class ImplEight implements Eight {
             }
         }
         return array;
+    }
+
+    @Override
+    public double getVolumeOfCuboid(final double length, final double width, final double height) {
+        return length * width * height;
     }
 
     @Override
