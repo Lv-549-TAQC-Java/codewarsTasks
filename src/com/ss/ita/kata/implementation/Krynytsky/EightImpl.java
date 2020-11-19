@@ -7,11 +7,10 @@ public class EightImpl implements Eight {
     public int Liters(double time) {
         return 0;
     }
+
     @Override
     public int liters(double time) {
-        final double REQUIRED_AMOUNT_OF_WATER = 0.5;
-        double minLiters = time * REQUIRED_AMOUNT_OF_WATER;
-        return (int) minLiters;
+        return 0;
     }
 
     @Override
