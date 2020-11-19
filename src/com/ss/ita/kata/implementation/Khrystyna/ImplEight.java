@@ -4,6 +4,11 @@ import com.ss.ita.kata.Eight;
 
 public class ImplEight implements Eight {
     @Override
+    public int Liters(double time) {
+        return 0;
+    }
+
+    @Override
     public int[] countPositivesSumNegatives(int[] input) {
         int[] result = new int[2];
         for (int item : input) {
