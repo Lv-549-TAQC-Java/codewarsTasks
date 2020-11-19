@@ -6,7 +6,9 @@ public class EightImpl implements Eight {
 
     @Override
     public int Liters(double time) {
-        return 0;
+        final double WATER = 0.5;
+        double count = time * WATER;
+        return ((int) count);
     }
 
     @Override
@@ -57,4 +59,3 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 }
-
