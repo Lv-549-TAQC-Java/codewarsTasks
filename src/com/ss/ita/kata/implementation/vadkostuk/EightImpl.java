@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.HannaVasiunyk;
+package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Eight;
 
@@ -6,9 +6,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int Liters(double time) {
-        final double WATER = 0.5;
-        double count = time * WATER;
-        return (int) count;
+        return (int)Math.floor(time/2);
     }
 
     @Override
@@ -18,15 +16,12 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return (length * width * height);
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        final double imperial = 4.54609188;
-        final double km = 1.61;
-        float convert =  (mpg / (float)imperial) * (float)km;
-        return Math.round(convert * 100) / 100.f;
+        return 0;
     }
 
     @Override
@@ -41,7 +36,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return (Integer.parseInt(str));
+        return 0;
     }
 
     @Override

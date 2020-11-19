@@ -1,14 +1,11 @@
-package com.ss.ita.kata.implementation.HannaVasiunyk;
+package com.ss.ita.kata.implementation.AndriiTurianskyi;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-
     @Override
     public int Liters(double time) {
-        final double WATER = 0.5;
-        double count = time * WATER;
-        return (int) count;
+        return 0;
     }
 
     @Override
@@ -18,15 +15,12 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return (length * width * height);
+        return 0;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        final double imperial = 4.54609188;
-        final double km = 1.61;
-        float convert =  (mpg / (float)imperial) * (float)km;
-        return Math.round(convert * 100) / 100.f;
+        return 0;
     }
 
     @Override
@@ -36,12 +30,28 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        } else {
+            int[] resultArray = new int[2];
+            int countOfPositives = 0;
+            int sumOfNegative = 0;
+            for (int value : input) {
+                if (value > 0) {
+                    countOfPositives++;
+                } else if (value < 0) {
+                    sumOfNegative += value;
+                }
+            }
+            resultArray[0] = countOfPositives;
+            resultArray[1] = sumOfNegative;
+            return resultArray;
+        }
     }
 
     @Override
     public int stringToNumber(String str) {
-        return (Integer.parseInt(str));
+        return 0;
     }
 
     @Override
@@ -51,7 +61,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number*100d)/100d;
     }
 
     @Override
