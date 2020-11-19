@@ -1,12 +1,11 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.mike;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-
     @Override
     public int Liters(double time) {
-        return 0;
+        return (int)(time/2);
     }
 
     @Override
@@ -16,12 +15,12 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return (double)(length*width*height);
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        return (float)(1.609344f / 4.54609188f * mpg);
     }
 
     @Override
