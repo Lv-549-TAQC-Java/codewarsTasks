@@ -53,9 +53,6 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 
-    @Override
-    public double getVolumeOfCuboid(double length, double width, double height) {
-        return (double)(length*width*height);
-    }
+
 
 }
