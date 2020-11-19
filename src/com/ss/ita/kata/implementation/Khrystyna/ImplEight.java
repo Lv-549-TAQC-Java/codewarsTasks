@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ImplEight implements Eight {
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
@@ -23,17 +26,36 @@ public class ImplEight implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if (n <= 1) {
+            return false;
+        } else {
+            int factorial = 1;
+            for (int i = 1; i < n; i++) {
+                factorial *= i;
+            }
+            return (factorial + 1) / (n * n) % 1 == 0;
+        }
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number * 100) / 100d;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        List<Integer> divisibleNumbers = new ArrayList<>();
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                divisibleNumbers.add(number);
+            }
+        }
+
+        int[] resultArray = new int[divisibleNumbers.size()];
+        for (int i = 0; i < resultArray.length; i++) {
+            resultArray[i] = divisibleNumbers.get(i);
+        }
+        return resultArray;
     }
 
     @Override
