@@ -34,7 +34,6 @@ public class SixImpl implements Six {
                 }
             }
         }
-
         result.append("Total expense  ").append(String.format("%.2f", totalExpense)).append(NEW_LINE_CHARACTER);
         result.append("Average expense  ").append(String.format("%.2f", totalExpense / expenseCount));
         return result.toString().replaceAll(",", ".");
