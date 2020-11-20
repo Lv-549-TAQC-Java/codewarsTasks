@@ -36,6 +36,11 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
+        for (int i = 1; i <=p-bef ; i++) {
+            if (i>aft || i==p-bef){
+                return i;
+            }
+        }
         return 0;
     }
 }
