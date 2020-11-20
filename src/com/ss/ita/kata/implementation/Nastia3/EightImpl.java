@@ -3,7 +3,6 @@ package com.ss.ita.kata.implementation.Nastia3;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-
     @Override
     public int liters(double time) {
         return 0;
@@ -57,7 +56,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
