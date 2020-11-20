@@ -73,7 +73,8 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        String result = String.format("%.02f", number);
+        return (Double.parseDouble(result));
     }
 
     @Override
