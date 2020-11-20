@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ImplEight implements Eight {
     @Override
-    public int Liters(double time) {
+    public int liters(final double time) {
         return Double.valueOf(time / 2).intValue();
     }
 
@@ -64,11 +64,6 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public int liters(double time) {
-        return 0;
-    }
-
-    @Override
     public int[] squareOrSquareRoot(int[] array) {
         for (int i = 0; i < array.length; i++) {
             double sqrt = Math.sqrt(array[i]);
@@ -87,7 +82,7 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public  float mpgToKPM(final float mpg) {
+    public float mpgToKPM(final float mpg) {
         float imperialGallon = 4.54609188f;
         float mile = 1.609344f;
         float mpgToKPM = mpg * mile / imperialGallon;
