@@ -31,22 +31,49 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for  (int i = 0; i < array.length; i++) {
+            double sqrt = Math.sqrt(array[i]);
+            if (Math.sqrt(array[i]) % 1 == 0) {
+                array[i] = (int)sqrt;
+            } else {
+                array[i] =(int)Math.pow(array[i], 2);
+            }
+        }
+        return array;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int[] array = new int[2];
+        for (int i : input) {
+            if (i > 0) {
+                array[0]+= 1;
+            } else array[1] += i;
+        }
+        return array;
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return (Integer.parseInt(str));
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        boolean result = false;
+        int fact = 1;
+        if ( n < 2 ){
+            result = false;
+        } else {
+            for (int i = 1; i <n; i ++){
+                fact = fact*i;
+            }
+            double number = (fact + 1)/(Math.pow(n, 2));
+            if ( number % 1 == 0){
+                result = true;
+            }
+        }
+        return result;
     }
 
     @Override
