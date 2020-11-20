@@ -1,21 +1,28 @@
-package com.ss.ita.kata.implementation.mike;
+package com.ss.ita.kata.implementation.Maria;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
     @Override
+    public int Liters(double time) {
+        return 0;
+    }
+
+    @Override
     public int liters(double time) {
-        return (int) (time / 2);
+        double letres = time /2;
+        int value = (int)letres;
+        return value;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 1.609344f / 4.54609188f * mpg;
+        return 0;
     }
 
     @Override
@@ -40,8 +47,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        double rounded = Math.round(number*100)/100.0;
-        return rounded;
+        return 0;
     }
 
     @Override
