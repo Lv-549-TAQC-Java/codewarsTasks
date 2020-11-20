@@ -1,21 +1,24 @@
-package com.ss.ita.kata.implementation.mike;
+package com.ss.ita.kata.implementation.Krynytsky;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+
     @Override
     public int liters(double time) {
-        return (int) (time / 2);
+        final double REQUIRED_AMOUNT_OF_WATER = 0.5;
+        double minLiters = time * REQUIRED_AMOUNT_OF_WATER;
+        return (int) minLiters;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 1.609344f / 4.54609188f * mpg;
+        return 0;
     }
 
     @Override
@@ -35,15 +38,7 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if(n < 2){
-            return false;
-        }
-        for  (int i =2; i * i < n; i++){
-            if(n % i == 0){
-                return false;
-            }
-        }
-        return true;
+        return false;
     }
 
     @Override
