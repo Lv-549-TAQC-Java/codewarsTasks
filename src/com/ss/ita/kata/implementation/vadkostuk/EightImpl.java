@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
 
     @Override
@@ -60,6 +62,18 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                arrayList.add(number);
+            }
+        }
+        int[] res = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            res[i] = arrayList.get(i);
+        }
+
+        return res;
     }
 }
