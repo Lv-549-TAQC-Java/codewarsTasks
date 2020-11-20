@@ -1,6 +1,7 @@
 package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Eight;
+import java.text.DecimalFormat;
 
 public class EightImpl implements Eight {
     @Override
@@ -66,7 +67,9 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = df.format(number);
+        return Double.parseDouble(s);
     }
 
     @Override
