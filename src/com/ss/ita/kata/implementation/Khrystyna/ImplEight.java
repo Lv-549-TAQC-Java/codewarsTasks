@@ -7,6 +7,11 @@ import java.util.List;
 
 public class ImplEight implements Eight {
     @Override
+    public int Liters(double time) {
+        return Double.valueOf(time / 2).intValue();
+    }
+
+    @Override
     public int[] countPositivesSumNegatives(int[] input) {
         int[] result = new int[2];
         for (int item : input) {
@@ -56,11 +61,6 @@ public class ImplEight implements Eight {
             resultArray[i] = divisibleNumbers.get(i);
         }
         return resultArray;
-    }
-
-    @Override
-    public int Liters(double time) {
-        return 0;
     }
 
     @Override
