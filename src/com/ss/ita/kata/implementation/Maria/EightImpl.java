@@ -3,12 +3,14 @@ package com.ss.ita.kata.implementation.Maria;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+    @Override
+    public int Liters(double time) {
+        return 0;
+    }
 
     @Override
     public int liters(double time) {
-        double letres = time /2;
-        int value = (int)letres;
-        return value;
+        return 0;
     }
 
     @Override
@@ -18,7 +20,9 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float kpl = 1.609344f / 4.54609188f * mpg;
+        float n = (float) Math.round(kpl * 1000) / 100;
+        return n;
     }
 
     @Override
