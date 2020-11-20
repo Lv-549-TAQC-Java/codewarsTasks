@@ -22,7 +22,13 @@ public class ImplSeven implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        double result = 0;
+        int divider = 1;
+        for (int i = 1; i <= n; i++) {
+            result += 1.0 / divider;
+            divider += 3;
+        }
+        return String.format("%.2f", result);
     }
 
     @Override
