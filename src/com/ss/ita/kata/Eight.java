@@ -5,8 +5,6 @@ public interface Eight {
      * @param time
      * @return
      */
-    int Liters(double time);
-
     int liters(final double time);
 
     double getVolumeOfCuboid(final double length, final double width, final double height);
