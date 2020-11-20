@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
 
     @Override
@@ -21,7 +23,7 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        return (float)Math.round(100*mpg*1.609344f/4.54609188f)/100;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
@@ -55,11 +57,23 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                arrayList.add(number);
+            }
+        }
+        int[] res = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            res[i] = arrayList.get(i);
+        }
+
+        return res;
     }
 }

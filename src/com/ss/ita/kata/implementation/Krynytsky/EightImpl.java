@@ -1,22 +1,22 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.Krynytsky;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-
     @Override
     public int Liters(double time) {
         return 0;
     }
-
     @Override
     public int liters(double time) {
-        return 0;
+        final double REQUIRED_AMOUNT_OF_WATER = 0.5;
+        double minLiters = time * REQUIRED_AMOUNT_OF_WATER;
+        return (int) minLiters;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
@@ -26,38 +26,12 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        int size = array.length;
-        int[] myArray = new int[size];
-        for (int i = 0; i < array.length; i++){
-            double sr = Math.sqrt(array[i]);
-
-            if ((sr - Math.floor(sr)) == 0){
-                myArray[i]=(int)sr;
-
-            }else{
-                myArray[i] = array[i] * array[i];
-            }
-
-        }
-
-        return myArray;
+        return new int[0];
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        if (input == null || input.length == 0) {
-            return new int[0];
-        }
-
-        int positiveCount = 0;
-        int negativeSum = 0;
-
-        for (int i = 0; i < input.length; i++) {
-            if (input[i] > 0) positiveCount += 1;
-            else negativeSum += input[i];
-        }
-
-        return  new int[] { positiveCount, negativeSum};
+        return new int[0];
     }
 
     @Override
