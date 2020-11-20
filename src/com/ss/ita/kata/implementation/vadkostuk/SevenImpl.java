@@ -21,7 +21,17 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        double result = 1;
+        double divider = 1;
+        if (n <= 0){
+            result = 0;
+        } else {
+            for (int i = 1; i < n; i++) {
+                divider = divider + 3;
+                result= result + (1/divider);
+            }
+        }
+        return String.format("%.2f", result);
     }
 
     @Override
