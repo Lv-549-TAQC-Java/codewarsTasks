@@ -5,15 +5,10 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
 
     @Override
-    public int Liters(double time) {
+    public int liters(double time) {
         final double WATER = 0.5;
         double count = time * WATER;
         return (int) count;
-    }
-
-    @Override
-    public int liters(double time) {
-        return 0;
     }
 
     @Override
@@ -25,18 +20,18 @@ public class EightImpl implements Eight {
     public float mpgToKPM(float mpg) {
         final double imperial = 4.54609188;
         final double km = 1.61;
-        float convert =  (mpg / (float)imperial) * (float)km;
+        float convert = (mpg / (float) imperial) * (float) km;
         return Math.round(convert * 100) / 100.f;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        for  (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             double sqrt = Math.sqrt(array[i]);
             if (Math.sqrt(array[i]) % 1 == 0) {
-                array[i] = (int)sqrt;
+                array[i] = (int) sqrt;
             } else {
-                array[i] =(int)Math.pow(array[i], 2);
+                array[i] = (int) Math.pow(array[i], 2);
             }
         }
         return array;
@@ -47,7 +42,7 @@ public class EightImpl implements Eight {
         int[] array = new int[2];
         for (int i : input) {
             if (i > 0) {
-                array[0]+= 1;
+                array[0] += 1;
             } else array[1] += i;
         }
         return array;
@@ -62,14 +57,14 @@ public class EightImpl implements Eight {
     public boolean amIWilson(double n) {
         boolean result = false;
         int fact = 1;
-        if ( n < 2 ){
+        if (n < 2) {
             result = false;
         } else {
-            for (int i = 1; i <n; i ++){
-                fact = fact*i;
+            for (int i = 1; i < n; i++) {
+                fact = fact * i;
             }
-            double number = (fact + 1)/(Math.pow(n, 2));
-            if ( number % 1 == 0){
+            double number = (fact + 1) / (Math.pow(n, 2));
+            if (number % 1 == 0) {
                 result = true;
             }
         }

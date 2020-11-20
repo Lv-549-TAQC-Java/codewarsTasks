@@ -7,13 +7,8 @@ import java.util.ArrayList;
 public class EightImpl implements Eight {
 
     @Override
-    public int Liters(double time) {
-        return (int)Math.floor(time/2);
-    }
-
-    @Override
     public int liters(double time) {
-        return 0;
+        return (int) Math.floor(time / 2);
     }
 
     @Override
@@ -23,7 +18,7 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return (float)Math.round(100*mpg*1.609344f/4.54609188f)/100;
+        return (float) Math.round(100 * mpg * 1.609344f / 4.54609188f) / 100;
     }
 
     @Override
