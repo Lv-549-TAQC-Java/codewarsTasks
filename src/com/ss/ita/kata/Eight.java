@@ -1,11 +1,6 @@
 package com.ss.ita.kata;
 
 public interface Eight {
-    /**
-     * @param time
-     * @return
-     */
-    int Liters(double time);
 
     int liters(final double time);
 
