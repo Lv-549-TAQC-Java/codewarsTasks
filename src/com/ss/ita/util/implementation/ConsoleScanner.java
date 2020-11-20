@@ -25,14 +25,7 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public long readLong() {
-        while (true) {
-            if (scanner.hasNextLong()) {
-                return Long.parseLong(scanner.next());
-            } else {
-                scanner.next();
-                System.out.println("Incorrect format(long). Try again...");
-            }
-        }
+        return 0;
     }
 
     @Override
