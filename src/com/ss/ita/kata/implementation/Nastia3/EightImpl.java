@@ -45,7 +45,19 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
+
+        int positiveCount = 0;
+        int negativeSum = 0;
+
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) positiveCount += 1;
+            else negativeSum += input[i];
+        }
+
+        return  new int[] { positiveCount, negativeSum};
     }
 
     @Override
