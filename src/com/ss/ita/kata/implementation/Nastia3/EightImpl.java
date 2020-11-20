@@ -16,7 +16,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = (df.format(mpg * 1.609344f / 4.54609188f));
+        float f = Float.parseFloat(s);
+        return f;
     }
 
     @Override
