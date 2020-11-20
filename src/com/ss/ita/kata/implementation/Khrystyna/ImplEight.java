@@ -69,11 +69,6 @@ public class ImplEight implements Eight {
     }
 
     @Override
-    public float mpgToKPM(float mpg) {
-        return 0;
-    }
-
-    @Override
     public int[] squareOrSquareRoot(int[] array) {
         for (int i = 0; i < array.length; i++) {
             double sqrt = Math.sqrt(array[i]);
@@ -89,5 +84,13 @@ public class ImplEight implements Eight {
     @Override
     public double getVolumeOfCuboid(final double length, final double width, final double height) {
         return length * width * height;
+    }
+
+    @Override
+    public  float mpgToKPM(final float mpg) {
+        float imperialGallon = 4.54609188f;
+        float mile = 1.609344f;
+        float mpgToKPM = mpg * mile / imperialGallon;
+        return Math.round(mpgToKPM * 100f) / 100f;
     }
 }
