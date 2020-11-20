@@ -34,10 +34,8 @@ public class ImplSeven implements Seven {
     @Override
     public int whereIsHe(int p, int bef, int aft) {
         int position = p - bef;
-        for (int i = bef + 1; i < p; i++) {
-            if (p - i > aft) {
-                position--;
-            }
+        for (int i = bef + 1; i < p - aft; i++) {
+            position--;
         }
         return position;
     }
