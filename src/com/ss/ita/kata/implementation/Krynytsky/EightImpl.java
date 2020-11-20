@@ -7,11 +7,10 @@ public class EightImpl implements Eight {
     public int Liters(double time) {
         return 0;
     }
+
     @Override
     public int liters(double time) {
-        final double REQUIRED_AMOUNT_OF_WATER = 0.5;
-        double minLiters = time * REQUIRED_AMOUNT_OF_WATER;
-        return (int) minLiters;
+        return 0;
     }
 
     @Override
@@ -21,7 +20,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float MILE_PER_KM = 1.609344f;
+        final float GALLON_PER_L = 4.54609188f;
+        float mgpConverter = (mpg * MILE_PER_KM) / GALLON_PER_L;
+        return Math.round(mgpConverter * 100) / 100f;
     }
 
     @Override
