@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Eight;
 import java.text.DecimalFormat;
+import java.util.List;
+import java.util.ArrayList;
 
 public class EightImpl implements Eight {
     @Override
@@ -77,6 +79,15 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        List<Integer> al = new ArrayList<Integer>();
+        for (int i = 0; i < numbers.length; i++){
+            if(numbers[i] % divider == 0){
+                al.add(numbers[i]);
+            }
+        }
+        Integer[] arr = new Integer[al.size()];
+        int[] array = al.stream().mapToInt(i->i).toArray();
+        return array;
     }
 }
