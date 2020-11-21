@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.HannaVasiunyk;
 
 import com.ss.ita.kata.Six;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 public class SixImp implements Six {
     @Override
     public long findNb(long m) {
