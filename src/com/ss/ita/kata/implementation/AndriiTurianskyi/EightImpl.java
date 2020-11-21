@@ -74,8 +74,15 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
-    }
+        if ((n % 1 != 0) || (n < 2)) {
+            return false;
+        }
+        double factorial = 1;
+        for (int i = 1; i < n; i++) {
+            factorial *= i;
+        }
+        return ((factorial + 1) / (n * n)) % 1 == 0;
+        }
 
     @Override
     public double twoDecimalPlaces(double number) {
