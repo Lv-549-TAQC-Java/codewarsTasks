@@ -13,7 +13,6 @@ public class SixImpl implements Six {
         final String NEW_LINE_CHARACTER = "\\r\\n";
         book = book.replaceAll("[^a-zA-z0-9.\\s]", "");
         String[] lines = book.split("\\n");
-
         StringBuilder result = new StringBuilder();
         double balance = 0;
         double totalExpense = 0;
