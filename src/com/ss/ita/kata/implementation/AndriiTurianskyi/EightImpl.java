@@ -24,7 +24,12 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float mParseKm = 1.609344f;
+        final float gParseL = 4.54609188f;
+        if (mpg >= 0) {
+            float result = mpg * mParseKm / gParseL;
+            return Math.round(result * 100f) / 100f;
+        } else throw new IllegalArgumentException("values can't be less than 0");
     }
 
     @Override
