@@ -15,7 +15,7 @@ public class SevenImpl  implements Seven {
         if(n>=1){
             double sum = 1.0;
             for(int i =1;i<n;i++){
-                sum += 1.0/((3*i+1)*1.0);
+                sum += 1.0/(3*i+1);
             }
             String s = df.format(sum);
             System.out.println(s);
