@@ -1,6 +1,8 @@
 package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Six;
+import java.math.BigDecimal;
+import java.math.MathContext;
 
 public class SixImpl implements Six {
     @Override
@@ -39,7 +41,8 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        BigDecimal result = new BigDecimal(x).add(BigDecimal.ONE).sqrt(MathContext.DECIMAL128).subtract(BigDecimal.ONE);
+        return result.doubleValue();
     }
 
     @Override
