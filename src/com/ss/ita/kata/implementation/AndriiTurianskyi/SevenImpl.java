@@ -18,7 +18,19 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        if (n > 1) {
+            List<Double> series = new ArrayList<>();
+            double denominator = 1;
+            for (int i = 1; i <= n; i++) {
+                series.add(1 / denominator);
+                denominator += 3d;
+            }
+            double sum = 0;
+            for (Double aDouble : series) {
+                sum += aDouble;
+            }
+            return "" + Math.round(100d * sum) / 100d;
+        } else return "0.00";
     }
 
     @Override

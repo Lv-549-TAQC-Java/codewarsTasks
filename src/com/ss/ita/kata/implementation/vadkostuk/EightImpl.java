@@ -2,16 +2,13 @@ package com.ss.ita.kata.implementation.vadkostuk;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
 
     @Override
-    public int Liters(double time) {
-        return (int)Math.floor(time/2);
-    }
-
-    @Override
     public int liters(double time) {
-        return 0;
+        return (int) Math.floor(time / 2);
     }
 
     @Override
@@ -21,7 +18,7 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        return (float) Math.round(100 * mpg * 1.609344f / 4.54609188f) / 100;
     }
 
     @Override
@@ -40,26 +37,59 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0) {
+            return new int[]{};
+        }
+        int count = 0;
+        int sumNeg = 0;
+        for (int j : input) {
+            if (j > 0) {
+                count++;
+            } else if (j < 0) {
+                sumNeg += j;
+            }
+        }
+        return new int[]{count, sumNeg};
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        double result;
+        int factorial = 1;
+        if(n<2){
+            return false;
+        }
+        for (int i = 1; i < n; i++) {
+            factorial = factorial * i;
+        }
+        result = (factorial + 1) /( Math.pow(n, 2));
+        return result % 1 == 0;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                arrayList.add(number);
+            }
+        }
+        int[] res = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            res[i] = arrayList.get(i);
+        }
+
+        return res;
     }
 }
