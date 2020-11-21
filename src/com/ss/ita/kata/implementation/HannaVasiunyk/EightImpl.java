@@ -1,6 +1,8 @@
 package com.ss.ita.kata.implementation.HannaVasiunyk;
 
 import com.ss.ita.kata.Eight;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EightImpl implements Eight {
 
@@ -73,11 +75,22 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        String result = String.format("%.02f", number);
+        return (Double.parseDouble(result));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
-    }
+        List<Integer> list = new ArrayList<>();
+        for(int i : numbers){
+            if ( i % divider == 0 ){
+                list.add(i);
+            }
+        }
+        int[] division = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            division[i] = list.get(i);
+        }
+        return division;
+   }
 }
