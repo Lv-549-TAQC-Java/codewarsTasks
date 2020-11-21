@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.AndriiTurianskyi;
 
 import com.ss.ita.kata.Seven;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
