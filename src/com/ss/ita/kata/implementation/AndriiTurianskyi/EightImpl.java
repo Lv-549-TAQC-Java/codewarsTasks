@@ -17,7 +17,9 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        if (length > 0 && width > 0 && height > 0) {
+            return length * width * height;
+        } else throw new IllegalArgumentException("values can't be less than 0");
     }
 
     @Override
