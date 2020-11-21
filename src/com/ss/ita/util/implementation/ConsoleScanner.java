@@ -3,6 +3,8 @@ package com.ss.ita.util.implementation;
 import com.ss.ita.util.Scanner;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsoleScanner implements Scanner {
     private final java.util.Scanner scanner;
@@ -71,7 +73,16 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
-        return new String[0];
+        List<String> result = new ArrayList<>();
+        while (true) {
+            System.out.println("Enter some string, in case you want to finish press enter");
+            String stringToBeAdded = scanner.nextLine();
+            if (!stringToBeAdded.isEmpty()) {
+                result.add(stringToBeAdded);
+            } else {
+                return result.toArray(String[]::new);
+            }
+        }
     }
 
     @Override
