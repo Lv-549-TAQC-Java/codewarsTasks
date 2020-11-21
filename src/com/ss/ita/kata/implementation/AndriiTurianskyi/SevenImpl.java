@@ -9,7 +9,15 @@ import java.util.List;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double sumElem = 0;
+        for (double elem : arr) {
+            sumElem += elem;
+        }
+        double donation = Math.ceil((navg * (arr.length + 1)) - sumElem);
+        if (donation > 0) {
+            return (long) donation;
+        } else throw new IllegalArgumentException();
+
     }
 
     @Override
