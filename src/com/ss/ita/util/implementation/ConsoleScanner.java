@@ -59,8 +59,6 @@ public class ConsoleScanner implements Scanner {
         }
     }
 
-
-
     @Override
     public double[] readDoubleArray() {
         return new double[0];
