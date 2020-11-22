@@ -5,7 +5,20 @@ import com.ss.ita.kata.Seven;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double nextDonationContribution;
+        double existDonationSum = 0;
+        if (navg <= 0) {
+            throw new IllegalArgumentException("navg is less or equals 0");
+        }
+        for (double existDonat : arr) {
+            existDonationSum += existDonat;
+        }
+        if (existDonationSum / (arr.length) > navg) {
+            throw new IllegalArgumentException("navg less than previous");
+        } else {
+            nextDonationContribution = Math.ceil(navg * (arr.length + 1) - existDonationSum);
+        }
+        return (long) nextDonationContribution;
     }
 
     @Override
