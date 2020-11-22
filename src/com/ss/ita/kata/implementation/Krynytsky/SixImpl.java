@@ -1,21 +1,11 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.Krynytsky;
 
 import com.ss.ita.kata.Six;
 
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        long n = 0;
-        long tempVolume =  0;
-        while (tempVolume < m){
-            n++;
-            tempVolume += n * n * n;
-
-        }
-        if (tempVolume!= m){
-            return -1;
-        }
-        return n;
+        return 0;
     }
 
     @Override
