@@ -32,7 +32,14 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double x1= (2*m+1-Math.sqrt(-1*(-4*m-1)))/(2*m);
+        double x2= (2*m+1+Math.sqrt(-1*(-4*m-1)))/(2*m);
+        if (x1 > 0 && x1 < 1){
+            return x1;
+        }
+        else {
+            return x2;
+        }
     }
 
     @Override
