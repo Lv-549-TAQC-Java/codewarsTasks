@@ -44,7 +44,14 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public float readFloat() {
-        return 0;
+        while (true) {
+            if (scanner.hasNextFloat()) {
+                return scanner.nextFloat();
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(float). Try again...");
+            }
+        }
     }
 
     @Override
