@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.vadkostuk;
+package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Five;
 
@@ -17,28 +17,12 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        int res = 0;
-        while (n > 0) {
-            n = n / 5;
-            res = res + n;
-        }
-        return res;
+        return 0;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        BigInteger a = BigInteger.ONE;
-        BigInteger b = BigInteger.ONE;
-        BigInteger c = BigInteger.ZERO;
-        BigInteger res = BigInteger.TWO;
-
-        for (int i = 3; i <= n.intValue() + 1; i++) {
-            c = a.add(b);
-            res = res.add(c);
-            a = b;
-            b = c;
-        }
-        return res.multiply(new BigInteger("4"));
+        return null;
     }
 
     @Override

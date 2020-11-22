@@ -1,21 +1,19 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.HannaVasiunyk;
 
 import com.ss.ita.kata.Six;
 
-public class SixImpl implements Six {
+public class SixImp implements Six {
     @Override
     public long findNb(long m) {
-        long n = 0;
-        long tempVolume =  0;
-        while (tempVolume < m){
-            n++;
-            tempVolume += n * n * n;
-
+        int i = 1;
+        while ( m > 0){
+            m -= Math.pow(i, 3);
+            i++;
+            if (m < 0) {
+                return -1;
+            }
         }
-        if (tempVolume!= m){
-            return -1;
-        }
-        return n;
+        return i-1;
     }
 
     @Override
