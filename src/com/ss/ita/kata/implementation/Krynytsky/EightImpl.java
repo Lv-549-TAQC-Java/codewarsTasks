@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Krynytsky;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
 
     @Override
@@ -48,7 +50,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
@@ -58,11 +60,25 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return (double) Math.round(number * 100) / 100;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                count++;
+            }
+        }
+        int[] arr = new int[count];
+        int i = 0;
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                arr[i] = number;
+                i++;
+            }
+        }
+        return arr;
     }
 }

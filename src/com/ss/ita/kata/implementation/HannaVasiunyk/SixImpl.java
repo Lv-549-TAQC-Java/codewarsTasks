@@ -8,7 +8,15 @@ public class SixImpl implements Six {
 
     @Override
     public long findNb(long m) {
-        return 0;
+        int i = 1;
+        while ( m > 0){
+            m -= Math.pow(i, 3);
+            i++;
+            if (m < 0) {
+                return -1;
+            }
+        }
+        return i-1;
     }
 
     @Override
@@ -40,7 +48,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
@@ -60,6 +68,20 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            return " ";
+        }
+        StringBuilder result = new StringBuilder();
+        for (String item : lstOf1stLetter) {
+            int count = 0;
+            for (String value : lstOfArt) {
+                if (value.substring(0, 1).equals(item)) {
+                    String[] s = value.split("\\s");
+                    count += Integer.parseInt(s[1]);
+                }
+            }
+            result.append(" - (").append(item).append(" : ").append(count).append(")");
+        }
+        return result.substring(3);
     }
 }
