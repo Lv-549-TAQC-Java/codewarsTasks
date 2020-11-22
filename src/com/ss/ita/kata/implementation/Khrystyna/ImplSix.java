@@ -1,7 +1,8 @@
 package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -72,6 +73,26 @@ public class ImplSix implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        Map<String, Integer> hash = new HashMap<>();
+        for (String letter : lstOf1stLetter) {
+            hash.put(letter, 0);
+        }
+        for (String art : lstOfArt) {
+            if (hash.containsKey(String.valueOf(art.charAt(0)))) {
+                int count = Integer.parseInt(art.split(" ")[1]);
+                hash.replace(String.valueOf(art.charAt(0)), count + hash.get(String.valueOf(art.charAt(0))));
+            }
+        }
+        String res = "";
+        Boolean isFirst = true;
+        for (Map.Entry<String, Integer> set : hash.entrySet()) {
+            if (isFirst) {
+                res += "(" + set.getKey() + " : " + set.getValue() + ")";
+                isFirst = false;
+            } else {
+                res += " - (" + set.getKey() + " : " + set.getValue() + ")";
+            }
+        }
+        return res;
     }
 }
