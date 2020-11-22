@@ -53,12 +53,28 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] rainfalls = getRainfallsDataByCity(town, strng);
+        double rainfallSum = 0;
+        int rainfallCounter = 0;
+
+        for (String rainfall : rainfalls) {
+            rainfallSum += Double.parseDouble(rainfall.split(" ")[1]);
+            rainfallCounter++;
+        }
+        return rainfallSum / rainfallCounter;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] rainfalls = getRainfallsDataByCity(town, strng);
+        double avg = mean(town, strng);
+        double rainfallSum = 0;
+        int rainfallCounter = 0;
+        for (String rainfall : rainfalls) {
+            rainfallSum += Math.pow(Double.parseDouble(rainfall.split(" ")[1]) - avg, 2);
+            rainfallCounter++;
+        }
+        return rainfallSum / rainfallCounter;
     }
 
     @Override
@@ -83,5 +99,19 @@ public class SixImpl implements Six {
             result.append(" - (").append(item).append(" : ").append(count).append(")");
         }
         return result.substring(3);
+    }
+
+    private String[] getRainfallsDataByCity(String town, String data) {
+        String[] citiesData = data.split("\\n");
+
+        for (String cityData : citiesData) {
+            String[] city = cityData.split(":");
+
+            if (town.equals(city[0])) {
+                return city[1].split(",");
+            }
+        }
+
+        return new String[]{};
     }
 }
