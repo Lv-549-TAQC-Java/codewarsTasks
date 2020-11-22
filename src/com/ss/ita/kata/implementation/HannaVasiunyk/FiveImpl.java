@@ -33,13 +33,23 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long previousPrime = n;
+        for (long i = m; i <= n; i++) {
+            if (isPrime(i)) {
+                if (i - previousPrime == g) {
+                    return new long[]{previousPrime, i};
+                }
+                previousPrime = i;
+            }
+        }
+        return null;
     }
+
 
     @Override
     public int zeros(int n) {
         int zeroSum = 0;
-        while(n > 0){
+        while (n > 0) {
             n = n / 5;
             zeroSum += n;
         }
@@ -71,5 +81,14 @@ public class FiveImpl implements Five {
     @Override
     public long[] smallest(long n) {
         return new long[0];
+    }
+
+    private boolean isPrime(long n) {
+        for (int i = 2; i < Math.sqrt(n) + 1; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
