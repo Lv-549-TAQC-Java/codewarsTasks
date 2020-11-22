@@ -8,19 +8,19 @@ public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
         boolean goDown = false;
-        int count = 2;
+        int count = 1;
         int maxCountSections = 1;
         for (int i = 0; i < v.length - 1; i++) {
-            if (!goDown && v[i] > v[i + 1]) {
+            if (!goDown && v[i] <= v[i + 1]) {
                 count = count + 1;
-            } else if (!goDown && v[i] < v[i + 1]) {
+            } else if (!goDown && v[i] > v[i + 1]) {
                 goDown = true;
                 count = count + 1;
-            } else if (goDown && v[i] < v[i + 1]) {
+            } else if (goDown && v[i] >= v[i + 1]) {
                 count = count + 1;
-            } else if (goDown && v[i] > v[i + 1]) {
+            } else if (goDown && v[i] < v[i + 1]) {
                 goDown = false;
-                count = 1;
+                count = 2;
             }
             if (maxCountSections < count) {
                 maxCountSections = count;
