@@ -7,7 +7,27 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        if(v.length == 1) {return 1;}
+        int maxSize = 0;
+        int[] leftFall = new int[v.length];
+        int[] rightFall = new int[v.length];
+
+        for(int i = 1; i < v.length; i++)
+            if(v[i-1] <= v[i])
+                leftFall[i] = leftFall[i-1] + 1;
+
+        for(int i = v.length-2; i >= 0; i--)
+            if(v[i+1] <= v[i])
+                rightFall[i] = rightFall[i+1] + 1;
+
+
+        for(int i = 0; i < v.length; i++)
+        {
+            int currentSize = leftFall[i] + rightFall[i] + 1;
+            if(currentSize > maxSize)
+                maxSize = currentSize;
+        }
+        return maxSize;
     }
 
     @Override
