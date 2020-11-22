@@ -30,6 +30,11 @@ public class SevenImpl  implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        if((bef + aft) < p){
+            return aft + 1;
+        }
+        else{
+            return p - bef;
+        }
     }
 }
