@@ -1,4 +1,4 @@
-package com.ss.ita.kata.implementation.vadkostuk;
+package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Five;
 
@@ -17,12 +17,7 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        int res = 0;
-        while (n > 0) {
-            n = n / 5;
-            res = res + n;
-        }
-        return res;
+        return 0;
     }
 
     @Override
@@ -32,7 +27,7 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return (2*m+1+Math.sqrt(-1*(-4*m-1)))/(2*m);
+        return 0;
     }
 
     @Override

@@ -13,7 +13,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
@@ -28,7 +28,19 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int[] arr = new int[2];
+        if (input == null || input.length == 0) {
+            return new int[]{};
+        }
+        for (int i = 0; i <= input.length - 1; i++) {
+            if (input[i] > 0) {
+                arr[0]++;
+            }
+            if (input[i] < 0) {
+                arr[1] += input[i];
+            }
+        }
+        return arr;
     }
 
     @Override
