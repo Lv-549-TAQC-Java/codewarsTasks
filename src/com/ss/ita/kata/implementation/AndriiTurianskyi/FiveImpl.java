@@ -12,12 +12,12 @@ public class FiveImpl implements Five {
         int maxCountSections = 1;
         for (int i = 0; i < v.length - 1; i++) {
             if (!goDown && v[i] <= v[i + 1]) {
-                count = count + 1;
+                count++;
             } else if (!goDown && v[i] > v[i + 1]) {
                 goDown = true;
-                count = count + 1;
+                count++;
             } else if (goDown && v[i] >= v[i + 1]) {
-                count = count + 1;
+                count++;
             } else if (goDown && v[i] < v[i + 1]) {
                 goDown = false;
                 count = 2;
