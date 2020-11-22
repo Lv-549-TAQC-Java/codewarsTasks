@@ -6,7 +6,8 @@ import java.text.DecimalFormat;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        int amount = (int)time /2;
+        return amount;
     }
 
     @Override
