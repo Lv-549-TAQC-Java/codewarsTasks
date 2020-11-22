@@ -7,18 +7,49 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        boolean dropFall = false;
+        int countDrop = 1;
+        int maxDrop = 1;
+        int i = 0;
+        while (i < v.length - 1) {
+            if (!dropFall && v[i] >= v[i + 1]) {
+                countDrop++;
+                dropFall = true;
+            } else if (dropFall) {
+                if(v[i] >= v[i + 1]){
+                    countDrop++;
+                } else {
+                    dropFall = false;
+                    countDrop = 2;
+                }
+            }
+            if (maxDrop < countDrop) {
+                maxDrop = countDrop;
+            }
+            i++;
+        }
+        return maxDrop;
     }
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long previousPrime = n;
+        for (long i = m; i <= n; i++) {
+            if (isPrime(i)) {
+                if (i - previousPrime == g) {
+                    return new long[]{previousPrime, i};
+                }
+                previousPrime = i;
+            }
+        }
+        return null;
     }
+
 
     @Override
     public int zeros(int n) {
         int zeroSum = 0;
-        while(n > 0){
+        while (n > 0) {
             n = n / 5;
             zeroSum += n;
         }
@@ -44,11 +75,22 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double discriminant = Math.pow((1 + 2 * m), 2) - 4 * Math.pow(m, 2);
+        double argument = ((-1 *(1 + 2 * m)) + Math.sqrt(discriminant)) / (-2 * m);
+        return argument;
     }
 
     @Override
     public long[] smallest(long n) {
         return new long[0];
+    }
+
+    private boolean isPrime(long n) {
+        for (int i = 2; i < Math.sqrt(n) + 1; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
