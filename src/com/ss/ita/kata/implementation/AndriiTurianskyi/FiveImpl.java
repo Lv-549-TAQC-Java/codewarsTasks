@@ -46,7 +46,11 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double m1=((2*m+1)-Math.sqrt(4*m+1))/(2*m);
+        double m2=((2*m+1)+Math.sqrt(4*m+1))/(2*m);
+        if (m1>0&&m1<1)return m1;
+        else if (m2>0&&m2<1)return m2;
+        else throw new RuntimeException("couldn't find result for m="+m);
     }
 
     @Override
