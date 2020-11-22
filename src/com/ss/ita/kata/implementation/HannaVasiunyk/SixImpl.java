@@ -63,12 +63,28 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] rainfalls = getRainfallsDataByCity(town, strng);
+        double rainfallSum = 0;
+        int rainfallCounter = 0;
+
+        for (String rainfall : rainfalls) {
+            rainfallSum += Double.parseDouble(rainfall.split(" ")[1]);
+            rainfallCounter++;
+        }
+        return rainfallSum / rainfallCounter;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] rainfalls = getRainfallsDataByCity(town, strng);
+        double avg = mean(town, strng);
+        double rainfallSum = 0;
+        int rainfallCounter = 0;
+        for (String rainfall : rainfalls) {
+            rainfallSum += Math.pow(Double.parseDouble(rainfall.split(" ")[1]) - avg, 2);
+            rainfallCounter++;
+        }
+        return rainfallSum / rainfallCounter;
     }
 
     @Override
@@ -86,7 +102,7 @@ public class SixImpl implements Six {
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
         if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
-            return "";
+            return " ";
         }
         StringBuilder result = new StringBuilder();
         for (String item : lstOf1stLetter) {
@@ -164,5 +180,19 @@ public class SixImpl implements Six {
         points = winners * 3 + draws;
         return String.format("%s:W=%s;D=%s;L=%s;Scored=%s;Conceded=%s;Points=%s", toFind, winners, draws,
                 losses, scored, conceded, points);
+    }
+
+    private String[] getRainfallsDataByCity(String town, String data) {
+        String[] citiesData = data.split("\\n");
+
+        for (String cityData : citiesData) {
+            String[] city = cityData.split(":");
+
+            if (town.equals(city[0])) {
+                return city[1].split(",");
+            }
+        }
+
+        return new String[]{};
     }
 }

@@ -7,7 +7,27 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        if(v.length == 1) {return 1;}
+        int maxSize = 0;
+        int[] leftFall = new int[v.length];
+        int[] rightFall = new int[v.length];
+
+        for(int i = 1; i < v.length; i++)
+            if(v[i-1] <= v[i])
+                leftFall[i] = leftFall[i-1] + 1;
+
+        for(int i = v.length-2; i >= 0; i--)
+            if(v[i+1] <= v[i])
+                rightFall[i] = rightFall[i+1] + 1;
+
+
+        for(int i = 0; i < v.length; i++)
+        {
+            int currentSize = leftFall[i] + rightFall[i] + 1;
+            if(currentSize > maxSize)
+                maxSize = currentSize;
+        }
+        return maxSize;
     }
 
     @Override
@@ -55,6 +75,24 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long[] result = new long[]{n, 0, 0};
+        StringBuilder number = new StringBuilder(String.valueOf(n));
+        StringBuilder numberBuff = new StringBuilder(number);
+        for (int i = 0; i < number.length(); i++) {
+            char charToMove = number.charAt(i);
+            numberBuff.deleteCharAt(i);
+            for (int j = 0; j <= numberBuff.length(); j++) {
+                numberBuff.insert(j, charToMove);
+                if (Long.parseLong(numberBuff.toString()) == result[0] && result[1] > i) {
+                    result = new long[]{Long.parseLong(numberBuff.toString()), i, j};
+                }
+                if (Long.parseLong(numberBuff.toString()) < result[0]) {
+                    result = new long[]{Long.parseLong(numberBuff.toString()), i, j};
+                }
+                numberBuff.deleteCharAt(j);
+            }
+            numberBuff.insert(i, charToMove);
+        }
+        return result;
     }
 }

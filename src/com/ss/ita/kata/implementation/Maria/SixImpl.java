@@ -1,24 +1,20 @@
-package com.ss.ita.kata.implementation.Nastia3;
+package com.ss.ita.kata.implementation.Maria;
 
 import com.ss.ita.kata.Six;
 
 public class SixImpl implements Six {
     @Override
-
     public long findNb(long m) {
+        long total = 0;
         long n = 0;
-        long tempVolume =  0;
-        while (tempVolume < m){
+
+        while(total < m) {
             n++;
-            tempVolume += n * n * n;
+            total += Math.pow(n, 3);
+        }
 
-        }
-        if (tempVolume!= m){
-            return -1;
-        }
-        return n;
+        return total == m ? n : -1;
     }
-
 
     @Override
     public String balance(String book) {
@@ -27,8 +23,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return x / (1 + Math.sqrt(1 + x));
-
+        return 0;
     }
 
     @Override
