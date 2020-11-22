@@ -8,7 +8,15 @@ public class SixImpl implements Six {
 
     @Override
     public long findNb(long m) {
-        return 0;
+        int i = 1;
+        while ( m > 0){
+            m -= Math.pow(i, 3);
+            i++;
+            if (m < 0) {
+                return -1;
+            }
+        }
+        return i-1;
     }
 
     @Override
@@ -40,7 +48,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
