@@ -4,6 +4,7 @@ import com.ss.ita.kata.Six;
 
 public class SixImpl implements Six {
     @Override
+
     public long findNb(long m) {
         long n = 0;
         long tempVolume =  0;
@@ -18,6 +19,7 @@ public class SixImpl implements Six {
         return n;
     }
 
+
     @Override
     public String balance(String book) {
         return null;
@@ -25,7 +27,8 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(1 + x));
+
     }
 
     @Override
