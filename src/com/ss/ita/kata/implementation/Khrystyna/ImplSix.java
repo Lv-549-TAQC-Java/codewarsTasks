@@ -1,6 +1,7 @@
 package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -28,13 +29,40 @@ public class ImplSix implements Six {
 
     @Override
     public double mean(String town, String string) {
-        return 0;
+        String[] townRecords = string.split("\n");
+        double rain = 0;
+        int counter = 0;
+        for (String record : townRecords) {
+            String[] array = record.split(":");
+            if (town.equals(array[0])) {
+                String[] months = array[1].split(",");
+                for (String month : months) {
+                    rain += Double.parseDouble(month.split(" ")[1]);
+                    counter++;
+                }
+            }
+        }
+        return counter == 0 ? -1.0 : rain / counter;
     }
-
 
     @Override
     public double variance(String town, String string) {
-        return 0;
+        String[] townRecords = string.split("\n");
+        double variance = 0;
+        int counter = 0;
+        double average = mean(town, string);
+        for (String record : townRecords) {
+            String[] array = record.split(":");
+            if (town.equals(array[0])) {
+                String[] months = array[1].split(",");
+                for (String month : months) {
+                    double current = Double.parseDouble(month.split(" ")[1]);
+                    variance += (current - average) * (current - average);
+                    counter++;
+                }
+            }
+        }
+        return counter == 0 ? -1.0 : variance / counter;
     }
 
     @Override
