@@ -44,7 +44,9 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double discriminant = Math.pow((1 + 2 * m), 2) - 4 * Math.pow(m, 2);
+        double argument = ((-1 *(1 + 2 * m)) + Math.sqrt(discriminant)) / (-2 * m);
+        return argument;
     }
 
     @Override
