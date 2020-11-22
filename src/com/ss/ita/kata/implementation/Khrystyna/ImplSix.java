@@ -1,14 +1,21 @@
 package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 
 public class ImplSix implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long count = 1;
+        while (m > 0) {
+            m -= count * count * count;
+            count++;
+        }
+        return m < 0 ? -1 : count - 1;
     }
 
     @Override
@@ -18,7 +25,8 @@ public class ImplSix implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        BigDecimal bigX = new BigDecimal(x);
+        return bigX.add(BigDecimal.ONE).sqrt(MathContext.DECIMAL128).subtract(BigDecimal.ONE).doubleValue();
     }
 
     @Override

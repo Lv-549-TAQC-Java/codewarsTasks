@@ -27,12 +27,30 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger a = BigInteger.ONE;
+        BigInteger b = BigInteger.ONE;
+        BigInteger c = BigInteger.ZERO;
+        BigInteger res = BigInteger.TWO;
+
+        for (int i = 3; i <= n.intValue() + 1; i++) {
+            c = a.add(b);
+            res = res.add(c);
+            a = b;
+            b = c;
+        }
+        return res.multiply(new BigInteger("4"));
     }
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double x1= (2*m+1-Math.sqrt(-1*(-4*m-1)))/(2*m);
+        double x2= (2*m+1+Math.sqrt(-1*(-4*m-1)))/(2*m);
+        if (x1 > 0 && x1 < 1){
+            return x1;
+        }
+        else {
+            return x2;
+        }
     }
 
     @Override
