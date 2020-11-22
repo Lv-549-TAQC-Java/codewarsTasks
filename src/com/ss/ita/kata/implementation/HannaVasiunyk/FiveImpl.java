@@ -38,12 +38,29 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int zeroSum = 0;
+        while(n > 0){
+            n = n / 5;
+            zeroSum += n;
+        }
+        return zeroSum;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger first = BigInteger.valueOf(1);
+        BigInteger second = BigInteger.valueOf(1);
+        BigInteger third = BigInteger.valueOf(0);
+        BigInteger sum = BigInteger.valueOf(2);
+        BigInteger four = BigInteger.valueOf(4);
+
+        for (int i = 3; i <= n.intValue() + 1; i++) {
+            third = first.add(second);
+            sum = sum.add(third);
+            first = second;
+            second = third;
+        }
+        return sum.multiply(four);
     }
 
     @Override
