@@ -1,19 +1,11 @@
-package com.ss.ita.kata.implementation.HannaVasiunyk;
+package com.ss.ita.kata.implementation.mike;
 
 import com.ss.ita.kata.Six;
 
-public class SixImp implements Six {
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        int i = 1;
-        while ( m > 0){
-            m -= Math.pow(i, 3);
-            i++;
-            if (m < 0) {
-                return -1;
-            }
-        }
-        return i-1;
+        return 0;
     }
 
     @Override
