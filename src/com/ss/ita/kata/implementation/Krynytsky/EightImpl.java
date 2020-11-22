@@ -18,7 +18,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float MILE_PER_KM = 1.609344f;
+        final float GALLON_PER_L = 4.54609188f;
+        float mgpConverter = (mpg * MILE_PER_KM) / GALLON_PER_L;
+        return Math.round(mgpConverter * 100) / 100f;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
