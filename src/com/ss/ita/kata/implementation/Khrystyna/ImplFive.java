@@ -100,26 +100,6 @@ public class ImplFive implements Five {
                 : ((2 * m + 1) + x) / (2 * m);
     }
 
-    private static int smallestIndex(String number) {
-        char smallestChar = number.charAt(0);
-        int index = 0;
-        for (int i = 1; i < number.length(); i++) {
-            if (smallestChar >= number.charAt(i)) {
-                smallestChar = number.charAt(i);
-                index = i;
-            }
-        }
-        return index;
-    }
-
-    private static int smallestIndexToReplaceFirst(String number) {
-        char[] numbers = number.toCharArray();
-        int index = 1;
-        while (numbers[index] < numbers[0] && index < numbers.length - 1) {
-            index++;
-        }
-        return index;
-    }
 
     @Override
     public long[] smallest(long n) {
@@ -143,6 +123,27 @@ public class ImplFive implements Five {
                 indexFrom,
                 indexTo
         };
+    }
+
+    private int smallestIndex(String number) {
+        char smallestChar = number.charAt(0);
+        int index = 0;
+        for (int i = 1; i < number.length(); i++) {
+            if (smallestChar >= number.charAt(i)) {
+                smallestChar = number.charAt(i);
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    private int smallestIndexToReplaceFirst(String number) {
+        char[] numbers = number.toCharArray();
+        int index = 1;
+        while (numbers[index] < numbers[0] && index < numbers.length - 1) {
+            index++;
+        }
+        return index;
     }
 
     private long replace(String number, int indexFrom, int indexTo) {
