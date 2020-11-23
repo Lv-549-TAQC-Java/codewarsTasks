@@ -7,8 +7,23 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int length = v.length;
+        int rain = 1;
+        int count = 1;
+        int start = 0;
+        for (int i = 1; i < length; i++) {
+            if (v[i] < v[i - 1]) {
+                start = i;
+            } else if (v[i] > v[i - 1]) {
+                rain = rain > count ? rain : count;
+                count = i - start;
+            }
+            count++;
+
+        }
+        return rain = rain > count ? rain : count;
     }
+
 
     @Override
     public long[] gap(int g, long m, long n) {
