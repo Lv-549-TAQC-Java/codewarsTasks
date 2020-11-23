@@ -56,7 +56,7 @@ public class SixImpl implements Six {
 
         return  result.append("Total expense  ")
                 .append(String.format("%.2f", (Math.round(totalExpense * 100.0) / 100.0))).append("\\r\\n").append("Average expense  ")
-                .append(String.format("%.2f", (Math.round(averageExpense * 100.0) / 100.0)).toString();
+                .append(String.format("%.2f", (Math.round(averageExpense * 100.0) / 100.0))).toString();
     }
 
     @Override
