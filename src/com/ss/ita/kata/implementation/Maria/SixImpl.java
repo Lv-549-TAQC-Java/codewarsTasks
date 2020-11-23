@@ -81,6 +81,22 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0)
+            return "";
+        String output="";
+
+        for (String letter : lstOf1stLetter){
+            int counter=0;
+            for (String stock : lstOfArt){
+                if (stock.charAt(0) == letter.charAt(0)){
+                    String[] parts = stock.split(" ");
+                    counter += Integer.parseInt(parts[1]);
+                }
+            }
+
+            output += "(" + letter.charAt(0) + " : " + counter + ") - ";
+        }
+        output = output.replaceAll(" - $", "");
+        return output;
     }
 }
