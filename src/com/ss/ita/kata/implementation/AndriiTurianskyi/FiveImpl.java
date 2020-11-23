@@ -55,10 +55,10 @@ public class FiveImpl implements Five {
         StringBuilder oldDigit = new StringBuilder(String.valueOf(n));
         StringBuilder chDigit = new StringBuilder(oldDigit);
         for (int i = 0; i < oldDigit.length(); i++) {
-            char charToMove = oldDigit.charAt(i);
+            char elemForChange = oldDigit.charAt(i);
             chDigit.deleteCharAt(i);
             for (int j = 0; j <= chDigit.length(); j++) {
-                chDigit.insert(j, charToMove);
+                chDigit.insert(j, elemForChange);
                 if (Long.parseLong(chDigit.toString()) == smallestRes[0] && smallestRes[1] > i) {
                     smallestRes = new long[]{Long.parseLong(chDigit.toString()), i, j};
                 }
@@ -67,7 +67,7 @@ public class FiveImpl implements Five {
                 }
                 chDigit.deleteCharAt(j);
             }
-            chDigit.insert(i, charToMove);
+            chDigit.insert(i, elemForChange);
         }
         return smallestRes;
     }
