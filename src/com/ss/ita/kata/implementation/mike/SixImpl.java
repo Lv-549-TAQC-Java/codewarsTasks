@@ -5,7 +5,17 @@ import com.ss.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        int n = 1;
+        for ( int i = 1; 0 < m ; i++ ) {
+
+            m -= Math.pow(i, 3);
+            n++;
+
+            if(m < 0) {
+                return -1;
+            }
+
+        }return n-1;
     }
 
     @Override

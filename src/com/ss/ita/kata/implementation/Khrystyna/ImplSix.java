@@ -2,11 +2,11 @@ package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ImplSix implements Six {
@@ -89,7 +89,83 @@ public class ImplSix implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        if (toFind.isEmpty()) {
+            return "";
+        }
+        if (!resultSheet.contains(toFind)) {
+            return toFind + ":This team didn't play!";
+        }
+        String[] matches = resultSheet.split(",");
+        Map<String, Integer[]> matchesResults = new HashMap<>();
+        for (String match : matches) {
+            if (match.contains(".")) {
+                return "Error(float number):" + match;
+            }
+            int i = 0;
+            String[] tmp = match.split(" ");
+            String command1 = "";
+            Integer score1 = 0;
+            while (score1 == 0) {
+                try {
+                    score1 = Integer.parseInt(tmp[i]);
+                } catch (NumberFormatException e) {
+                    if (!command1.isEmpty()) {
+                        command1 += " ";
+                    }
+                    command1 += tmp[i];
+                    i++;
+                }
+            }
+            i++;
+            String command2 = "";
+            Integer score2 = 0;
+            while (score2 == 0) {
+                try {
+                    score2 = Integer.parseInt(tmp[i]);
+                } catch (NumberFormatException e) {
+                    if (!command2.isEmpty()) {
+                        command2 += " ";
+                    }
+                    command2 += tmp[i];
+                    i++;
+                }
+            }
+            if (!matchesResults.containsKey(command1)) {
+                matchesResults.put(command1, new Integer[]{0, 0, 0, 0, 0, 0});
+            }
+            if (!matchesResults.containsKey(command2)) {
+                matchesResults.put(command2, new Integer[]{0, 0, 0, 0, 0, 0});
+            }
+            if (score1 == score2) {
+                matchesResults.get(command1)[1] += 1;
+                matchesResults.get(command2)[1] += 1;
+                matchesResults.get(command2)[5] += 1;
+                matchesResults.get(command2)[5] += 1;
+            } else if (score1 > score2) {
+                matchesResults.get(command1)[0] += 1;
+                matchesResults.get(command2)[2] += 1;
+                matchesResults.get(command1)[5] += 3;
+            } else {
+
+                matchesResults.get(command2)[0] += 1;
+                matchesResults.get(command1)[2] += 1;
+                matchesResults.get(command2)[5] += 3;
+            }
+            matchesResults.get(command1)[3] += score1;
+            matchesResults.get(command2)[4] += score1;
+            matchesResults.get(command1)[4] += score2;
+            matchesResults.get(command2)[3] += score2;
+        }
+        if (!matchesResults.containsKey(toFind)) {
+            return toFind + ":This team didn't play!";
+        }
+        Integer[] result = matchesResults.get(toFind);
+        return toFind + ":W=" + result[0]
+                + ";D=" + result[1]
+                + ";L=" + result[2]
+                + ";Scored=" + result[3]
+                + ";Conceded=" + result[4]
+                + ";Points=" + result[5];
     }
 
     @Override
