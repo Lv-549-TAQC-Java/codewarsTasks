@@ -6,7 +6,39 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+
+        int best_result = 0;
+        int temp_result = 0;
+        int index_right = v.length - 1;
+
+        int temp_index = 0;
+        while(temp_index<v.length){
+            temp_result = 0;
+            for(int i = 0;i<index_right;i++){
+                if(v[temp_index+i]>=v[i+temp_index+1]){
+                    temp_result++;
+                }
+                else{
+                    break;
+                }
+            }
+            for(int j = temp_index;j>0;j--){
+                if(v[j]>=v[j-1]){
+                    temp_result++;
+                }
+                else{
+                    break;
+                }
+
+            }
+
+            if(temp_result>best_result){
+                best_result = temp_result;
+            }
+            temp_index++;
+            index_right--;
+        }
+        return best_result + 1;
     }
 
     @Override
