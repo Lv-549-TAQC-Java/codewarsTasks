@@ -23,7 +23,15 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        double coeff =0.5;
+        double result=coeff*x;
+        int i=1;
+        while(i<15){
+            coeff*=(0.5-i)/(i+1);
+            result+=coeff*Math.pow(x,i+1);
+            i++;
+        }
+        return result;
     }
 
     @Override
