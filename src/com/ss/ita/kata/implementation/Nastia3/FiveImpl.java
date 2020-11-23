@@ -23,7 +23,7 @@ public class FiveImpl implements Five {
         Long[] arr = new Long[primes.size()];
         arr = primes.toArray(arr);
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length-1; i++) {
             if (arr[i+1] - arr[i] == g){
                 return new long[] {arr[i], arr[i+1]};
             }
