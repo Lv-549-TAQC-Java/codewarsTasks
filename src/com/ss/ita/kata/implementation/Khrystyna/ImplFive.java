@@ -94,7 +94,10 @@ public class ImplFive implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double x = Math.sqrt(4 * m + 1);
+        return ((2 * m + 1) - x) / (2 * m) > 0 && ((2 * m + 1) - x) / (2 * m) < 1
+                ? ((2 * m + 1) - x) / (2 * m)
+                : ((2 * m + 1) + x) / (2 * m);
     }
 
     @Override
