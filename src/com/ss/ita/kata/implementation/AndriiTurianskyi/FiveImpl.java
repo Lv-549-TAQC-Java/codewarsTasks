@@ -31,17 +31,59 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long[] result = new long[2];
+        for (long i=m;i<=n;i++){
+            if (isPrime(i)){
+                result[0]=i;
+                for (long j=i+1;j<=n;j++){
+                    if (isPrime(j)){
+                        result[1]=j;
+                        if (result[1]-result[0]==g){
+                            return result;
+                        }else {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
+    private boolean isPrime(long n) {
+        for(int i=2;i<n;i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int countDivNumbOfFive = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i % 5 == 0) {
+                countDivNumbOfFive++;
+            }
+            if ((i % 5) == 0 && ((i / 5) * 2) % 10 == 0) {
+                countDivNumbOfFive++;
+            }
+        }
+        return countDivNumbOfFive;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger lengthN0=BigInteger.ONE;
+        BigInteger lengthN1=BigInteger.ONE;
+        BigInteger sumOfSides=lengthN0.add(lengthN1);
+        for (int i=3;i<=n.intValue()+1;i++){
+            BigInteger nextSquare =lengthN0.add(lengthN1);
+            sumOfSides=sumOfSides.add(nextSquare);
+            lengthN0=lengthN1;
+            lengthN1=nextSquare;
+        }
+        return sumOfSides.multiply(BigInteger.valueOf(4L));
     }
 
     @Override
