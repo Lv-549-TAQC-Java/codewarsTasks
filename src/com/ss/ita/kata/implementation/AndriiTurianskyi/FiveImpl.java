@@ -36,7 +36,16 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int countDivNumbOfFive = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i % 5 == 0) {
+                countDivNumbOfFive++;
+            }
+            if ((i % 5) == 0 && ((i / 5) * 2) % 10 == 0) {
+                countDivNumbOfFive++;
+            }
+        }
+        return countDivNumbOfFive;
     }
 
     @Override
