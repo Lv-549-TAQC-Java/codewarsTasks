@@ -3,11 +3,20 @@ package com.ss.ita.kata.implementation.AndriiTurianskyi;
 import com.ss.ita.kata.Six;
 
 import java.math.BigDecimal;
+
 import java.math.MathContext;
+
 import java.util.ArrayList;
+
 import java.util.List;
+
 import java.util.regex.Matcher;
+
 import java.util.regex.Pattern;
+
+import java.util.HashMap;
+
+import java.util.Map;
 
 public class SixImpl implements Six {
     @Override
@@ -100,6 +109,22 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        Map<String, Integer> mapResult = new HashMap<>();
+        for (String firsLetter : lstOf1stLetter) {
+            mapResult.put(firsLetter, 0);
+        }
+        for (String artElem : lstOfArt) {
+            String firstLetter = artElem.charAt(0) + "";
+            if (mapResult.containsKey(firstLetter)) {
+                int numbOfArt = Integer.parseInt(artElem.substring(artElem.indexOf(" ") + 1));
+                mapResult.replace(firstLetter, mapResult.get(firstLetter) + numbOfArt);
+            }
+        }
+        StringBuilder result = new StringBuilder();
+        for (Map.Entry entry : mapResult.entrySet()) {
+            result.append(String.format("(%s : %s) - ", entry.getKey(), entry.getValue()));
+        }
+        result.deleteCharAt(result.lastIndexOf("-"));
+        return result.toString().trim();
     }
 }
