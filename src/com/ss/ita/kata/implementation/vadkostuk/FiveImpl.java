@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.vadkostuk;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 public class FiveImpl implements Five {
     @Override
@@ -32,7 +33,35 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        ArrayList<Long> primal = new ArrayList<>();
+        long[] result = new long[2];
+        for (long i = m; i < n; ++i) {
+            int count = 0;
+            for (int j = 2; j <= i && count < 2; ++j) {
+                if (i % j == 0) {
+                    ++count;
+                }
+            }
+            if (count < 2)
+                primal.add(i);
+        }
+        if (primal.isEmpty()) {
+            return null;
+        }
+        boolean status = false;
+        for (int i = 1; i < primal.size(); i++) {
+            if ((primal.get(i) - primal.get(i - 1)) == g) {
+                result[0] = primal.get(i - 1);
+                result[1] = primal.get(i);
+                status = true;
+                break;
+            }
+        }
+        if (status) {
+            return result;
+        } else {
+            return null;
+        }
     }
 
     @Override
