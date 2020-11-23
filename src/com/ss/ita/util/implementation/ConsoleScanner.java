@@ -85,7 +85,11 @@ public class ConsoleScanner implements Scanner {
             if (!stringToBeAdded.isEmpty()) {
                 result.add(stringToBeAdded);
             } else {
-               // return result.toArray(String[]::new);
+
+                return result.toArray(String[]::new);
+
+
+
             }
         }
     }
