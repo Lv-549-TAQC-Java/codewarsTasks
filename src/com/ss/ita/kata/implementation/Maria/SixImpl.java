@@ -66,12 +66,51 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        double mean = 0;
+        String lines[] = strng.split("\\r?\\n");
+        String townData = "";
+        for(String line : lines){
+            String[] data = line.split(":");
+            if(data[0].equals(town)){
+                townData = data[1];
+            }
+        }
+        if(!townData.equals("")){
+            String[] dataByMonth = townData.split(",");
+            for(String data : dataByMonth){
+                mean += Double.valueOf(data.split(" ")[1]);
+            }
+            mean/=dataByMonth.length;
+        } else {
+            mean = -1D;
+        }
+        return mean;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double variance = 0;
+        double mean = mean(town,strng);
+        String lines[] = strng.split("\\r?\\n");
+        String townData = "";
+        for(String line : lines){
+            String[] data = line.split(":");
+            if(data[0].equals(town)){
+                System.out.println(data[0]);
+                townData = data[1];
+            }
+        }
+        if(!townData.equals("")){
+            String[] dataByMonth = townData.split(",");
+            for(String data : dataByMonth){
+                double xi = Double.valueOf(data.split(" ")[1]);
+                variance += Math.pow(xi - mean,2);
+            }
+            variance/=dataByMonth.length;
+        } else {
+            variance = -1D;
+        }
+        return variance;
     }
 
     @Override
