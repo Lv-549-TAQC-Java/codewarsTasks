@@ -1,44 +1,32 @@
 package com.ss.ita.menu;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
+    List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    ToDo choose = ToDo.Intro;
 
-    public HashMap<Integer, List<String>> getMyHashMap() {
-        return myHashMap;
+    public Menu() {
+        initKatasList();
+        initKatas();
+        initMap();
     }
 
-    public List<String> getKata8() {
-        return kata8;
-    }
-
-    public List<String> getKata7() {
-        return kata7;
-    }
-
-    public List<String> getKata6() {
-        return kata6;
-    }
-
-    ToDo choose = ToDo.Find;
-
-    public List<String> getKata5() {
-        return kata5;
+    private void initKatasList() {
+        katas.add(new KataFive());
+//        TODO
     }
 
     public void mainMenu() {
         System.out.println("Hi user!");
-        while (true) {
+        boolean active = true;
+        while (active) {
             switch (choose) {
                 case Find: {
                     printKata();
@@ -46,7 +34,8 @@ public class Menu {
                     break;
                 }
                 case Exit: {
-                    return;
+                    active = false;
+                    break;
                 }
                 case Back: {
                     choose = showIntro(scanner);
@@ -72,7 +61,7 @@ public class Menu {
         ToDo choose;
         do {
             choose = getUserChoose(sc.next());
-        } while (!(choose == choose.Find || choose == choose.Exit || choose == choose.Intro));
+        } while (!(choose == ToDo.Find || choose == ToDo.Exit || choose == ToDo.Intro));
         return choose;
     }
 
@@ -84,28 +73,15 @@ public class Menu {
 
     public ToDo tasksKata(Scanner sc) {
         System.out.println("Please enter a number of kata:");
-        int kata = sc.nextInt();
-        printList(myHashMap.get(kata));
+        int kataNumber = sc.nextInt();
+        printList(myHashMap.get(kataNumber));
         System.out.println("\nPlease enter a number of method to run:");
         int method = sc.nextInt();
         System.out.println("\nPlease enter a name:");
-        String name = sc.nextLine();
+        String name = sc.next();
 
-        switch (name) {
-            case "Khrystyna": {
-
-                switch (kata) {
-                    case 5: {
-                        switch (method) {
-
-                        }
-                    }
-                }
-            }
-            case "Vlad": {
-                break;
-            }
-        }
+        Kata kata = getByNumber(kataNumber);
+        kata.runMethod(method, name);
 
         System.out.println("\nWhat you will do next?");
         System.out.println("1.Find task by user.");
@@ -114,9 +90,18 @@ public class Menu {
         ToDo choose;
         do {
             choose = getUserChoose(sc.next());
-        } while (!(choose == choose.Find || choose == choose.Exit || choose == choose.Back));
+        } while (!(choose == ToDo.Find || choose == ToDo.Exit || choose == ToDo.Back));
 
         return choose;
+    }
+
+    private Kata getByNumber(Integer number) {
+        for (Kata kata : katas) {
+            if (number.equals(kata.getNumber())) {
+                return kata;
+            }
+        }
+        return null;
     }
 
     public void printKata() {
@@ -126,10 +111,10 @@ public class Menu {
     }
 
     public void initMap() {
-        myHashMap.put(5, getKata5());
-        myHashMap.put(6, getKata6());
-        myHashMap.put(7, getKata7());
-        myHashMap.put(8, getKata8());
+        myHashMap.put(5, kata5);
+        myHashMap.put(6, kata6);
+        myHashMap.put(7, kata7);
+        myHashMap.put(8, kata8);
     }
 
 
