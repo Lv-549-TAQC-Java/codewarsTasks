@@ -23,7 +23,7 @@ public class ImplementationsOfKata {
                 this.eightKatas = new com.ss.ita.kata.implementation.vadkostuk.EightImpl();
                 this.sevenKatas = new com.ss.ita.kata.implementation.vadkostuk.SevenImpl();
             default:
-                System.out.println("nothing");
+                System.out.println("null");
         }
     }
 
