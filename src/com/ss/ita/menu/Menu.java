@@ -157,7 +157,10 @@ public class Menu {
         kata7.add("Sum of the first nth term of Series");
         kata7.add("Where is Vasya?");
         kata6.add("Build a pile of Cubes");
+        kata6.add("Easy balance checking");
         kata6.add("Floating-point Approximation (I)");
+        kata6.add("Rainfall");
+        kata6.add("Ranking NBA");
         kata6.add("Help the bookseller!");
         kata5.add("Artificial Rain");
         kata5.add("Gap in Primes");
