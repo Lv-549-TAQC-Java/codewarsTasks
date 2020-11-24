@@ -8,39 +8,11 @@ import java.util.Scanner;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<String> kata8 = new ArrayList<String>();
+    List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
-    ToDo choose = ToDo.Find;
-    Scanner scanner=new Scanner(System.in);
-
-    public void mainMenu() {
-        System.out.println("Hi user! Choose your kata");
-        while (true) {
-            switch (choose) {
-                case Find:
-                case Exit:
-                case Intro:
-                    default:{
-
-                    }
-            }
-        }
-    }
-
-    public void showIntro(Scanner sc) {
-        System.out.println("\nWhat are you going to do?");
-        System.out.println("1.Find kata");
-        System.out.println("2.Exit");
-    }
-
-    public void initMap() {
-        myHashMap.put(5, getKata5());
-        myHashMap.put(6, getKata6());
-        myHashMap.put(7, getKata7());
-        myHashMap.put(8, getKata8());
-    }
+    Scanner scanner = new Scanner(System.in);
 
     public HashMap<Integer, List<String>> getMyHashMap() {
         return myHashMap;
@@ -58,9 +30,93 @@ public class Menu {
         return kata6;
     }
 
+    ToDo choose = ToDo.Find;
+
     public List<String> getKata5() {
         return kata5;
     }
+
+    public void mainMenu() {
+        System.out.println("Hi user!");
+        while (true) {
+            switch (choose) {
+                case Find: {
+                    printKata();
+                    choose = tasksKata(scanner);
+                    break;
+                }
+                case Exit: {
+                    return;
+                }
+                case Back: {
+                    choose = showIntro(scanner);
+                }
+                case Intro:
+                default: {
+                    choose = showIntro(scanner);
+                    break;
+                }
+            }
+        }
+    }
+
+    public ToDo getUserChoose(String choose) {
+        return ToDo.valueOf((choose));
+    }
+
+    public ToDo showIntro(Scanner sc) {
+        System.out.println("\nWhat are you going to do?");
+        System.out.println("1.Find tasks by kata.");
+        System.out.println("2.Exit.");
+
+        ToDo choose;
+        do {
+            choose = getUserChoose(sc.next());
+        } while (!(choose == choose.Find || choose == choose.Exit || choose == choose.Intro));
+        return choose;
+    }
+
+    public void printList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + " " + list.get(i));
+        }
+    }
+
+    public ToDo tasksKata(Scanner sc) {
+        System.out.println("Please enter a number of kata:");
+        int kata = sc.nextInt();
+        printList(myHashMap.get(kata));
+        System.out.println("\nPlease enter a number of method to run:");
+        int method = sc.nextInt();
+        System.out.println("\nPlease enter a name:");
+        String name = sc.nextLine();
+
+
+        System.out.println("\nWhat you will do next?");
+        System.out.println("1.Find task by user.");
+        System.out.println("2.Exit.");
+        System.out.println("3.Back.");
+        ToDo choose;
+        do {
+            choose = getUserChoose(sc.next());
+        } while (!(choose == choose.Find || choose == choose.Exit || choose == choose.Back));
+
+        return choose;
+    }
+
+    public void printKata() {
+        for (int number : myHashMap.keySet()) {
+            System.out.println(number);
+        }
+    }
+
+    public void initMap() {
+        myHashMap.put(5, getKata5());
+        myHashMap.put(6, getKata6());
+        myHashMap.put(7, getKata7());
+        myHashMap.put(8, getKata8());
+    }
+
 
     public void initKatas() {
         kata8.add("Keep Hydrated!");
@@ -86,10 +142,5 @@ public class Menu {
         kata5.add("Find the smallest");
     }
 
-    public void printList(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + " " + list.get(i));
-        }
-    }
 
 }
