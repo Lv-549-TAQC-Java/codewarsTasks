@@ -23,6 +23,8 @@ public class Menu {
 
     private void initKatasList() {
         katas.add(new KataFive());
+        katas.add(new KataSix());
+        katas.add(new KataSeven());
         katas.add(new KataEight());
     }
 
