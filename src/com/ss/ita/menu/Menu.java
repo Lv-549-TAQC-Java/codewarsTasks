@@ -25,7 +25,9 @@ public class Menu {
         while (true) {
             switch (choose) {
                 case Find:
+
                 case Exit:
+
                 case Intro:
                     default:{
 

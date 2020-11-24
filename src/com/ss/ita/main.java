@@ -1,5 +1,6 @@
 package com.ss.ita;
 
+import com.ss.ita.menu.ImplementationsOfKata;
 import com.ss.ita.menu.Menu;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
@@ -14,6 +15,11 @@ public class main {
 
         menu.initKatas();
         menu.printList(menu.getKata8());
+
+        ImplementationsOfKata impl = new ImplementationsOfKata();
+
+      impl.chooseKatasByName("vadkostuk");
+        System.out.println(impl.getTask(1));
 
     }
 }
