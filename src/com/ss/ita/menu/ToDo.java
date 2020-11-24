@@ -1,5 +1,5 @@
 package com.ss.ita.menu;
 
 public enum ToDo {
-    Find, Exit;
+    Find, Exit,Intro;
 }

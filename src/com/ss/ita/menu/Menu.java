@@ -4,13 +4,43 @@ package com.ss.ita.menu;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class Menu {
-    HashMap <Integer, List<String>> myHashMap = new HashMap<>();
+    HashMap<Integer, List<String>> myHashMap = new HashMap<>();
     List<String> kata8 = new ArrayList<String>();
     List<String> kata7 = new ArrayList<>();
-    List<String> kata6= new ArrayList<>();
+    List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
+    ToDo choose = ToDo.Find;
+    Scanner scanner=new Scanner(System.in);
+
+    public void mainMenu() {
+        System.out.println("Hi user! Choose your kata");
+        while (true) {
+            switch (choose) {
+                case Find:
+                case Exit:
+                case Intro:
+                    default:{
+
+                    }
+            }
+        }
+    }
+
+    public void showIntro(Scanner sc) {
+        System.out.println("\nWhat are you going to do?");
+        System.out.println("1.Find kata");
+        System.out.println("2.Exit");
+    }
+
+    public void initMap() {
+        myHashMap.put(5, getKata5());
+        myHashMap.put(6, getKata6());
+        myHashMap.put(7, getKata7());
+        myHashMap.put(8, getKata8());
+    }
 
     public HashMap<Integer, List<String>> getMyHashMap() {
         return myHashMap;
@@ -32,7 +62,7 @@ public class Menu {
         return kata5;
     }
 
-    public void initKatas(){
+    public void initKatas() {
         kata8.add("Keep Hydrated!");
         kata8.add("Volume of a cuboid");
         kata8.add("Miles per gallon to kilometers per liter");
@@ -56,9 +86,9 @@ public class Menu {
         kata5.add("Find the smallest");
     }
 
-    public void printList(List<String> list){
-        for(String kataList: list){
-            System.out.println(list);
+    public void printList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + " " + list.get(i));
         }
     }
 
