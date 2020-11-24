@@ -4,11 +4,13 @@ import java.util.*;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
+    List<String> authors = new ArrayList<>();
     List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
+
     Scanner scanner = new Scanner(System.in);
     ToDo choose = ToDo.Intro;
 
@@ -16,11 +18,12 @@ public class Menu {
         initKatasList();
         initKatas();
         initMap();
+        initAuthours();
     }
 
     private void initKatasList() {
         katas.add(new KataFive());
-//        TODO
+        katas.add(new KataEight());
     }
 
     public void mainMenu() {
@@ -61,13 +64,6 @@ public class Menu {
         return choose;
     }
 
-    public void printList(List<String> list) {
-        System.out.println("\n");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + " " + list.get(i));
-        }
-    }
-
     public ToDo tasksKata(Scanner sc) {
         System.out.println("\nWe have such katas:");
         printKata();
@@ -76,11 +72,15 @@ public class Menu {
         printList(myHashMap.get(kataNumber));
         System.out.println("\nPlease enter a number of method to run:");
         int method = sc.nextInt();
+        System.out.println("\nThere are 8 authors:");
+        printAuthoursName();
         System.out.println("\nPlease enter a name:");
         String name = sc.next();
 
-        Kata kata = getByNumber(kataNumber);
-        kata.runMethod(method, name);
+        if (isNameCorrect(name)) {
+            Kata kata = getByNumber(kataNumber);
+            kata.runMethod(method, name);
+        }
 
         return showIntro(sc);
     }
@@ -94,9 +94,43 @@ public class Menu {
         return null;
     }
 
+    public void printList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + " " + list.get(i));
+        }
+    }
+
     public void printKata() {
         for (int number : myHashMap.keySet()) {
             System.out.println(number);
+        }
+    }
+
+    public void initAuthours() {
+
+        authors.add("Khrystyna");
+        authors.add("Hanna");
+        authors.add("Vadym");
+        authors.add("Mike");
+        authors.add("Mariia");
+        authors.add("Andrii");
+        authors.add("Nastia");
+        authors.add("Yurii");
+    }
+
+    public boolean isNameCorrect(String name) {
+        for (String author : authors) {
+            if (name.equals(author)) {
+                return true;
+            }
+        }
+        System.out.println("Name was typed incorrect");
+        return false;
+    }
+
+    public void printAuthoursName() {
+        for (String author : authors) {
+            System.out.println(author);
         }
     }
 

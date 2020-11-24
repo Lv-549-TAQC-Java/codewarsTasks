@@ -10,7 +10,6 @@ import java.util.Map;
 public class KataFive implements Kata {
     private Map<String, Five> implFive;
 
-
     public KataFive() {
         implFive = new HashMap<>();
         addImpls();
@@ -32,6 +31,7 @@ public class KataFive implements Kata {
     @Override
     public void runMethod(Integer numberOfMethod, String user) {
         Five five = implFive.get(user);
+
         switch (numberOfMethod) {
             case 1: {
                 System.out.println(five.artificialRain(new int[]{1, 2, 1, 2, 1}));
