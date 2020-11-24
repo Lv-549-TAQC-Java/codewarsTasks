@@ -79,7 +79,20 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double[] readDoubleArray() {
-        return new double[0];
+        List<Double> doubles = new ArrayList<>();
+        while (true) {
+            Double number = scanner.nextDouble();
+            if (number != null) {
+                doubles.add(number);
+            } else {
+                double[] doubleArray=new double[doubles.size()];
+                for (int i=0;i<doubles.size();i++){
+                    doubleArray[i]=doubles.get(i);
+                }
+                return doubleArray;
+            }
+        }
+
     }
 
     @Override
