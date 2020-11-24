@@ -78,14 +78,18 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
-        List<String> result = new ArrayList<>();
+        List<String> listStr = new ArrayList<>();
         while (true) {
             System.out.println("Enter some string, in case you want to finish press enter");
             String stringToBeAdded = scanner.nextLine();
             if (!stringToBeAdded.isEmpty()) {
-                result.add(stringToBeAdded);
+                listStr.add(stringToBeAdded);
             } else {
-                return result.toArray(String[]::new);
+                String[] arrStrResult=new String[listStr.size()];
+                for (int i=0;i<listStr.size();i++){
+                    arrStrResult[i]=listStr.get(i);
+                }
+                return arrStrResult;
             }
         }
     }

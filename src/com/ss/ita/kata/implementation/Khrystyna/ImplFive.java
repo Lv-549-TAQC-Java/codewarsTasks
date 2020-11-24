@@ -100,8 +100,67 @@ public class ImplFive implements Five {
                 : ((2 * m + 1) + x) / (2 * m);
     }
 
+
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        String number = String.valueOf(n);
+        int index = 0;
+        while (index == smallestIndex(number.substring(index))) {
+            index++;
+        }
+        int indexFrom = smallestIndex(number.substring(index)) + index;
+        int indexTo = index;
+        if (indexTo == 0 && indexFrom == 1) {
+            indexFrom = 0;
+            indexTo = 1;
+        }
+        if (number.charAt(indexFrom) == number.charAt(1)) {
+            indexFrom = 0;
+            indexTo = smallestIndexToReplaceFirst(number);
+        }
+        return new long[]{
+                replace(number, indexFrom, indexTo),
+                indexFrom,
+                indexTo
+        };
+    }
+
+    private int smallestIndex(String number) {
+        char smallestChar = number.charAt(0);
+        int index = 0;
+        for (int i = 1; i < number.length(); i++) {
+            if (smallestChar >= number.charAt(i)) {
+                smallestChar = number.charAt(i);
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    private int smallestIndexToReplaceFirst(String number) {
+        char[] numbers = number.toCharArray();
+        int index = 1;
+        while (numbers[index] < numbers[0] && index < numbers.length - 1) {
+            index++;
+        }
+        return index;
+    }
+
+    private long replace(String number, int indexFrom, int indexTo) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < number.length(); i++) {
+            if (i == indexFrom) {
+                continue;
+            }
+            if (i == indexTo && indexFrom > indexTo) {
+                result.append(number.charAt(indexFrom));
+            }
+            result.append(number.charAt(i));
+            if (i == indexTo && indexFrom < indexTo) {
+                result.append(number.charAt(indexFrom));
+            }
+        }
+        return Long.parseLong(result.toString());
     }
 }
+
