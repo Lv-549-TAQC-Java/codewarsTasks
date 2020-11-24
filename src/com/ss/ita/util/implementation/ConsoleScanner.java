@@ -43,11 +43,7 @@ public class ConsoleScanner implements Scanner {
         while (true) {
             if (scanner.hasNextInt()) {
                 integers.add(scanner.nextInt());
-            } else {
-                scanner.next();
-            }
-
-            if(!scanner.hasNext()) {
+            } else if(!scanner.hasNext()) {
                 int[] newInt = new int[integers.size()];
                 for (int i = 0; i < integers.size(); i++) {
                     newInt[i] = integers.get(i);
