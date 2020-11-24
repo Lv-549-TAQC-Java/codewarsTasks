@@ -4,11 +4,13 @@ import java.util.*;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
+    List<String> authors = new ArrayList<>();
     List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
+
     Scanner scanner = new Scanner(System.in);
     ToDo choose = ToDo.Intro;
 
@@ -16,11 +18,14 @@ public class Menu {
         initKatasList();
         initKatas();
         initMap();
+        initAuthours();
     }
 
     private void initKatasList() {
         katas.add(new KataFive());
-//        TODO
+        katas.add(new KataSix());
+        katas.add(new KataSeven());
+        katas.add(new KataEight());
     }
 
     public void mainMenu() {
@@ -29,16 +34,12 @@ public class Menu {
         while (active) {
             switch (choose) {
                 case Find: {
-                    printKata();
                     choose = tasksKata(scanner);
                     break;
                 }
                 case Exit: {
                     active = false;
                     break;
-                }
-                case Back: {
-                    choose = showIntro(scanner);
                 }
                 case Intro:
                 default: {
@@ -55,8 +56,8 @@ public class Menu {
 
     public ToDo showIntro(Scanner sc) {
         System.out.println("\nWhat are you going to do?");
-        System.out.println("1.Find tasks by kata.");
-        System.out.println("2.Exit.");
+        System.out.println("Find tasks by kata.");
+        System.out.println("Exit.");
 
         ToDo choose;
         do {
@@ -65,34 +66,25 @@ public class Menu {
         return choose;
     }
 
-    public void printList(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + " " + list.get(i));
-        }
-    }
-
     public ToDo tasksKata(Scanner sc) {
-        System.out.println("Please enter a number of kata:");
+        System.out.println("\nWe have such katas:");
+        printKata();
+        System.out.println("\nPlease enter a number of kata:");
         int kataNumber = sc.nextInt();
         printList(myHashMap.get(kataNumber));
         System.out.println("\nPlease enter a number of method to run:");
         int method = sc.nextInt();
+        System.out.println("\nThere are 8 authors:");
+        printAuthoursName();
         System.out.println("\nPlease enter a name:");
         String name = sc.next();
 
-        Kata kata = getByNumber(kataNumber);
-        kata.runMethod(method, name);
+        if (isNameCorrect(name)) {
+            Kata kata = getByNumber(kataNumber);
+            kata.runMethod(method, name);
+        }
 
-        System.out.println("\nWhat you will do next?");
-        System.out.println("1.Find task by user.");
-        System.out.println("2.Exit.");
-        System.out.println("3.Back.");
-        ToDo choose;
-        do {
-            choose = getUserChoose(sc.next());
-        } while (!(choose == ToDo.Find || choose == ToDo.Exit || choose == ToDo.Back));
-
-        return choose;
+        return showIntro(sc);
     }
 
     private Kata getByNumber(Integer number) {
@@ -104,9 +96,43 @@ public class Menu {
         return null;
     }
 
+    public void printList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + " " + list.get(i));
+        }
+    }
+
     public void printKata() {
         for (int number : myHashMap.keySet()) {
             System.out.println(number);
+        }
+    }
+
+    public void initAuthours() {
+
+        authors.add("Khrystyna");
+        authors.add("Hanna");
+        authors.add("Vadym");
+        authors.add("Mike");
+        authors.add("Mariia");
+        authors.add("Andrii");
+        authors.add("Nastia");
+        authors.add("Yurii");
+    }
+
+    public boolean isNameCorrect(String name) {
+        for (String author : authors) {
+            if (name.equals(author)) {
+                return true;
+            }
+        }
+        System.out.println("Name was typed incorrect");
+        return false;
+    }
+
+    public void printAuthoursName() {
+        for (String author : authors) {
+            System.out.println(author);
         }
     }
 
@@ -116,7 +142,6 @@ public class Menu {
         myHashMap.put(7, kata7);
         myHashMap.put(8, kata8);
     }
-
 
     public void initKatas() {
         kata8.add("Keep Hydrated!");
@@ -141,6 +166,4 @@ public class Menu {
         kata5.add("Which x for that sum?");
         kata5.add("Find the smallest");
     }
-
-
 }
