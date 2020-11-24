@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import com.ss.ita.util.implementation.*;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
@@ -14,6 +15,10 @@ public class Menu {
     List<String> kata5 = new ArrayList<>();
     ToDo choose = ToDo.Find;
     Scanner scanner=new Scanner(System.in);
+    ImplementationsOfKata imp = new ImplementationsOfKata();
+
+
+
 
     public void mainMenu() {
         System.out.println("Hi user! Choose your kata");
@@ -28,6 +33,8 @@ public class Menu {
             }
         }
     }
+
+
 
     public void showIntro(Scanner sc) {
         System.out.println("\nWhat are you going to do?");
