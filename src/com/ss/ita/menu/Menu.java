@@ -91,6 +91,21 @@ public class Menu {
         System.out.println("\nPlease enter a name:");
         String name = sc.nextLine();
 
+        switch (name) {
+            case "Khrystyna": {
+
+                switch (kata) {
+                    case 5: {
+                        switch (method) {
+
+                        }
+                    }
+                }
+            }
+            case "Vlad": {
+                break;
+            }
+        }
 
         System.out.println("\nWhat you will do next?");
         System.out.println("1.Find task by user.");
