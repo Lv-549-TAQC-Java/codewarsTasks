@@ -1,5 +1,6 @@
 package com.ss.ita;
 
+import com.ss.ita.menu.Menu;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
 public class main {
@@ -9,5 +10,9 @@ public class main {
         ConsoleScanner consoleScaner = new ConsoleScanner();
         a = consoleScaner.readInt();
         System.out.println(a);
+        Menu menu = new Menu();
+
+        menu.printList(menu.getKata8());
+
     }
 }
