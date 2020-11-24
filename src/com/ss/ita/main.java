@@ -11,9 +11,8 @@ public class main {
 //        a = consoleScaner.readInt();
 //        System.out.println(a);
         Menu menu = new Menu();
+        menu.mainMenu();
 
-        menu.initKatas();
-        menu.printList(menu.getKata8());
 
     }
 }
