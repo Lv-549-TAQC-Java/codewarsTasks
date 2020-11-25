@@ -27,18 +27,6 @@ public class Menu {
         initKatas();
     }
 
-    private void setUserImpl(){
-        System.out.println("select id of user:\n");
-        UserNames user;
-        do {
-            printAuthoursData();
-            long id = scanner.readLong();
-            user = UserNames.getById(id);
-        }
-        while(user == null);
-        runner.setImpl(user);
-    }
-
     public void mainMenu() {
         System.out.println("Hi user!");
         boolean active = true;
@@ -94,13 +82,14 @@ public class Menu {
         System.out.println("\nPlease enter a number of method to run:");
         int method = sc.readInt();
         System.out.println("\nThere are 8 authors:");
-        printAuthoursData();
+        printAuthorsData();
         System.out.println("\nPlease enter a id of Author:");
         long id = sc.readInt();
-        runner = new Runner(UserNames.getById(id));
-        runTask(method);
 
-
+        if (isIdCorrect(id)) {
+            runner = new Runner(UserNames.getById(id));
+            runTask(method);
+        }
 
         return showIntro(sc);
     }
@@ -196,17 +185,17 @@ public class Menu {
         }
     }
 
-    public boolean isNameCorrect(String name) {
+    public boolean isIdCorrect(long id) {
         for (UserNames user : UserNames.values()) {
-            if (name.equals(user.getName())) {
+            if (id ==(user.getId())) {
                 return true;
             }
         }
-        System.out.println("Name was typed incorrect");
+        System.out.println("Id was typed incorrect");
         return false;
     }
 
-    public void printAuthoursData() {
+    public void printAuthorsData() {
         for (UserNames user : UserNames.values()) {
             System.out.println(user.getId() + " " + user.getName());
         }
