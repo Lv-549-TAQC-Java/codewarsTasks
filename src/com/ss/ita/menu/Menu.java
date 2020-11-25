@@ -94,7 +94,6 @@ public class Menu {
         return showIntro(sc);
     }
 
-
     private void runTask(int taskId) {
             switch (taskId) {
                 case 1:
@@ -142,15 +141,15 @@ public class Menu {
                 case 15:
                     runner.runTask15();
                     break;
-//                case 16:
-//                    runner.runTask16();
-//                    break;
-//                case 17:
-//                    runner.runTask17();
-//                    break;
-//                case 18:
-//                    runner.runTask18();
-//                    break;
+                case 16:
+                    runner.runTask16();
+                    break;
+                case 17:
+                    runner.runTask17();
+                    break;
+                case 18:
+                    runner.runTask18();
+                    break;
                 case 19:
                     runner.runTask19();
                     break;
