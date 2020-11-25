@@ -2,12 +2,13 @@ package com.ss.ita.menu;
 
 import com.ss.ita.util.implementation.ConsoleScanner;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<String> authors = new ArrayList<>();
     List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
@@ -25,20 +26,20 @@ public class Menu {
         initKatasList();
         initKatas();
         initMap();
-        initAuthours();
     }
 
     private void setUserImpl(){
-        System.out.println("select id of user: ");
+        System.out.println("select id of user:\n");
         UserNames user;
         do {
-            printAuthoursName();
+            printAuthoursData();
             long id = scanner.readLong();
             user = UserNames.getById(id);
         }
         while(user == null);
         runner.setImpl(user);
     }
+
     private void initKatasList() {
         katas.add(new KataFive());
         katas.add(new KataSix());
@@ -79,31 +80,31 @@ public class Menu {
 
     }
 
-    public ToDo showIntro(Scanner sc) {
+    public ToDo showIntro(ConsoleScanner sc) {
         System.out.println("\nWhat are you going to do?");
         System.out.println("Find tasks by kata.");
         System.out.println("Exit.");
 
         ToDo choose;
         do {
-            choose = getUserChoose(sc.next());
+            choose = getUserChoose(sc.readString());
         } while (!(choose == ToDo.Find || choose.equals(ToDo.Exit)));
 
         return choose;
     }
 
-    public ToDo tasksKata(Scanner sc) {
+    public ToDo tasksKata(ConsoleScanner sc) {
         System.out.println("\nWe have such katas:");
         printKata();
         System.out.println("\nPlease enter a number of kata:");
-        int kataNumber = sc.nextInt();
+        int kataNumber = sc.readInt();
         printList(myHashMap.get(kataNumber));
         System.out.println("\nPlease enter a number of method to run:");
-        int method = sc.nextInt();
+        int method = sc.readInt();
         System.out.println("\nThere are 8 authors:");
-        printAuthoursName();
+        printAuthoursData();
         System.out.println("\nPlease enter a name:");
-        String name = sc.next();
+        String name = sc.readString();
 
         if (isNameCorrect(name)) {
             Kata kata = getByNumber(kataNumber);
@@ -134,21 +135,9 @@ public class Menu {
         }
     }
 
-    public void initAuthours() {
-
-        authors.add("Khrystyna");
-        authors.add("Hanna");
-        authors.add("Vadym");
-        authors.add("Mike");
-        authors.add("Maria");
-        authors.add("Andrii");
-        authors.add("Nastia");
-        authors.add("Yurii");
-    }
-
     public boolean isNameCorrect(String name) {
-        for (String author : authors) {
-            if (name.equals(author)) {
+        for (UserNames user : UserNames.values()) {
+            if (name.equals(user.getName())) {
                 return true;
             }
         }
@@ -156,8 +145,8 @@ public class Menu {
         return false;
     }
 
-    public void printAuthoursName() {
-        for (UserNames user : UserNames.values()){
+    public void printAuthoursData() {
+        for (UserNames user : UserNames.values()) {
             System.out.println(user.getId() + " " + user.getName());
         }
     }
