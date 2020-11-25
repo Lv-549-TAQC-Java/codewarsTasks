@@ -20,9 +20,20 @@ public class Runner {
     private Five impl5;
     private Scanner scanner;
 
+    public Runner() {
+        scanner = new ConsoleScanner();
+
+    }
+
+    public Runner(UserNames whose) {
+        scanner = new ConsoleScanner();
+        setImpl(whose);
+
+    }
+
     public void setImpl(UserNames whose) {
 
-        switch(whose){
+        switch (whose) {
             case HANNA: {
                 this.impl8 = new com.ss.ita.kata.implementation.HannaVasiunyk.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.HannaVasiunyk.SevenImpl();
@@ -77,18 +88,7 @@ public class Runner {
 
     }
 
-    public Runner() {
-        scanner = new ConsoleScanner();
-
-    }
-
-    public Runner(UserNames whose) {
-        scanner = new ConsoleScanner();
-        setImpl(whose);
-
-    }
-
-    public String runTask1(){
+    public String runTask1() {
         System.out.println("run task Keep Hydrated!");
         System.out.println("Enter double");
         double input = scanner.readDouble();
@@ -128,31 +128,6 @@ public class Runner {
         return res;
     }
 
-    public String runTask22() {
-        System.out.println("Perimeter of squares in a rectangle");
-        System.out.println("Enter Big Integer:");
-        BigInteger input = scanner.readBigInt();
-        String res = String.valueOf(impl5.perimeter(input));
-        System.out.println(res);
-        return res;
-    }
-    public String runTask23() {
-        System.out.println("Which x for that sum");
-        System.out.println("Enter double");
-        double input = scanner.readDouble();
-        String res = String.valueOf(impl5.solveSum(input));
-        System.out.println(res);
-        return res;
-    }
-    public String runTask24() {
-        System.out.println("Find the smallest");
-        System.out.println("Enter long");
-        long input = scanner.readLong();
-        String res = Arrays.toString(impl5.smallest(input));
-        System.out.println(res);
-        return res;
-    }
-
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
@@ -179,6 +154,7 @@ public class Runner {
         System.out.println(res);
         return res;
     }
+
     public String runTask8(){
         System.out.println("Formatting decimal places\nEnter double variable:");
         double input = scanner.readDouble();
@@ -252,5 +228,64 @@ public class Runner {
         double input = scanner.readDouble();
         double res = impl6.f(input);
         System.out.println("Result is:\n" + res);
+    }
+
+    public void runTask19() {
+        System.out.println("run task Artificial Rain");
+        System.out.println("Enter int[] value, for finish array press Enter");
+        int[] input = scanner.readIntArray();
+        String res = String.valueOf(impl5.artificialRain(input));
+        System.out.println("Result: " + res);
+    }
+
+    public void runTask20() {
+        System.out.println("run task Gap in Primes");
+        System.out.println("Enter (int g, long m, long n) where:" +
+                "\ng->(integer >= 2) which indicates the gap we are looking for" +
+                "\nm->(integer > 2) which gives the start of the search (m inclusive)" +
+                "\nn-> (integer >= m) which gives the end of the search (n inclusive)");
+        System.out.println("Enter g:");
+        int inputG = scanner.readInt();
+        System.out.println("Enter m:");
+        long inputM = scanner.readLong();
+        System.out.println("Enter n:");
+        long inputN = scanner.readLong();
+        String res = Arrays.toString(impl5.gap(inputG, inputM, inputN));
+        System.out.println("Result: " + res);
+    }
+
+    public void runTask21() {
+        System.out.println("run task Trailing zeros in factorial");
+        System.out.println("Enter your number (int)");
+        int input = scanner.readInt();
+        String res = String.valueOf(impl5.zeros(input));
+        System.out.println("Result: " + res);
+    }
+
+    public String runTask22() {
+        System.out.println("Perimeter of squares in a rectangle");
+        System.out.println("Enter Big Integer:");
+        BigInteger input = scanner.readBigInt();
+        String res = String.valueOf(impl5.perimeter(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask23() {
+        System.out.println("Which x for that sum");
+        System.out.println("Enter double");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl5.solveSum(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask24() {
+        System.out.println("Find the smallest");
+        System.out.println("Enter long");
+        long input = scanner.readLong();
+        String res = Arrays.toString(impl5.smallest(input));
+        System.out.println(res);
+        return res;
     }
 }
