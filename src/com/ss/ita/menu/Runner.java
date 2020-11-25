@@ -111,7 +111,32 @@ public class Runner {
     }
 
 
+    public String runTask5(){
+        System.out.println("countPositivesSumNegatives");
+        System.out.println("Enter int[]");
+        int[] input = scanner.readIntArray();
+        String res = String.valueOf(impl8.countPositivesSumNegatives(input));
+        System.out.println(res);
+        return res;
+    }
 
+    public String runTask6(){
+        System.out.println("Convert a String to a Number");
+        System.out.println("Enter String");
+        String input= scanner.readString();
+        String res = String.valueOf(impl8.stringToNumber(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask7(){
+        System.out.println("Wilson primes");
+        System.out.println("Enter double");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl8.amIWilson(input));
+        System.out.println(res);
+        return res;
+    }
 
 
 }
