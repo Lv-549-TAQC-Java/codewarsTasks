@@ -9,6 +9,10 @@ import com.ss.ita.util.implementation.ConsoleScanner;
 
 import java.util.Arrays;
 
+import java.math.BigInteger;
+
+import java.util.Arrays;
+
 public class Runner {
     private Eight impl8;
     private Seven impl7;
@@ -128,9 +132,28 @@ public class Runner {
         System.out.println("Enter int number");
         int input = scanner.readInt();
         String res = String.valueOf(impl7.seriesSum(input));
+
+    public String runTask22() {
+        System.out.println("Perimeter of squares in a rectangle");
+        System.out.println("Enter Big Integer:");
+        BigInteger input = scanner.readBigInt();
+        String res = String.valueOf(impl5.perimeter(input));
         System.out.println(res);
         return res;
     }
+    public String runTask23() {
+        System.out.println("Which x for that sum");
+        System.out.println("Enter double");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl5.solveSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask24() {
+        System.out.println("Find the smallest");
+        System.out.println("Enter long");
+        long input = scanner.readLong();
+        String res = Arrays.toString(impl5.smallest(input));
 
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
@@ -158,8 +181,42 @@ public class Runner {
         System.out.println(res);
         return res;
     }
+    public String runTask8(){
+        System.out.println("Formatting decimal places\nEnter double variable:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl8.twoDecimalPlaces(input));
+        System.out.println(res);
+        return res;
+    }
 
-    public String runTask12() {
+    public String runTask9(){
+        System.out.println("Find numbers which are divisible by given number\nEnter int[] variable:");
+        int[] input1 = scanner.readIntArray();
+        System.out.println("Enter int variable");
+        int input2 = scanner.readInt();
+        String res = Arrays.toString(impl8.divisibleBy(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask10() {
+        System.out.println("Looking for a benefactor\nEnter double[] variable:");
+        double[] input1 = scanner.readDoubleArray();
+        System.out.println("Enter double variable:");
+        double input2 = scanner.readDouble();
+        String res = String.valueOf(impl7.newAvg(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask11(){
+        System.out.println("run task Sum of the first nth term of Series");
+        System.out.println("Enter int number");
+        int input = scanner.readInt();
+        String res = String.valueOf(impl7.seriesSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask12(){
         System.out.println("run task Where is Vasya?");
         System.out.println("Enter ");
         int input1 = scanner.readInt();
