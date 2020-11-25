@@ -39,7 +39,18 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public int[] readIntArray() {
-        return new int[0];
+        List<Integer> integers = new ArrayList<>();
+        while (true) {
+            if (scanner.hasNextInt()) {
+                integers.add(scanner.nextInt());
+            } else if(!scanner.hasNext()) {
+                int[] newInt = new int[integers.size()];
+                for (int i = 0; i < integers.size(); i++) {
+                    newInt[i] = integers.get(i);
+                }
+                return newInt;
+            }
+        }
     }
 
     @Override
