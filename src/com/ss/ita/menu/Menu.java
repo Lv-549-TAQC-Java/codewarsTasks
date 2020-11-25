@@ -52,7 +52,7 @@ public class Menu {
         while (active) {
             switch (choose) {
                 case Find: {
-                    choose = tasksKata(scanner);
+                    choose = tasksKata(scanner.);
                     break;
                 }
                 case Exit: {
