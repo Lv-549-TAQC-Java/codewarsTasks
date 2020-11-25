@@ -2,8 +2,6 @@ package com.ss.ita.kata.implementation.Krynytsky;
 
 import com.ss.ita.kata.Eight;
 
-import java.util.Arrays;
-
 public class EightImpl implements Eight {
 
     @Override
@@ -62,7 +60,15 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if (n <= 1) {
+            return false;
+        } else {
+            int factorial = 1;
+            for (int i = 1; i < n; i++) {
+                factorial *= i;
+            }
+            return (factorial + 1) / Math.pow(n, 2) % 1 == 0;
+        }
     }
 
     @Override
