@@ -37,9 +37,9 @@ public class KataSix implements Kata {
         switch (numberOfMethod) {
             case 1:
                 System.out.println("Result is:"+ six.findNb(12));
-            case 2:
-                System.out.println("Result is: " + six.balance("\"1000.00!=\\n125 Market !=:125.45\\n126 Hardware =34.95\\n127 Video! 7.45\\n128 Book :14.32\\n129 Gasoline ::16.10\";"));
                 break;
+            case 2:
+                System.out.println("Result is: " + six.balance("1000.00!=\n125 Market !=:125.45\n126 Hardware =34.95\n127 Video! 7.45\n128 Book :14.32\n129 Gasoline ::16.10"));
             case 3:
                 System.out.println("Result is: " + six.f(12));
                 break;
@@ -55,7 +55,7 @@ public class KataSix implements Kata {
                         "\n" +"Beijing:Jan 3.9,Feb 4.7,Mar 8.2,Apr 18.4,May 33.0,Jun 78.1,Jul 224.3,Aug 170.0,Sep 58.4,Oct 18.0,Nov 9.3,Dec 2.7" +
                         "\n" + "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
                 String city = "Rome";
-                System.out.println("Result is: For mean:" + six.mean( rainfall,city)+"\nfor variance"+ six.variance(rainfall,city));
+                System.out.println("Result is: For mean:" + six.mean( city,rainfall)+"\nfor variance:"+ six.variance(city,rainfall));
                 break;
             case 5:
                 System.out.println("Result is: " + six.nbaCup("Los Angeles Clippers 104 Dallas Mavericks 88,New York Knicks 101 Atlanta Hawks 112,Indiana Pacers 103 Memphis Grizzlies 112,"

@@ -1,5 +1,8 @@
 package com.ss.ita.menu;
 
+import com.ss.ita.util.implementation.ConsoleScanner;
+
+
 import java.util.*;
 
 public class Menu {
@@ -11,16 +14,31 @@ public class Menu {
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
 
-    Scanner scanner = new Scanner(System.in);
+
+    ConsoleScanner scanner;
+    Runner runner;
     ToDo choose = ToDo.Intro;
 
     public Menu() {
+        scanner = new ConsoleScanner();
+        runner = new Runner();
         initKatasList();
         initKatas();
         initMap();
         initAuthours();
     }
 
+    private void setUserImpl(){
+        System.out.println("select id of user: ");
+        UserNames user;
+        do {
+            printAuthoursName();
+            long id = scanner.readLong();
+            user = UserNames.getById(id);
+        }
+        while(user == null);
+        runner.setImpl(user);
+    }
     private void initKatasList() {
         katas.add(new KataFive());
         katas.add(new KataSix());
@@ -51,7 +69,14 @@ public class Menu {
     }
 
     public ToDo getUserChoose(String choose) {
-        return ToDo.valueOf((choose));
+        try{
+            return ToDo.valueOf((choose));
+        }
+        catch (IllegalArgumentException error) {
+            System.out.println("Please, enter correct choose");
+            return null;
+        }
+
     }
 
     public ToDo showIntro(Scanner sc) {
@@ -132,8 +157,8 @@ public class Menu {
     }
 
     public void printAuthoursName() {
-        for (String author : authors) {
-            System.out.println(author);
+        for (UserNames user : UserNames.values()){
+            System.out.println(user.getId() + " " + user.getName());
         }
     }
 
