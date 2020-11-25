@@ -87,7 +87,8 @@ public class Menu {
         ToDo choose;
         do {
             choose = getUserChoose(sc.next());
-        } while (!(choose == ToDo.Find || choose == ToDo.Exit || choose == ToDo.Intro));
+        } while (!(choose == ToDo.Find || choose.equals(ToDo.Exit)));
+
         return choose;
     }
 
@@ -139,7 +140,7 @@ public class Menu {
         authors.add("Hanna");
         authors.add("Vadym");
         authors.add("Mike");
-        authors.add("Mariia");
+        authors.add("Maria");
         authors.add("Andrii");
         authors.add("Nastia");
         authors.add("Yurii");

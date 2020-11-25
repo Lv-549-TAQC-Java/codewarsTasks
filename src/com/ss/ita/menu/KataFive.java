@@ -71,9 +71,8 @@ public class KataFive implements Kata {
                 break;
             }
 
-//            TODO
             default:
-                new IllegalStateException("We haven`t method with this number");
+                throw new IllegalStateException("We haven`t method with this number");
         }
     }
 }
