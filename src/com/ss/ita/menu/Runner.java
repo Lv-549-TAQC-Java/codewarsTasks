@@ -7,6 +7,8 @@ import com.ss.ita.kata.Six;
 import com.ss.ita.util.Scanner;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
+import java.math.BigInteger;
+
 import java.util.Arrays;
 
 public class Runner {
@@ -93,6 +95,29 @@ public class Runner {
         return res;
     }
 
+
+    public String runTask22() {
+        System.out.println("Perimeter of squares in a rectangle");
+        System.out.println("Enter Big Integer:");
+        BigInteger input = scanner.readBigInt();
+        String res = String.valueOf(impl5.perimeter(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask23() {
+        System.out.println("Which x for that sum");
+        System.out.println("Enter double");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl5.solveSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask24() {
+        System.out.println("Find the smallest");
+        System.out.println("Enter long");
+        long input = scanner.readLong();
+        String res = Arrays.toString(impl5.smallest(input));
+      
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
