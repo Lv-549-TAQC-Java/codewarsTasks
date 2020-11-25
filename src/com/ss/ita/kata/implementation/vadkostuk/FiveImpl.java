@@ -79,7 +79,7 @@ public class FiveImpl implements Five {
         BigInteger a = BigInteger.ONE;
         BigInteger b = BigInteger.ONE;
         BigInteger c = BigInteger.ZERO;
-        BigInteger res = BigInteger.TWO;
+        BigInteger res = a.add(b);
 
         for (int i = 3; i <= n.intValue() + 1; i++) {
             c = a.add(b);
