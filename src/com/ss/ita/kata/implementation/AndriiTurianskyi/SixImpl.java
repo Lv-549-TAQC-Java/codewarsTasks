@@ -58,8 +58,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        BigDecimal value = new BigDecimal(x);
-        return value.add(BigDecimal.ONE).sqrt(MathContext.DECIMAL128).subtract(BigDecimal.ONE).doubleValue();
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
