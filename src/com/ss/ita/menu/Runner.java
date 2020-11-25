@@ -7,6 +7,8 @@ import com.ss.ita.kata.Six;
 import com.ss.ita.util.Scanner;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
+import java.util.Arrays;
+
 public class Runner {
     private Eight impl8;
     private Seven impl7;
@@ -16,7 +18,7 @@ public class Runner {
 
     public void setImpl(UserNames whose) {
 
-        switch(whose){
+        switch (whose) {
             case HANNA: {
                 this.impl8 = new com.ss.ita.kata.implementation.HannaVasiunyk.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.HannaVasiunyk.SevenImpl();
@@ -82,7 +84,7 @@ public class Runner {
 
     }
 
-    public String runTask1(){
+    public String runTask1() {
         System.out.println("run task Keep Hydrated!");
         System.out.println("Enter double");
         double input = scanner.readDouble();
@@ -91,5 +93,34 @@ public class Runner {
         return res;
     }
 
+    public String runTask2() {
+        System.out.println("run task Volume of a cuboid");
+        System.out.println("Enter double length");
+        double length = scanner.readDouble();
+        System.out.println("Enter double width");
+        double width = scanner.readDouble();
+        System.out.println("Enter double height");
+        double height = scanner.readDouble();
+        String res = String.valueOf(impl8.getVolumeOfCuboid(length, width, height));
+        System.out.println(res);
+        return res;
+    }
 
+    public String runTask3() {
+        System.out.println("run task Miles per gallon to kilometers per liter");
+        System.out.println("Enter float Miles per gallon");
+        float mpg = scanner.readFloat();
+        String res = String.valueOf(impl8.mpgToKPM(mpg));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask4() {
+        System.out.println("run task To square root or no to square");
+        System.out.println("Enter int[] array");
+        int[] array = scanner.readIntArray();
+        String res = Arrays.toString(impl8.squareOrSquareRoot(array));
+        System.out.println(res);
+        return res;
+    }
 }
