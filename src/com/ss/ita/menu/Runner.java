@@ -9,6 +9,10 @@ import com.ss.ita.util.implementation.ConsoleScanner;
 
 import java.util.Arrays;
 
+import java.math.BigInteger;
+
+import java.util.Arrays;
+
 public class Runner {
     private Eight impl8;
     private Seven impl7;
@@ -93,11 +97,33 @@ public class Runner {
         return res;
     }
 
-    public String runTask11(){
-        System.out.println("run task Sum of the first nth term of Series");
-        System.out.println("Enter int number");
-        int input = scanner.readInt();
-        String res = String.valueOf(impl7.seriesSum(input));
+    public String runTask2() {
+        System.out.println("run task Volume of a cuboid");
+        System.out.println("Enter double length");
+        double length = scanner.readDouble();
+        System.out.println("Enter double width");
+        double width = scanner.readDouble();
+        System.out.println("Enter double height");
+        double height = scanner.readDouble();
+        String res = String.valueOf(impl8.getVolumeOfCuboid(length, width, height));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask3() {
+        System.out.println("run task Miles per gallon to kilometers per liter");
+        System.out.println("Enter float Miles per gallon");
+        float mpg = scanner.readFloat();
+        String res = String.valueOf(impl8.mpgToKPM(mpg));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask4() {
+        System.out.println("run task To square root or no to square");
+        System.out.println("Enter int[] array");
+        int[] array = scanner.readIntArray();
+        String res = Arrays.toString(impl8.squareOrSquareRoot(array));
         System.out.println(res);
         return res;
     }
@@ -106,7 +132,7 @@ public class Runner {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
         int[] input = scanner.readIntArray();
-        String res = String.valueOf(impl8.countPositivesSumNegatives(input));
+        String res = Arrays.toString(impl8.countPositivesSumNegatives(input));
         System.out.println(res);
         return res;
     }
@@ -129,7 +155,42 @@ public class Runner {
         return res;
     }
 
-    public String runTask12() {
+    public String runTask8(){
+        System.out.println("Formatting decimal places\nEnter double variable:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl8.twoDecimalPlaces(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask9(){
+        System.out.println("Find numbers which are divisible by given number\nEnter int[] variable:");
+        int[] input1 = scanner.readIntArray();
+        System.out.println("Enter int variable");
+        int input2 = scanner.readInt();
+        String res = Arrays.toString(impl8.divisibleBy(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask10() {
+        System.out.println("Looking for a benefactor\nEnter double[] variable:");
+        double[] input1 = scanner.readDoubleArray();
+        System.out.println("Enter double variable:");
+        double input2 = scanner.readDouble();
+        String res = String.valueOf(impl7.newAvg(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask11(){
+        System.out.println("run task Sum of the first nth term of Series");
+        System.out.println("Enter int number");
+        int input = scanner.readInt();
+        String res = String.valueOf(impl7.seriesSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask12(){
         System.out.println("run task Where is Vasya?");
         System.out.println("Enter ");
         int input1 = scanner.readInt();
@@ -139,6 +200,36 @@ public class Runner {
         System.out.println(res);
         return res;
     }
+
+    public void runTask13() {
+        System.out.println("run task Build a pile of Cubes");
+        System.out.println("Enter long:");
+        long input = scanner.readLong();
+        long res = impl6.findNb(input);
+        System.out.println("Result is:\n" + res);
+    }
+
+    public void runTask14() {
+        System.out.println("run task Easy balance checking");
+        String input = "1000.00!=\n125 Market !=:125.45\n126 Hardware =34.95\n127 Video! 7.45" +
+                "\n128 Book :14.32\n129 Gasoline ::16.10";
+        System.out.println("We have such input for run:\n" + input);
+        System.out.println("\nDo you want to change it?\n1-Yes\n2-No");
+        if (scanner.readInt() == 1) {
+            input = scanner.readString();
+        }
+        String res = impl6.balance(input);
+        System.out.println("Result is:\n" + res);
+    }
+
+    public void runTask15() {
+        System.out.println("run task Floating-point Approximation (I)");
+        System.out.println("Enter double:");
+        double input = scanner.readDouble();
+        double res = impl6.f(input);
+        System.out.println("Result is:\n" + res);
+    }
+
     public void runTask19() {
         System.out.println("run task Artificial Rain");
         System.out.println("Enter int[] value, for finish array press Enter");
@@ -171,32 +262,30 @@ public class Runner {
         System.out.println("Result: " + res);
     }
 
-    public void runTask13() {
-        System.out.println("run task Build a pile of Cubes");
-        System.out.println("Enter long:");
-        long input = scanner.readLong();
-        long res = impl6.findNb(input);
-        System.out.println("Result is:\n" + res);
+    public String runTask22() {
+        System.out.println("Perimeter of squares in a rectangle");
+        System.out.println("Enter Big Integer:");
+        BigInteger input = scanner.readBigInt();
+        String res = String.valueOf(impl5.perimeter(input));
+        System.out.println(res);
+        return res;
     }
 
-    public void runTask14() {
-        System.out.println("run task Easy balance checking");
-        String input = "1000.00!=\n125 Market !=:125.45\n126 Hardware =34.95\n127 Video! 7.45" +
-                "\n128 Book :14.32\n129 Gasoline ::16.10";
-        System.out.println("We have such input for run:\n" + input);
-        System.out.println("\nDo you want to change it?\n1-Yes\n2-No");
-        if (scanner.readInt() == 1) {
-            input = scanner.readString();
-        }
-        String res = impl6.balance(input);
-        System.out.println("Result is:\n" + res);
-    }
-
-    public void runTask15() {
-        System.out.println("run task Floating-point Approximation (I)");
-        System.out.println("Enter double:");
+    public String runTask23() {
+        System.out.println("Which x for that sum");
+        System.out.println("Enter double");
         double input = scanner.readDouble();
-        double res = impl6.f(input);
-        System.out.println("Result is:\n" + res);
+        String res = String.valueOf(impl5.solveSum(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask24() {
+        System.out.println("Find the smallest");
+        System.out.println("Enter long");
+        long input = scanner.readLong();
+        String res = Arrays.toString(impl5.smallest(input));
+        System.out.println(res);
+        return res;
     }
 }

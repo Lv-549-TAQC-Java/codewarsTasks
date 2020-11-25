@@ -98,8 +98,8 @@ public class ConsoleScanner implements Scanner {
     @Override
     public String readString() {
         while (true) {
-            if (scanner.hasNextLine()) {
-                return String.valueOf(scanner.nextLine());
+            if (scanner.hasNext()) {
+                return scanner.next();
             } else {
                 scanner.next();
                 System.out.println("Incorrect format(String). Try again...");
