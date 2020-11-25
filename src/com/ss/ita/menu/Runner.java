@@ -7,6 +7,8 @@ import com.ss.ita.kata.Six;
 import com.ss.ita.util.Scanner;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
+import java.util.Arrays;
+
 public class Runner {
     private Eight impl8;
     private Seven impl7;
@@ -91,15 +93,6 @@ public class Runner {
         return res;
     }
 
-    public String runTask11(){
-        System.out.println("run task Sum of the first nth term of Series");
-        System.out.println("Enter int number");
-        int input = scanner.readInt();
-        String res = String.valueOf(impl7.seriesSum(input));
-        System.out.println(res);
-        return res;
-    }
-
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
@@ -126,8 +119,42 @@ public class Runner {
         System.out.println(res);
         return res;
     }
+    public String runTask8(){
+        System.out.println("Formatting decimal places\nEnter double variable:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(impl8.twoDecimalPlaces(input));
+        System.out.println(res);
+        return res;
+    }
 
-    public String runTask12() {
+    public String runTask9(){
+        System.out.println("Find numbers which are divisible by given number\nEnter int[] variable:");
+        int[] input1 = scanner.readIntArray();
+        System.out.println("Enter int variable");
+        int input2 = scanner.readInt();
+        String res = Arrays.toString(impl8.divisibleBy(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask10() {
+        System.out.println("Looking for a benefactor\nEnter double[] variable:");
+        double[] input1 = scanner.readDoubleArray();
+        System.out.println("Enter double variable:");
+        double input2 = scanner.readDouble();
+        String res = String.valueOf(impl7.newAvg(input1, input2));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask11(){
+        System.out.println("run task Sum of the first nth term of Series");
+        System.out.println("Enter int number");
+        int input = scanner.readInt();
+        String res = String.valueOf(impl7.seriesSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask12(){
         System.out.println("run task Where is Vasya?");
         System.out.println("Enter ");
         int input1 = scanner.readInt();
