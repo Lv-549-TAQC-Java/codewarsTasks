@@ -1,74 +1,161 @@
 package com.ss.ita.menu;
 
+import com.ss.ita.util.implementation.ConsoleScanner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
-import com.ss.ita.util.implementation.*;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<String> kata8 = new ArrayList<String>();
+    List<Kata> katas = new LinkedList<>();
+    List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
-    ToDo choose = ToDo.Find;
-    Scanner scanner=new Scanner(System.in);
-    ImplementationsOfKata imp = new ImplementationsOfKata();
 
 
+    ConsoleScanner scanner;
+    Runner runner;
+    ToDo choose = ToDo.Intro;
 
+    public Menu() {
+        scanner = new ConsoleScanner();
+        runner = new Runner();
+        initKatasList();
+        initKatas();
+        initMap();
+    }
+
+    private void setUserImpl(){
+        System.out.println("select id of user:\n");
+        UserNames user;
+        do {
+            printAuthoursData();
+            long id = scanner.readLong();
+            user = UserNames.getById(id);
+        }
+        while(user == null);
+        runner.setImpl(user);
+    }
+
+    private void initKatasList() {
+        katas.add(new KataFive());
+        katas.add(new KataSix());
+        katas.add(new KataSeven());
+        katas.add(new KataEight());
+    }
 
     public void mainMenu() {
-        System.out.println("Hi user! Choose your kata");
-        while (true) {
+        System.out.println("Hi user!");
+        boolean active = true;
+        while (active) {
             switch (choose) {
-                case Find:
-
-                case Exit:
-
+                case Find: {
+                    choose = tasksKata(scanner);
+                    break;
+                }
+                case Exit: {
+                    active = false;
+                    break;
+                }
                 case Intro:
-                    default:{
-
-                    }
+                default: {
+                    choose = showIntro(scanner);
+                    break;
+                }
             }
         }
     }
 
+    public ToDo getUserChoose(String choose) {
+        try{
+            return ToDo.valueOf((choose));
+        }
+        catch (IllegalArgumentException error) {
+            System.out.println("Please, enter correct choose");
+            return null;
+        }
 
+    }
 
-    public void showIntro(Scanner sc) {
+    public ToDo showIntro(ConsoleScanner sc) {
         System.out.println("\nWhat are you going to do?");
-        System.out.println("1.Find kata");
-        System.out.println("2.Exit");
+        System.out.println("Please, type \"Find\" to show katas," +
+                " or \"Exit\" to close the program");
+
+        ToDo choose;
+        do {
+            choose = getUserChoose(sc.readString());
+        } while (!(choose == ToDo.Find || choose.equals(ToDo.Exit)));
+
+        return choose;
+    }
+
+    public ToDo tasksKata(ConsoleScanner sc) {
+        System.out.println("\nWe have such katas:");
+        printKata();
+        System.out.println("\nPlease enter a number of kata:");
+        int kataNumber = sc.readInt();
+        printList(myHashMap.get(kataNumber));
+        System.out.println("\nPlease enter a number of method to run:");
+        int method = sc.readInt();
+        System.out.println("\nThere are 8 authors:");
+        printAuthoursData();
+        System.out.println("\nPlease enter a name:");
+        String name = sc.readString();
+
+        if (isNameCorrect(name)) {
+            Kata kata = getByNumber(kataNumber);
+            kata.runMethod(method, name);
+        }
+
+        return showIntro(sc);
+    }
+
+    private Kata getByNumber(Integer number) {
+        for (Kata kata : katas) {
+            if (number.equals(kata.getNumber())) {
+                return kata;
+            }
+        }
+        return null;
+    }
+
+    public void printList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + " " + list.get(i));
+        }
+    }
+
+    public void printKata() {
+        for (int number : myHashMap.keySet()) {
+            System.out.println(number);
+        }
+    }
+
+    public boolean isNameCorrect(String name) {
+        for (UserNames user : UserNames.values()) {
+            if (name.equals(user.getName())) {
+                return true;
+            }
+        }
+        System.out.println("Name was typed incorrect");
+        return false;
+    }
+
+    public void printAuthoursData() {
+        for (UserNames user : UserNames.values()) {
+            System.out.println(user.getId() + " " + user.getName());
+        }
     }
 
     public void initMap() {
-        myHashMap.put(5, getKata5());
-        myHashMap.put(6, getKata6());
-        myHashMap.put(7, getKata7());
-        myHashMap.put(8, getKata8());
-    }
-
-    public HashMap<Integer, List<String>> getMyHashMap() {
-        return myHashMap;
-    }
-
-    public List<String> getKata8() {
-        return kata8;
-    }
-
-    public List<String> getKata7() {
-        return kata7;
-    }
-
-    public List<String> getKata6() {
-        return kata6;
-    }
-
-    public List<String> getKata5() {
-        return kata5;
+        myHashMap.put(5, kata5);
+        myHashMap.put(6, kata6);
+        myHashMap.put(7, kata7);
+        myHashMap.put(8, kata8);
     }
 
     public void initKatas() {
@@ -85,7 +172,10 @@ public class Menu {
         kata7.add("Sum of the first nth term of Series");
         kata7.add("Where is Vasya?");
         kata6.add("Build a pile of Cubes");
+        kata6.add("Easy balance checking");
         kata6.add("Floating-point Approximation (I)");
+        kata6.add("Rainfall");
+        kata6.add("Ranking NBA");
         kata6.add("Help the bookseller!");
         kata5.add("Artificial Rain");
         kata5.add("Gap in Primes");
@@ -94,11 +184,4 @@ public class Menu {
         kata5.add("Which x for that sum?");
         kata5.add("Find the smallest");
     }
-
-    public void printList(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + " " + list.get(i));
-        }
-    }
-
 }

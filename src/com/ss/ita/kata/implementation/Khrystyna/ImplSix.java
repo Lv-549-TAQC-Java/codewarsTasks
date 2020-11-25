@@ -2,8 +2,6 @@ package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,8 +43,7 @@ public class ImplSix implements Six {
 
     @Override
     public double f(double x) {
-        BigDecimal bigX = new BigDecimal(x);
-        return bigX.add(BigDecimal.ONE).sqrt(MathContext.DECIMAL128).subtract(BigDecimal.ONE).doubleValue();
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
