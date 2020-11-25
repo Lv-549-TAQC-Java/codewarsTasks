@@ -99,7 +99,7 @@ public class ConsoleScanner implements Scanner {
     public String readString() {
         while (true) {
             if (scanner.hasNextLine()) {
-                return String.valueOf(scanner.nextLine());
+                return scanner.next();
             } else {
                 scanner.next();
                 System.out.println("Incorrect format(String). Try again...");
