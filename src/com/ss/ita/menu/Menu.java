@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<Kata> katas = new LinkedList<>();
+    List<String> kataTaskName = new ArrayList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
@@ -23,9 +23,8 @@ public class Menu {
     public Menu() {
         scanner = new ConsoleScanner();
         runner = new Runner();
-        initKatasList();
-        initKatas();
         initMap();
+        initKatas();
     }
 
     private void setUserImpl(){
@@ -38,13 +37,6 @@ public class Menu {
         }
         while(user == null);
         runner.setImpl(user);
-    }
-
-    private void initKatasList() {
-        katas.add(new KataFive());
-        katas.add(new KataSix());
-        katas.add(new KataSeven());
-        katas.add(new KataEight());
     }
 
     public void mainMenu() {
@@ -97,35 +89,104 @@ public class Menu {
         System.out.println("\nWe have such katas:");
         printKata();
         System.out.println("\nPlease enter a number of kata:");
-        int kataNumber = sc.readInt();
+        int kataNumber = sc.readInt();;
         printList(myHashMap.get(kataNumber));
         System.out.println("\nPlease enter a number of method to run:");
         int method = sc.readInt();
         System.out.println("\nThere are 8 authors:");
         printAuthoursData();
-        System.out.println("\nPlease enter a name:");
-        String name = sc.readString();
+        System.out.println("\nPlease enter a id of Author:");
+        long id = sc.readInt();
+        runner = new Runner(UserNames.getById(id));
+        runTask(method);
 
-        if (isNameCorrect(name)) {
-            Kata kata = getByNumber(kataNumber);
-            kata.runMethod(method, name);
-        }
+
 
         return showIntro(sc);
     }
 
-    private Kata getByNumber(Integer number) {
-        for (Kata kata : katas) {
-            if (number.equals(kata.getNumber())) {
-                return kata;
+
+    private void runTask(int taskId) {
+            switch (taskId) {
+                case 1:
+                    runner.runTask1();
+                    break;
+                case 2:
+                    runner.runTask2();
+                    break;
+                case 3:
+                    runner.runTask3();
+                    break;
+                case 4:
+                    runner.runTask4();
+                    break;
+                case 5:
+                    runner.runTask5();
+                    break;
+                case 6:
+                    runner.runTask6();
+                    break;
+                case 7:
+                    runner.runTask7();
+                    break;
+                case 8:
+                    runner.runTask8();
+                    break;
+                case 9:
+                    runner.runTask9();
+                    break;
+                case 10:
+                    runner.runTask10();
+                    break;
+                case 11:
+                    runner.runTask11();
+                    break;
+                case 12:
+                    runner.runTask12();
+                    break;
+                case 13:
+                    runner.runTask13();
+                    break;
+                case 14:
+                    runner.runTask14();
+                    break;
+                case 15:
+                    runner.runTask15();
+                    break;
+//                case 16:
+//                    runner.runTask16();
+//                    break;
+//                case 17:
+//                    runner.runTask17();
+//                    break;
+//                case 18:
+//                    runner.runTask18();
+//                    break;
+                case 19:
+                    runner.runTask19();
+                    break;
+                case 20:
+                    runner.runTask20();
+                    break;
+                case 21:
+                    runner.runTask21();
+                    break;
+                case 22:
+                    runner.runTask22();
+                    break;
+                case 23:
+                    runner.runTask23();
+                    break;
+                case 24:
+                    runner.runTask24();
+                    break;
             }
-        }
-        return null;
     }
+
 
     public void printList(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(i + 1 + " " + list.get(i));
+            System.out.println(list.get(i));
         }
     }
 
@@ -159,29 +220,29 @@ public class Menu {
     }
 
     public void initKatas() {
-        kata8.add("Keep Hydrated!");
-        kata8.add("Volume of a cuboid");
-        kata8.add("Miles per gallon to kilometers per liter");
-        kata8.add("To square root or no to square");
-        kata8.add("Count of positives / sum of negatives");
-        kata8.add("Convert a String to a Number!");
-        kata8.add("Willson primes");
-        kata8.add("Formatting decimal places");
-        kata8.add("Find numbers which are divisible by given number");
-        kata7.add("Looking for a benefactor");
-        kata7.add("Sum of the first nth term of Series");
-        kata7.add("Where is Vasya?");
-        kata6.add("Build a pile of Cubes");
-        kata6.add("Easy balance checking");
-        kata6.add("Floating-point Approximation (I)");
-        kata6.add("Rainfall");
-        kata6.add("Ranking NBA");
-        kata6.add("Help the bookseller!");
-        kata5.add("Artificial Rain");
-        kata5.add("Gap in Primes");
-        kata5.add("Trailing zeros in factorial");
-        kata5.add("Perimeter of squares in a rectangle");
-        kata5.add("Which x for that sum?");
-        kata5.add("Find the smallest");
+        kata8.add("1 Keep Hydrated!");
+        kata8.add("2 Volume of a cuboid");
+        kata8.add("3 Miles per gallon to kilometers per liter");
+        kata8.add("4 To square root or no to square");
+        kata8.add("5 Count of positives / sum of negatives");
+        kata8.add("6 Convert a String to a Number!");
+        kata8.add("7 Willson primes");
+        kata8.add("8 Formatting decimal places");
+        kata8.add("9 Find numbers which are divisible by given number");
+        kata7.add("10 Looking for a benefactor");
+        kata7.add("11 Sum of the first nth term of Series");
+        kata7.add("12 Where is Vasya?");
+        kata6.add("13 Build a pile of Cubes");
+        kata6.add("14 Easy balance checking");
+        kata6.add("15 Floating-point Approximation (I)");
+        kata6.add("16 Rainfall");
+        kata6.add("17 Ranking NBA");
+        kata6.add("18 Help the bookseller!");
+        kata5.add("19 Artificial Rain");
+        kata5.add("20 Gap in Primes");
+        kata5.add("21 Trailing zeros in factorial");
+        kata5.add("22 Perimeter of squares in a rectangle");
+        kata5.add("23 Which x for that sum?");
+        kata5.add("24 Find the smallest");
     }
 }
