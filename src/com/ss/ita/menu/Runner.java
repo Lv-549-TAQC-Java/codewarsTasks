@@ -127,11 +127,6 @@ public class Runner {
         System.out.println(res);
         return res;
     }
-    public String runTask11(){
-        System.out.println("run task Sum of the first nth term of Series");
-        System.out.println("Enter int number");
-        int input = scanner.readInt();
-        String res = String.valueOf(impl7.seriesSum(input));
 
     public String runTask22() {
         System.out.println("Perimeter of squares in a rectangle");
@@ -154,12 +149,15 @@ public class Runner {
         System.out.println("Enter long");
         long input = scanner.readLong();
         String res = Arrays.toString(impl5.smallest(input));
+        System.out.println(res);
+        return res;
+    }
 
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
         int[] input = scanner.readIntArray();
-        String res = String.valueOf(impl8.countPositivesSumNegatives(input));
+        String res = Arrays.toString(impl8.countPositivesSumNegatives(input));
         System.out.println(res);
         return res;
     }
