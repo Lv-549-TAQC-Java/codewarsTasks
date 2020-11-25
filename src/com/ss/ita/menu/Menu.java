@@ -23,17 +23,10 @@ public class Menu {
     public Menu() {
         scanner = new ConsoleScanner();
         runner = new Runner();
-        initKatasList();
         initKatas();
         initMap();
     }
 
-    private void initKatasList() {
-        katas.add(new KataFive());
-        katas.add(new KataSix());
-        katas.add(new KataSeven());
-        katas.add(new KataEight());
-    }
 
     public void mainMenu() {
         System.out.println("Hi user!");
@@ -110,7 +103,7 @@ public class Menu {
 
             }
             case 7:{
-                kataSeven(method,runner);
+                selectMethodFromKataSeven(method,runner);
                 break;
             }
             case 8:{
@@ -119,7 +112,7 @@ public class Menu {
         }
     }
 
-    public void kataSeven(int method, Runner runner) {
+    public void selectMethodFromKataSeven(int method, Runner runner) {
         switch (method) {
             case 1: {
                 runner.runTask10();
