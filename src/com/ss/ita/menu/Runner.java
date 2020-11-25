@@ -82,7 +82,7 @@ public class Runner {
 
     }
 
-    public String runTask1(){
+    public String runTask1() {
         System.out.println("run task Keep Hydrated!");
         System.out.println("Enter double");
         double input = scanner.readDouble();
@@ -91,5 +91,32 @@ public class Runner {
         return res;
     }
 
+    public void runTask13() {
+        System.out.println("run task Build a pile of Cubes");
+        System.out.println("Enter long:");
+        long input = scanner.readLong();
+        long res = impl6.findNb(input);
+        System.out.println("Result is:\n" + res);
+    }
 
+    public void runTask14() {
+        System.out.println("run task Easy balance checking");
+        String input = "1000.00!=\n125 Market !=:125.45\n126 Hardware =34.95\n127 Video! 7.45" +
+                "\n128 Book :14.32\n129 Gasoline ::16.10";
+        System.out.println("We have such input for run:\n" + input);
+        System.out.println("\nDo you want to change it?\n1-Yes\n2-No");
+        if (scanner.readInt() == 1) {
+            input = scanner.readString();
+        }
+        String res = impl6.balance(input);
+        System.out.println("Result is:\n" + res);
+    }
+
+    public void runTask15() {
+        System.out.println("run task Floating-point Approximation (I)");
+        System.out.println("Enter double:");
+        double input = scanner.readDouble();
+        double res = impl6.f(input);
+        System.out.println("Result is:\n" + res);
+    }
 }
