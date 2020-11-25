@@ -61,8 +61,9 @@ public class Menu {
 
         ToDo choose;
         do {
-            choose = getUserChoose(sc.nextLine());
+            choose = getUserChoose(sc.next());
         } while (!(choose == ToDo.Find || choose.equals(ToDo.Exit)));
+
         return choose;
     }
 
