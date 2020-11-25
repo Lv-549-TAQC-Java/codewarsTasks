@@ -82,11 +82,30 @@ public class Runner {
 
     }
 
-    public String runTask1() {
+    public String runTask1(){
         System.out.println("run task Keep Hydrated!");
         System.out.println("Enter double");
         double input = scanner.readDouble();
         String res = String.valueOf(impl8.liters(input));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask11(){
+        System.out.println("run task Sum of the first nth term of Series");
+        System.out.println("Enter int number");
+        int input = scanner.readInt();
+        String res = String.valueOf(impl7.seriesSum(input));
+        System.out.println(res);
+        return res;
+    }
+    public String runTask12(){
+        System.out.println("run task Where is Vasya?");
+        System.out.println("Enter ");
+        int input1 = scanner.readInt();
+        int input2 = scanner.readInt();
+        int input3 = scanner.readInt();
+        String res = String.valueOf(impl7.whereIsHe(input1, input2, input3));
         System.out.println(res);
         return res;
     }
