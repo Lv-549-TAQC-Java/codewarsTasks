@@ -97,7 +97,14 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String readString() {
-        return null;
+        while (true) {
+            if (scanner.hasNextLine()) {
+                return String.valueOf(scanner.nextLine());
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(String). Try again...");
+            }
+        }
     }
 
     @Override
