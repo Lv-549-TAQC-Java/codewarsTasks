@@ -2,7 +2,6 @@ package com.ss.ita.menu;
 
 import com.ss.ita.kata.Six;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,7 +70,7 @@ public class KataSix implements Kata {
                 System.out.println("Result is: " + six.stockSummary(new String[]{"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"},new String[] {"A", "B"}));
                 break;
             default:
-                new IllegalStateException("We haven`t method with this number");
+                throw new IllegalStateException("We haven`t method with this number");
         }
     }
 }

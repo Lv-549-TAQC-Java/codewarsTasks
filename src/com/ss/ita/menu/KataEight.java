@@ -3,6 +3,7 @@ package com.ss.ita.menu;
 import com.ss.ita.kata.Eight;
 import com.ss.ita.kata.implementation.AndriiTurianskyi.EightImpl;
 import com.ss.ita.kata.implementation.Khrystyna.ImplEight;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,7 +82,7 @@ public class KataEight implements Kata {
                 break;
             }
             default:
-                new IllegalStateException("We haven`t method with this number");
+                throw new IllegalStateException("We haven`t method with this number");
 
         }
     }

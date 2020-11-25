@@ -3,6 +3,7 @@ package com.ss.ita.menu;
 import com.ss.ita.kata.Seven;
 import com.ss.ita.kata.implementation.HannaVasiunyk.SevenImpl;
 import com.ss.ita.kata.implementation.Khrystyna.ImplSeven;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +54,7 @@ public class KataSeven implements Kata {
             }
 
             default:
-                new IllegalStateException("We haven`t method with this number");
+                throw new IllegalStateException("We haven`t method with this number");
         }
 
 
