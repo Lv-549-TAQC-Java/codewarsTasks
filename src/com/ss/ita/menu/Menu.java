@@ -82,8 +82,8 @@ public class Menu {
 
     public ToDo showIntro(ConsoleScanner sc) {
         System.out.println("\nWhat are you going to do?");
-        System.out.println("Find tasks by kata.");
-        System.out.println("Exit.");
+        System.out.println("Please, type \"Find\" to show katas," +
+                " or \"Exit\" to close the program");
 
         ToDo choose;
         do {

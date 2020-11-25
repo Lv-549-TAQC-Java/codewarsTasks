@@ -7,6 +7,8 @@ import com.ss.ita.kata.Six;
 import com.ss.ita.util.Scanner;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
+import java.util.Arrays;
+
 import java.math.BigInteger;
 
 import java.util.Arrays;
@@ -95,6 +97,36 @@ public class Runner {
         return res;
     }
 
+    public String runTask2() {
+        System.out.println("run task Volume of a cuboid");
+        System.out.println("Enter double length");
+        double length = scanner.readDouble();
+        System.out.println("Enter double width");
+        double width = scanner.readDouble();
+        System.out.println("Enter double height");
+        double height = scanner.readDouble();
+        String res = String.valueOf(impl8.getVolumeOfCuboid(length, width, height));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask3() {
+        System.out.println("run task Miles per gallon to kilometers per liter");
+        System.out.println("Enter float Miles per gallon");
+        float mpg = scanner.readFloat();
+        String res = String.valueOf(impl8.mpgToKPM(mpg));
+        System.out.println(res);
+        return res;
+    }
+
+    public String runTask4() {
+        System.out.println("run task To square root or no to square");
+        System.out.println("Enter int[] array");
+        int[] array = scanner.readIntArray();
+        String res = Arrays.toString(impl8.squareOrSquareRoot(array));
+        System.out.println(res);
+        return res;
+    }
 
     public String runTask22() {
         System.out.println("Perimeter of squares in a rectangle");
@@ -117,12 +149,15 @@ public class Runner {
         System.out.println("Enter long");
         long input = scanner.readLong();
         String res = Arrays.toString(impl5.smallest(input));
-      
+        System.out.println(res);
+        return res;
+    }
+
     public String runTask5() {
         System.out.println("countPositivesSumNegatives");
         System.out.println("Enter int[]");
         int[] input = scanner.readIntArray();
-        String res = String.valueOf(impl8.countPositivesSumNegatives(input));
+        String res = Arrays.toString(impl8.countPositivesSumNegatives(input));
         System.out.println(res);
         return res;
     }
