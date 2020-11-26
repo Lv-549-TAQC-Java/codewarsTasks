@@ -106,7 +106,8 @@ public class Menu {
                 break;
             }
             case 8:{
-
+                selectMethodFromEight(method, runner);
+                break;
             }
         }
     }
