@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
@@ -23,29 +22,10 @@ public class Menu {
     public Menu() {
         scanner = new ConsoleScanner();
         runner = new Runner();
-        initKatasList();
         initKatas();
         initMap();
     }
 
-    private void setUserImpl(){
-        System.out.println("select id of user:\n");
-        UserNames user;
-        do {
-            printAuthoursData();
-            long id = scanner.readLong();
-            user = UserNames.getById(id);
-        }
-        while(user == null);
-        runner.setImpl(user);
-    }
-
-    private void initKatasList() {
-        katas.add(new KataFive());
-        katas.add(new KataSix());
-        katas.add(new KataSeven());
-        katas.add(new KataEight());
-    }
 
     public void mainMenu() {
         System.out.println("Hi user!");
@@ -70,10 +50,9 @@ public class Menu {
     }
 
     public ToDo getUserChoose(String choose) {
-        try{
+        try {
             return ToDo.valueOf((choose));
-        }
-        catch (IllegalArgumentException error) {
+        } catch (IllegalArgumentException error) {
             System.out.println("Please, enter correct choose");
             return null;
         }
@@ -103,25 +82,52 @@ public class Menu {
         int method = sc.readInt();
         System.out.println("\nThere are 8 authors:");
         printAuthoursData();
-        System.out.println("\nPlease enter a name:");
-        String name = sc.readString();
+        System.out.println("\nPlease enter a number of name:");
+        long name = sc.readLong();
 
         if (isNameCorrect(name)) {
-            Kata kata = getByNumber(kataNumber);
-            kata.runMethod(method, name);
+            Runner runner = new Runner(UserNames.getById(name));
+            kataSelection(kataNumber,method,runner);
         }
 
         return showIntro(sc);
     }
 
-    private Kata getByNumber(Integer number) {
-        for (Kata kata : katas) {
-            if (number.equals(kata.getNumber())) {
-                return kata;
+    public void kataSelection(int kataNumber,int method, Runner runner){
+        switch (kataNumber){
+            case 5:{
+
+            }
+            case 6:{
+
+            }
+            case 7:{
+                selectMethodFromKataSeven(method,runner);
+                break;
+            }
+            case 8:{
+
             }
         }
-        return null;
     }
+
+    public void selectMethodFromKataSeven(int method, Runner runner) {
+        switch (method) {
+            case 1: {
+                runner.runTask10();
+                break;
+            }
+            case 2: {
+                runner.runTask11();
+                break;
+            }
+            case 3: {
+                runner.runTask12();
+                break;
+            }
+        }
+    }
+
 
     public void printList(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
@@ -135,11 +141,9 @@ public class Menu {
         }
     }
 
-    public boolean isNameCorrect(String name) {
-        for (UserNames user : UserNames.values()) {
-            if (name.equals(user.getName())) {
-                return true;
-            }
+    public boolean isNameCorrect(long name) {
+        if (name >= 1 && name <= UserNames.values().length) {
+            return true;
         }
         System.out.println("Name was typed incorrect");
         return false;
