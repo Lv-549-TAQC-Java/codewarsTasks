@@ -3,6 +3,8 @@ package com.ss.ita.util.implementation;
 import com.ss.ita.util.Scanner;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsoleScanner implements Scanner {
     private final java.util.Scanner scanner;
@@ -37,12 +39,30 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public int[] readIntArray() {
-        return new int[0];
+        List<Integer> integers = new ArrayList<>();
+        while (true) {
+            if (scanner.hasNextInt()) {
+                integers.add(scanner.nextInt());
+            } else if(!scanner.hasNext()) {
+                int[] newInt = new int[integers.size()];
+                for (int i = 0; i < integers.size(); i++) {
+                    newInt[i] = integers.get(i);
+                }
+                return newInt;
+            }
+        }
     }
 
     @Override
     public float readFloat() {
-        return 0;
+        while (true) {
+            if (scanner.hasNextFloat()) {
+                return scanner.nextFloat();
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(float). Try again...");
+            }
+        }
     }
 
     @Override
@@ -57,25 +77,63 @@ public class ConsoleScanner implements Scanner {
         }
     }
 
-
-
     @Override
     public double[] readDoubleArray() {
-        return new double[0];
+        List<Double> doubles = new ArrayList<>();
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                doubles.add(scanner.nextDouble());
+            } else if(!scanner.hasNext()) {
+                double[] doublesArray = new double[doubles.size()];
+                for (int i = 0; i < doubles.size(); i++) {
+                    doublesArray[i] = doubles.get(i);
+                }
+                return doublesArray;
+            }
+        }
+
     }
+
 
     @Override
     public String readString() {
-        return null;
+        while (true) {
+            if (scanner.hasNextLine()) {
+                return scanner.next();
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(String). Try again...");
+            }
+        }
     }
 
     @Override
     public String[] readStringArray() {
-        return new String[0];
+        List<String> listStr = new ArrayList<>();
+        while (true) {
+            System.out.println("Enter some string, in case you want to finish press enter");
+            String stringToBeAdded = scanner.nextLine();
+            if (!stringToBeAdded.isEmpty()) {
+                listStr.add(stringToBeAdded);
+            } else {
+                String[] arrStrResult=new String[listStr.size()];
+                for (int i=0;i<listStr.size();i++){
+                    arrStrResult[i]=listStr.get(i);
+                }
+                return arrStrResult;
+            }
+        }
     }
 
     @Override
     public BigInteger readBigInt() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigInteger()) {
+                return new BigInteger(scanner.nextLine());
+            } else {
+                scanner.next();
+                System.out.println("Incorrect format(big integer). Try again...");
+            }
+        }
     }
 }

@@ -1,19 +1,21 @@
-package com.ss.ita.kata.implementation.HannaVasiunyk;
+package com.ss.ita.kata.implementation.mike;
 
 import com.ss.ita.kata.Six;
 
-public class SixImp implements Six {
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        int i = 1;
-        while ( m > 0){
+        int n = 1;
+        for ( int i = 1; 0 < m ; i++ ) {
+
             m -= Math.pow(i, 3);
-            i++;
-            if (m < 0) {
+            n++;
+
+            if(m < 0) {
                 return -1;
             }
-        }
-        return i-1;
+
+        }return n-1;
     }
 
     @Override
@@ -23,7 +25,7 @@ public class SixImp implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override

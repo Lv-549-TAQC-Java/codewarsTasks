@@ -1,11 +1,15 @@
 package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Eight;
+import java.text.DecimalFormat;
+import java.util.List;
+import java.util.ArrayList;
 
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        int amount = (int)time /2;
+        return amount;
     }
 
     @Override
@@ -15,7 +19,10 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = (df.format(mpg * 1.609344f / 4.54609188f));
+        float f = Float.parseFloat(s);
+        return f;
     }
 
     @Override
@@ -61,16 +68,41 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if (n <= 1) {
+            return false;
+        }
+        else {
+            int factorial = 1;
+            for (int i = 1; i < n; i++) {
+                factorial *= i;
+            }
+            if((factorial + 1 ) / (n * n) % 1 == 0)  {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = df.format(number);
+        return Double.parseDouble(s);
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        List<Integer> al = new ArrayList<Integer>();
+        for (int i = 0; i < numbers.length; i++){
+            if(numbers[i] % divider == 0){
+                al.add(numbers[i]);
+            }
+        }
+        Integer[] arr = new Integer[al.size()];
+        int[] array = al.stream().mapToInt(i->i).toArray();
+        return array;
     }
 }
