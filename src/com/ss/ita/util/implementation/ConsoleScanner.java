@@ -4,6 +4,7 @@ import com.ss.ita.util.Scanner;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ConsoleScanner implements Scanner {
@@ -39,20 +40,30 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public int[] readIntArray() {
-        List<Integer> integers = new ArrayList<>();
-        while (true) {
-            if (scanner.hasNextInt()) {
-                integers.add(scanner.nextInt());
-            } else if(!scanner.hasNext()) {
-                int[] newInt = new int[integers.size()];
-                for (int i = 0; i < integers.size(); i++) {
-                    newInt[i] = integers.get(i);
-                }
-                return newInt;
-            }
-        }
-    }
 
+        while (true) {
+            if (scanner.hasNextLine()) {
+                String str = scanner.nextLine();
+                String[] str1 = str.trim().split("\\s+");
+                int [] arr = new int[str1.length];
+                try{
+                    for(int i =0; i<arr.length; i++){
+                        arr[i] = Integer.parseInt(str1[i]);
+                    }
+                }
+                catch (NumberFormatException error){
+                    System.out.println("incorrect input int[]");
+                    continue;
+                }
+                return arr;
+
+            } else {
+                System.out.println("incorrect input int[]");
+            }
+
+        }
+
+    }
     @Override
     public float readFloat() {
         while (true) {
@@ -79,17 +90,25 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double[] readDoubleArray() {
-        List<Double> doubles = new ArrayList<>();
         while (true) {
-            if (scanner.hasNextDouble()) {
-                doubles.add(scanner.nextDouble());
-            } else if(!scanner.hasNext()) {
-                double[] doublesArray = new double[doubles.size()];
-                for (int i = 0; i < doubles.size(); i++) {
-                    doublesArray[i] = doubles.get(i);
+            if (scanner.hasNextLine()) {
+                String str = scanner.nextLine();
+                String[] str1 = str.trim().split("\\s+");
+                double[] arr = new double[str1.length];
+                try{
+                    for(int i=0; i<arr.length; i++){
+                        arr[i] = Double.parseDouble(str1[i]);
+                    }
                 }
-                return doublesArray;
+               catch (NumberFormatException error ){
+                   System.out.println("Incorrect input, double[]");
+                   continue;
+               }
+                return arr;
+            } else {
+                System.out.println("Incorrect input, double[]");
             }
+
         }
 
     }
