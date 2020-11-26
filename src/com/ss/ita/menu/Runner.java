@@ -28,8 +28,10 @@ public class Runner {
     public Runner(UserNames whose) {
         scanner = new ConsoleScanner();
         setImpl(whose);
+        System.out.println(whose);
 
     }
+
 
     public void setImpl(UserNames whose) {
 
@@ -39,48 +41,56 @@ public class Runner {
                 this.impl7 = new com.ss.ita.kata.implementation.HannaVasiunyk.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.HannaVasiunyk.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.HannaVasiunyk.FiveImpl();
+                break;
             }
             case KHRYSTYNA: {
                 this.impl8 = new com.ss.ita.kata.implementation.Khrystyna.ImplEight();
                 this.impl7 = new com.ss.ita.kata.implementation.Khrystyna.ImplSeven();
                 this.impl6 = new com.ss.ita.kata.implementation.Khrystyna.ImplSix();
                 this.impl5 = new com.ss.ita.kata.implementation.Khrystyna.ImplFive();
+                break;
             }
             case VADYM: {
                 this.impl8 = new com.ss.ita.kata.implementation.vadkostuk.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.vadkostuk.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.vadkostuk.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.vadkostuk.FiveImpl();
+                break;
             }
             case MIKE: {
                 this.impl8 = new com.ss.ita.kata.implementation.mike.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.mike.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.mike.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.mike.FiveImpl();
+                break;
             }
             case MARIA: {
                 this.impl8 = new com.ss.ita.kata.implementation.Maria.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.Maria.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.Maria.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.Maria.FiveImpl();
+                break;
             }
             case ANDRII: {
                 this.impl8 = new com.ss.ita.kata.implementation.AndriiTurianskyi.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.AndriiTurianskyi.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.AndriiTurianskyi.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.AndriiTurianskyi.FiveImpl();
+                break;
             }
             case NASTIA: {
                 this.impl8 = new com.ss.ita.kata.implementation.Nastia3.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.Nastia3.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.Nastia3.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.Nastia3.FiveImpl();
+                break;
             }
             case YURII: {
                 this.impl8 = new com.ss.ita.kata.implementation.Krynytsky.EightImpl();
                 this.impl7 = new com.ss.ita.kata.implementation.Krynytsky.SevenImpl();
                 this.impl6 = new com.ss.ita.kata.implementation.Krynytsky.SixImpl();
                 this.impl5 = new com.ss.ita.kata.implementation.Krynytsky.FiveImpl();
+                break;
             }
 
         }
@@ -262,8 +272,8 @@ public class Runner {
             input1 = scanner.readString();
             input2 = scanner.readString();
         }
-        String res1 = String.valueOf(impl6.mean(input1, input2));
-        String res2 = String.valueOf(impl6.variance(input1, input2));
+        String res1 = Double.toString(impl6.mean(input2, input1));
+        String res2 = Double.toString(impl6.variance(input2, input1));
         System.out.println("Result is:\n" +  "Mean: " + res1 + "\nVariance: " + res2);
     }
 
