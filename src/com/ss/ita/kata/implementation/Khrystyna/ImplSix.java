@@ -2,6 +2,7 @@ package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +21,8 @@ public class ImplSix implements Six {
 
     @Override
     public String balance(String book) {
-        List<String> books = book
-                .lines()
+        List<String> books = Arrays.stream(book
+                .split("\n"))
                 .map(line -> line.replaceAll("[^\\s\\w.]", ""))
                 .map(line -> line.replaceAll("\\s{1,5}", " "))
                 .collect(Collectors.toList());
