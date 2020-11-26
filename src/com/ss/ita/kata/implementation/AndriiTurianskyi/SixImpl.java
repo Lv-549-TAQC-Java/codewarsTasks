@@ -7,42 +7,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SixImpl implements Six {
-    @Override
-    public long findNb(long m) {
-        return 0;
-    }
-
-    @Override
-    public String balance(String book) {
-        return null;
-    }
-
-    @Override
-    public double f(double x) {
-        return 0;
-    }
-
-    @Override
-    public double mean(String town, String strng) {
-        return 0;
-    }
-
-    @Override
-    public double variance(String town, String strng) {
-        return 0;
-    }
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        List<String> games = Arrays.stream(resultSheet.split(",")).filter(x -> x.contains(toFind + " ")).collect(Collectors.toList());
+        List<String> nbaGames = Arrays.stream(resultSheet.split(",")).filter(x -> x.contains(toFind + " ")).collect(Collectors.toList());
         if (toFind.isEmpty()) {
             return "";
         }
-        if (games.isEmpty()) {
-            return toFind+":This team didn't play!";
+        if (nbaGames.isEmpty()) {
+            return toFind + ":This team didn't play!";
         }
-        List<String[]> teams = games.stream().map(game -> game.split("\\s\\d+(\\W|$)")).collect(Collectors.toList());
-        List<Integer[]> scores = games.stream()
+        List<String[]> teams = nbaGames.stream().map(game -> game.split("\\s\\d+(\\W|$)")).collect(Collectors.toList());
+        List<Integer[]> scores = nbaGames.stream()
                 .map(game -> Arrays.stream(game.split(" "))
                         .filter(x -> x.matches("\\d+"))
                         .map(Integer::valueOf).toArray(Integer[]::new))
@@ -52,7 +28,7 @@ public class SixImpl implements Six {
             try {
                 boolean draw = scores.get(i)[0].equals(scores.get(i)[1]);
             } catch (ArrayIndexOutOfBoundsException e) {
-                return "Error(float number):" + games.get(i);
+                return "Error(float number):" + nbaGames.get(i);
             }
             boolean teamFirst = teams.get(i)[0].equals(toFind);
             if (teamFirst) {
@@ -85,8 +61,4 @@ public class SixImpl implements Six {
                 wins, draws, lose, scored, conceded, points);
     }
 
-    @Override
-    public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
-    }
 }
