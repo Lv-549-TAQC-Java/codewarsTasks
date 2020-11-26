@@ -99,7 +99,7 @@ public class Menu {
 
             }
             case 6:{
-
+                selectMethodFromKataSix(method,runner);
             }
             case 7:{
                 selectMethodFromKataSeven(method,runner);
@@ -107,6 +107,36 @@ public class Menu {
             }
             case 8:{
 
+            }
+        }
+    }
+
+
+    public void selectMethodFromKataSix(int method, Runner runner) {
+        switch (method) {
+            case 1: {
+                runner.runTask13();
+                break;
+            }
+            case 2: {
+                runner.runTask14();
+                break;
+            }
+            case 3: {
+                runner.runTask15();
+                break;
+            }
+            case 4: {
+                runner.runTask16();
+                break;
+            }
+            case 5: {
+                runner.runTask17();
+                break;
+            }
+            case 6: {
+                runner.runTask18();
+                break;
             }
         }
     }
