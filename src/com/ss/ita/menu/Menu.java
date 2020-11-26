@@ -8,12 +8,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Menu {
+
+    private String hiUser = "Hi user!";
+    private String enterCorrectChoose = "Please, enter correct choose";
+    private String whatToDo = "\nWhat are you going to do?";
+    private String typeYourChoice = "Please, type \"Find\" to show katas," + " or \"Exit\" to close the program";
+    private String listKatas = "\nWe have such katas:";
+    private String enterNumberOfKata = "\nPlease enter a number of kata:";
+    private String enterNumberOfMethod = "\nPlease enter a number of method to run:";
+    private String listAuthors = "\nThere are 8 authors:";
+    private String enterName = "\nPlease enter a number of name:";
+
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
     List<String> kata5 = new ArrayList<>();
-
 
     ConsoleScanner scanner;
     Runner runner;
@@ -28,7 +38,7 @@ public class Menu {
 
 
     public void mainMenu() {
-        System.out.println("Hi user!");
+        System.out.println(hiUser);
         boolean active = true;
         while (active) {
             switch (choose) {
@@ -53,16 +63,15 @@ public class Menu {
         try {
             return ToDo.valueOf((choose));
         } catch (IllegalArgumentException error) {
-            System.out.println("Please, enter correct choose");
+            System.out.println(enterCorrectChoose);
             return null;
         }
 
     }
 
     public ToDo showIntro(ConsoleScanner sc) {
-        System.out.println("\nWhat are you going to do?");
-        System.out.println("Please, type \"Find\" to show katas," +
-                " or \"Exit\" to close the program");
+        System.out.println(whatToDo);
+        System.out.println(typeYourChoice);
 
         ToDo choose;
         do {
@@ -73,16 +82,16 @@ public class Menu {
     }
 
     public ToDo tasksKata(ConsoleScanner sc) {
-        System.out.println("\nWe have such katas:");
+        System.out.println(listKatas);
         printKata();
-        System.out.println("\nPlease enter a number of kata:");
+        System.out.println(enterNumberOfKata);
         int kataNumber = sc.readInt();
         printList(myHashMap.get(kataNumber));
-        System.out.println("\nPlease enter a number of method to run:");
+        System.out.println(enterNumberOfMethod);
         int method = sc.readInt();
-        System.out.println("\nThere are 8 authors:");
+        System.out.println(listAuthors);
         printAuthoursData();
-        System.out.println("\nPlease enter a number of name:");
+        System.out.println(enterName);
         long name = sc.readLong();
 
         if (isNameCorrect(name)) {
