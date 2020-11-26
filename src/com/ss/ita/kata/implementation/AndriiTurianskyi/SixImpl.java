@@ -4,10 +4,6 @@ import com.ss.ita.kata.Six;
 
 import java.util.Arrays;
 
-import java.math.BigDecimal;
-
-import java.math.MathContext;
-
 import java.util.ArrayList;
 
 import java.util.List;
