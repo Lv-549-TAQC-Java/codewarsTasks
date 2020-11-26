@@ -192,11 +192,14 @@ public class Runner {
     }
     public String runTask12(){
         System.out.println("run task Where is Vasya?");
-        System.out.println("Enter ");
+        System.out.println("Enter 3 int number");
+        System.out.println("input1:");
         int input1 = scanner.readInt();
+        System.out.println("input2:");
         int input2 = scanner.readInt();
+        System.out.println("input3:");
         int input3 = scanner.readInt();
-        String res = String.valueOf(impl7.whereIsHe(input1, input2, input3));
+        String res = String.valueOf(impl7.whereIsHe( input1, input2, input3));
         System.out.println(res);
         return res;
     }

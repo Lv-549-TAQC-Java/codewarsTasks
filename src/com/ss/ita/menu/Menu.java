@@ -105,7 +105,8 @@ public class Menu {
     public void kataSelection(int kataNumber,int method, Runner runner){
         switch (kataNumber){
             case 5:{
-
+                selectMethodFromKataFive(method,runner);
+                break;
             }
             case 6:{
                 selectMethodFromKataSix(method,runner);
@@ -147,6 +148,35 @@ public class Menu {
             }
             case 6: {
                 runner.runTask18();
+                break;
+            }
+        }
+    }
+
+    public void selectMethodFromKataFive(int method, Runner runner) {
+        switch (method) {
+            case 1: {
+                runner.runTask19();
+                break;
+            }
+            case 2: {
+                runner.runTask20();
+                break;
+            }
+            case 3: {
+                runner.runTask21();
+                break;
+            }
+            case 4: {
+                runner.runTask22();
+                break;
+            }
+            case 5: {
+                runner.runTask23();
+                break;
+            }
+            case 6: {
+                runner.runTask24();
                 break;
             }
         }

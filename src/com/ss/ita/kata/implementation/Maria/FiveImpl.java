@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.Maria;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import static java.math.BigInteger.*;
 
 public class FiveImpl implements Five {
     @Override
@@ -27,22 +28,51 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long last = Long.MIN_VALUE;
+        for (long i = m; i < n; i++) {
+            if (isPrime(i)) {
+                if (i - last == g) {
+                    return new long[]{last, i};
+                }
+                last = i;
+            }
+        }
+
+        return null;
+    }
+
+    private static boolean isPrime(long i) {
+        for (long j = 2; j < i / 2; j++) {
+            if (i % j == 0) return false;
+        }
+        return true;
     }
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int result = 0;
+        while (n > 1) result += n /= 5;
+        return result;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger p0 = ZERO;
+        BigInteger p1 = ONE;
+        BigInteger sum = p1;
+        for (BigInteger i = n; i.compareTo(ZERO) > 0; i = i.subtract(ONE)) {
+            final BigInteger temp = p1;
+            p1 = p0.add(p1);
+            p0 = temp;
+            sum = sum.add(p1);
+        }
+        return sum.shiftLeft(2);
     }
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double d = 4*m + 1;
+        return ((2*m+1) - Math.sqrt(d))/(2*m);
     }
 
     @Override
