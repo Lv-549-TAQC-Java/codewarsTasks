@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Menu {
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
-    List<Kata> katas = new LinkedList<>();
     List<String> kata8 = new ArrayList<>();
     List<String> kata7 = new ArrayList<>();
     List<String> kata6 = new ArrayList<>();
@@ -143,7 +142,7 @@ public class Menu {
     }
 
     public boolean isNameCorrect(long name) {
-        if (name >= 1 && name <= 8) {
+        if (name >= 1 && name <= UserNames.values().length) {
             return true;
         }
         System.out.println("Name was typed incorrect");
