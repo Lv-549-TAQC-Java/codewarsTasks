@@ -100,6 +100,7 @@ public class Menu {
             }
             case 6:{
                 selectMethodFromKataSix(method,runner);
+                break;
             }
             case 7:{
                 selectMethodFromKataSeven(method,runner);
