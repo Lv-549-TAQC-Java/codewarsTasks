@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.Maria;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import static java.math.BigInteger.*;
 
 public class FiveImpl implements Five {
     @Override
@@ -56,7 +57,16 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger p0 = ZERO;
+        BigInteger p1 = ONE;
+        BigInteger sum = p1;
+        for (BigInteger i = n; i.compareTo(ZERO) > 0; i = i.subtract(ONE)) {
+            final BigInteger temp = p1;
+            p1 = p0.add(p1);
+            p0 = temp;
+            sum = sum.add(p1);
+        }
+        return sum.shiftLeft(2);
     }
 
     @Override
