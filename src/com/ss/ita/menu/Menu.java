@@ -9,15 +9,15 @@ import java.util.List;
 
 public class Menu {
 
-    private String hiUser = "Hi user!";
-    private String enterCorrectChoose = "Please, enter correct choose";
-    private String whatToDo = "\nWhat are you going to do?";
-    private String typeYourChoice = "Please, type \"Find\" to show katas," + " or \"Exit\" to close the program";
-    private String listKatas = "\nWe have such katas:";
-    private String enterNumberOfKata = "\nPlease enter a number of kata:";
-    private String enterNumberOfMethod = "\nPlease enter a number of method to run:";
-    private String listAuthors = "\nThere are 8 authors:";
-    private String enterName = "\nPlease enter a number of name:";
+    private final String hiUser = "Hi user!";
+    private final String enterCorrectChoose = "Please, enter correct choose";
+    private final String whatToDo = "\nWhat are you going to do?";
+    private final String typeYourChoice = "Please, type \"Find\" to show katas," + " or \"Exit\" to close the program";
+    private final String listKatas = "\nWe have such katas:";
+    private final String enterNumberOfKata = "\nPlease enter a number of kata:";
+    private final String enterNumberOfMethod = "\nPlease enter a number of method to run:";
+    private final String listAuthors = "\nThere are 8 authors:";
+    private final String enterName = "\nPlease enter a number of name:";
 
     HashMap<Integer, List<String>> myHashMap = new HashMap<>();
     List<String> kata8 = new ArrayList<>();
