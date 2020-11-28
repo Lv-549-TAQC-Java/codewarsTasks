@@ -10,6 +10,7 @@ import static org.testng.Assert.*;
 public class EightTest {
 
     private Eight eight = new EightImpl();
+    private Eight eightMike = new com.ss.ita.kata.implementation.mike.EightImpl();
 
     @Test(dataProvider = "KeepHydrated")
     public void testLiters(double expectedResult, double actualResult) {
