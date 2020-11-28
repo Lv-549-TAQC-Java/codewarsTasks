@@ -1,10 +1,11 @@
 package com.ss.ita.kata;
 
+import com.ss.ita.kata.implementation.EightDataProviders;
 import com.ss.ita.kata.implementation.Krynytsky.EightImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class EightTest {
+public class EightTest extends EightDataProviders {
 
     private Eight eight = new EightImpl();
     private Eight eightMike = new com.ss.ita.kata.implementation.mike.EightImpl();
