@@ -1,10 +1,12 @@
 package com.ss.ita.kata;
 
+import com.ss.ita.kata.implementation.SixDataProviders;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class SixTest {
+public class SixTest extends SixDataProviders {
 
     @Test
     public void testFindNb() {
@@ -26,8 +28,9 @@ public class SixTest {
     public void testVariance() {
     }
 
-    @Test
-    public void testNbaCup() {
+    @Test(dataProvider = "RankingNba")
+    public void testNbaCup(String actualResult, String expectedResult) {
+        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @Test

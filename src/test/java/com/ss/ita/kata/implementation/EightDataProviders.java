@@ -31,4 +31,8 @@ public class EightDataProviders {
                 {new int[]{1, 2, 3, 4, 5, 6}, new com.ss.ita.kata.implementation.Khrystyna.ImplEight().divisibleBy(new int[]{1, 2, 3, 4, 5, 6}, 1)},
         };
     }
+
+    /*
+     * put your provider methods here
+     */
 }
