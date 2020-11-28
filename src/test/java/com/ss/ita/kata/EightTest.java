@@ -2,10 +2,7 @@ package com.ss.ita.kata;
 
 import com.ss.ita.kata.implementation.Krynytsky.EightImpl;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 public class EightTest {
 
