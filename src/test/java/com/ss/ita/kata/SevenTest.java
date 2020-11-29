@@ -5,8 +5,10 @@ import org.testng.annotations.Test;
 
 public class SevenTest extends SevenDataProvider{
 
-    @Test
-    public void testNewAvg() {
+    @Test(dataProvider = "validLookingForABenefactorDataProvide")
+    public void testNewAvg(Seven impl,double[] arr, double navg, long expectedData ) {
+        long result = impl.newAvg(arr, navg);
+        Assert.assertEquals(expectedData,result,impl.getClass().getName());
     }
 
     @Test(dataProvider ="validSumOfTheFirstNthDataProvider")
