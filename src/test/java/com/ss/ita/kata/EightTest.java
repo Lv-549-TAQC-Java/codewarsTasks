@@ -1,26 +1,13 @@
 package com.ss.ita.kata;
 
-import com.ss.ita.kata.implementation.Krynytsky.EightImpl;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 public class EightTest extends EightDataProvider {
 
-    private EightImpl eight;
-
-    @BeforeClass
-    public void createObject() {
-        eight = new EightImpl();
-    }
 
     @Test
     public void testLiters() {
-        double actualResult = eight.liters(12);
-        double expectedResult = 6;
-        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @Test
