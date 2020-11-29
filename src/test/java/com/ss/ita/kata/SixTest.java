@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class SixTest {
+public class SixTest extends SixDataProvider {
 
     @Test
     public void testFindNb() {
