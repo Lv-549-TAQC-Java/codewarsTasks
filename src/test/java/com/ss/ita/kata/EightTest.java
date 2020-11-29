@@ -1,28 +1,13 @@
 package com.ss.ita.kata;
 
-import com.ss.ita.kata.implementation.Krynytsky.EightImpl;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+public class EightTest extends EightDataProvider {
 
-public class EightTest {
-
-    private EightImpl eight;
-    private com.ss.ita.kata.implementation.mike.EightImpl eightMike;
-
-    @BeforeClass
-    public void createObject() {
-        eight = new EightImpl();
-        eightMike = new com.ss.ita.kata.implementation.mike.EightImpl();
-    }
 
     @Test
     public void testLiters() {
-        double actualResult = eight.liters(12);
-        double expectedResult = 6;
-        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @Test
@@ -30,29 +15,13 @@ public class EightTest {
     }
 
     @Test
-    public void testGetVolumeOfCuboid1() {
-        double actualResult = eightMike.getVolumeOfCuboid(1,2,2);
-        double expectedResult = 4;
-        Assert.assertEquals(actualResult, expectedResult);
+    public void testGetVolumeOfCuboid() {
     }
 
-    @Test
-    public void testGetVolumeOfCuboid2() {
-        double actualResult = eightMike.getVolumeOfCuboid(2,2,5);
-        double expectedResult = 20;
-        Assert.assertEquals(actualResult, expectedResult);
-    }
-
-    @Test( expectedExceptions = ArithmeticException.class)
-    public void testGetVolumeOfCuboid3() {
-        double actualResult = eightMike.getVolumeOfCuboid((2/0),5,1);
-        double expectedResult = 10;
-        //Assert.assertEquals(actualResult, expectedResult);
-    }
-
-
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "validMpgToKpmDataProvider")
+    public void testMpgToKPM(Eight impl,float x,float expectedData) {
+        float actualData = impl.mpgToKPM(x);
+        Assert.assertEquals(expectedData,actualData,impl.getClass().getName());
     }
 
     @Test

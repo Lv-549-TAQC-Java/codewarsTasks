@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class FiveTest {
+public class FiveTest extends FiveDataProvider{
 
     @Test
     public void testArtificialRain() {
