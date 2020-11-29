@@ -33,7 +33,7 @@ public class SevenImpl implements Seven {
             for (Double aDouble : series) {
                 sum += aDouble;
             }
-            return "" + Math.round(100d * sum) / 100d;
+            return String.format("%.2f", sum);
         } else return "0.00";
     }
 

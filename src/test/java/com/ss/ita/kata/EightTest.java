@@ -37,8 +37,9 @@ public class EightTest extends EightDataProvider {
     public void testStringToNumber() {
     }
 
-    @Test
-    public void testAmIWilson() {
+    @Test(dataProvider = "dataForWilsonNumber")
+    public void testAmIWilson1(Eight impl, double number, boolean isWilsonNumber) {
+        Assert.assertEquals(impl.amIWilson(number),isWilsonNumber,impl.getClass().getName());
     }
 
     @Test
