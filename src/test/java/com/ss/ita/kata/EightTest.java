@@ -19,17 +19,18 @@ public class EightTest extends EightDataProvider {
     }
 
     @Test(dataProvider = "validMpgToKpmDataProvider")
-    public void testMpgToKPM(Eight impl,float x,float expectedData) {
+    public void testMpgToKPM(Eight impl, float x, float expectedData) {
         float actualData = impl.mpgToKPM(x);
-        Assert.assertEquals(expectedData,actualData,impl.getClass().getName());
+        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
     }
 
     @Test
     public void testSquareOrSquareRoot() {
     }
 
-    @Test
-    public void testCountPositivesSumNegatives() {
+    @Test(dataProvider = "validCountPositivesSumNegativesProvider")
+    public void testCountPositivesSumNegatives(Eight impl, int[] input, int[] expected) {
+        Assert.assertEquals(impl.countPositivesSumNegatives(input), expected, impl.getClass().getName());
     }
 
     @Test

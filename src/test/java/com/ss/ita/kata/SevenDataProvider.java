@@ -4,7 +4,6 @@ import org.testng.annotations.DataProvider;
 
 public class SevenDataProvider extends DataProviderClass{
 
-
     @DataProvider(name = "validSumOfTheFirstNthDataProvider")
     public static Object[][] validSumOfTheFirstNthDataProvider(){
          Object[][] param = new Object[][]{
