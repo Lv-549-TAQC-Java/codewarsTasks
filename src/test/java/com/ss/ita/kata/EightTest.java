@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class EightTest {
+public class EightTest extends EightDataProvider {
 
     private EightImpl eight;
 
@@ -31,8 +31,10 @@ public class EightTest {
     public void testGetVolumeOfCuboid() {
     }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "validMpgToKpmDataProvider")
+    public void testMpgToKPM(Eight impl,float x,float expectedData) {
+        float actualData = impl.mpgToKPM(x);
+        Assert.assertEquals(expectedData,actualData,impl.getClass().getName());
     }
 
     @Test
