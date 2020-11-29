@@ -1,10 +1,9 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
-public class FiveTest extends FiveDataProvider{
+public class FiveTest extends FiveDataProvider {
 
     @Test
     public void testArtificialRain() {
@@ -14,8 +13,9 @@ public class FiveTest extends FiveDataProvider{
     public void testGap() {
     }
 
-    @Test
-    public void testZeros() {
+    @Test(dataProvider = "validZerosProvider")
+    public void testZeros(Five impl, int input, int expected) {
+        Assert.assertEquals(impl.zeros(input), expected, impl.getClass().getName());
     }
 
     @Test
