@@ -3,6 +3,8 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class EightTest extends EightDataProvider {
 
 
@@ -24,9 +26,11 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(expectedData,actualData,impl.getClass().getName());
     }
 
-    @Test
-    public void testSquareOrSquareRoot() {
-    }
+   @Test(dataProvider = "validSquareOrSquareRootDataProvider")
+   public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
+          int[] actualData = impl.squareOrSquareRoot(input);
+          Assert.assertEquals(Arrays.toString(actualData),Arrays.toString(expectedData),impl.getClass().getName());
+   }
 
     @Test
     public void testCountPositivesSumNegatives() {

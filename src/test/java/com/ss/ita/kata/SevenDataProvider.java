@@ -14,4 +14,12 @@ public class SevenDataProvider extends DataProviderClass{
       return getObjectCodes(validSevenImplPackageProvider(),param);
     }
 
+    @DataProvider(name = "validWhereIsHeDataProvider")
+    public static Object[][] validWhereIsHeDataProvider(){
+        Object[][] param = new Object[][]{
+                {3,1,1,2},{5,2,3,3}};
+
+        return getObjectCodes(validSevenImplPackageProvider(),param);
+    }
+
 }

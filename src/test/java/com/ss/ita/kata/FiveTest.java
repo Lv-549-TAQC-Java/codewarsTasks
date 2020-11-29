@@ -1,6 +1,9 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
 
 import static org.testng.Assert.*;
 
@@ -10,8 +13,11 @@ public class FiveTest extends FiveDataProvider{
     public void testArtificialRain() {
     }
 
-    @Test
-    public void testGap() {
+
+    @Test(dataProvider ="validGapDataProvider")
+    public void testGap(Five impl,int input1, int input2, int input3, long[] expectedData) {
+        long[] actualData = impl.gap(input1, input2, input3);
+        Assert.assertEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
     }
 
     @Test
