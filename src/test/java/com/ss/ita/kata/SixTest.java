@@ -16,7 +16,7 @@ public class SixTest extends SixDataProvider {
 
     @Test(dataProvider = "dataForF")
     public void testF(Six impl, double act, double exp) {
-        assertEquals(impl.f(act),exp);
+        Assert.assertEquals(impl.f(act), exp);
     }
 
     @Test
