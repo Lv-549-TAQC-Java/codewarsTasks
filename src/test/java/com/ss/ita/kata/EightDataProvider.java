@@ -24,6 +24,7 @@ public class EightDataProvider extends DataProviderClass{
         return getObjectCodes(validEightImplPackageProvider(),param);
     }
 
+    @DataProvider
     public Object[][] dataForFormattingDecimalPlaces() {
         Object[][] param = new Object[][]{
                 {4.659725356, 4.66},
