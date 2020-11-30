@@ -52,22 +52,46 @@ public class EightDataProvider extends DataProviderClass {
                 {50.102285, 50.10},
                 {0.00, 0.00}
         };
-        return getObjectCodes(validEightImplPackageProvider(),param);
+        return getObjectCodes(validEightImplPackageProvider(), param);
     }
-    @DataProvider(name = "validKeepHydrated")
-    public Object[][] testDataForLitersImpl() {
+
+    @DataProvider(name = "KeepHydrated")
+    public Object[][] validDataForLiters() {
         Object[][] param = new Object[][]{
-                {12, 6},
-                {0.97, 0},
-                {14.64, 7},
-                {1600.20, 800 },
-                {80, 40},
-                {24, 12},
-                {48, 24},
-                {96, 48}
+                {6, 12},
+                {0, 0.97},
+                {7, 14.98},
+                {800, 1600.25}
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "NegativeKeepHydrated")
+    public Object[][] invalidDataForLiters() {
+        Object[][] param = new Object[][]{
+                {12, 7},
+                {48, 89},
+                {96, 0}
+        };
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
 
+    @DataProvider(name = "FindNumbersDivisibleBy")
+    public Object[][] validDataForDivisibleBy() {
+        Object[][] param = new Object[][]{
+                {new int[]{1, 2, 3, 4, 5, 6}, 2, new int[]{2, 4, 6}},
+                {new int[]{3, 25, 5, 6}, 5, new int[]{25, 5}},
+                {new int[]{1, 2, 3, 4, 5, 6}, 1, new int[]{1, 2, 3, 4, 5, 6}}
+        };
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
+    @DataProvider(name = "NegativeFindNumbersDivisibleBy")
+    public Object[][] invalidDataForDivisibleBy() {
+        Object[][] param = new Object[][]{
+                {new int[]{1, 2, 3, 4, 5, 6}, 3, new int[]{2, 4, 6}},
+                {new int[]{3, 25, 5, 6}, 7, new int[]{25, 5}},
+                {new int[]{1, 2, 3, 4, 5, 6}, 55, new int[]{1, 2, 3, 4, 5, 6}}
+        };
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
 }
