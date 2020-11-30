@@ -14,6 +14,14 @@ public class SevenDataProvider extends DataProviderClass {
         return getObjectCodes(validSevenImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "invalidSumOfTheFirstNthDataProvider")
+    public static Object[][] invalidSumOfTheFirstNthDataProvider() {
+        Object[][] param = new Object[][]{
+                {"mkl",""}, {"32,6", ""},{0.525684648434863486,""}};
+
+        return getObjectCodes(validSevenImplPackageProvider(), param);
+    }
+
     @DataProvider(name = "validWhereIsHeDataProvider")
     public static Object[][] validWhereIsHeDataProvider(){
         Object[][] param = new Object[][]{
