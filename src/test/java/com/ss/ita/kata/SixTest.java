@@ -10,8 +10,9 @@ public class SixTest extends SixDataProvider {
         Assert.assertEquals((Long) impl.findNb(input), (Long) expected, impl.getClass().getName());
     }
 
-    @Test
-    public void testBalance() {
+    @Test(dataProvider = "validBalance")
+    public void testBalance(Six impl, String input, String expected) {
+        Assert.assertEquals(impl.balance(input), expected, impl.getClass().getName());
     }
 
     @Test(dataProvider = "dataForF")

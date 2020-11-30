@@ -49,8 +49,9 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(impl.countPositivesSumNegatives(input), expected, impl.getClass().getName());
     }
 
-    @Test
-    public void testStringToNumber() {
+    @Test(dataProvider = "validStringToNumberDataProvider")
+    public void testStringToNumber(Eight impl, String input, int expected) {
+        Assert.assertEquals(impl.stringToNumber(input), expected, impl.getClass().getName());
     }
 
     @Test(dataProvider = "dataForWilsonNumber")

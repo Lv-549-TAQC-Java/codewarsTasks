@@ -3,6 +3,7 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 import static org.testng.Assert.*;
@@ -38,8 +39,11 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(impl.zeros(input), expected, impl.getClass().getName());
     }
 
-    @Test
-    public void testPerimeter() {
+    @Test(dataProvider = "validPerimeterDataProvider")
+    public void testPerimeter(Five impl, long input, long expected) {
+        //BigInteger in = input;
+        Assert.assertEquals(impl.perimeter(BigInteger.valueOf(input)), BigInteger.valueOf(expected), impl.getClass().getName());
+
     }
 
     private static void assertFuzzyEquals(double act, double exp){

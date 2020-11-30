@@ -71,4 +71,13 @@ public class FiveDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validFiveImplPackageProvider(), param);
     }
+
+    @DataProvider(name = "validPerimeterDataProvider")
+    public static Object[][] validPerimeterDataProvider() {
+        Object[][] param = new Object[][]{
+                {5,80},
+                {7,216}
+        };
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
 }
