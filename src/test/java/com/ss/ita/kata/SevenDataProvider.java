@@ -30,4 +30,12 @@ public class SevenDataProvider extends DataProviderClass {
         return getObjectCodes(validSevenImplPackageProvider(),param);
     }
 
+    @DataProvider(name = "invalidWhereIsHeDataProvider")
+    public static Object[][] invalidWhereIsHeDataProvider(){
+        Object[][] param = new Object[][]{
+                {3,2,1,5},{5,7,3,2}};
+
+        return getObjectCodes(validSevenImplPackageProvider(),param);
+    }
+
 }
