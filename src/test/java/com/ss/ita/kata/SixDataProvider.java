@@ -12,5 +12,21 @@ public class SixDataProvider extends DataProviderClass{
         };
         return getObjectCodes(validSixImplPackageProvider(),param);
     }
+    @DataProvider
+    public Object[][] dataForMean() {
+        Object[][] param = new Object[][]{
+                {"London", 51.199999999999996},
+                {"Beijing", 52.416666666666664}
+        };
+        return getObjectCodes(validSixImplPackageProvider(),param);
+    }
 
+    @DataProvider
+    public Object[][] dataForVariance() {
+        Object[][] param = new Object[][]{
+                {"London",  57.42833333333374},
+                {"Beijing", 4808.37138888889}
+        };
+        return getObjectCodes(validSixImplPackageProvider(),param);
+    }
 }
