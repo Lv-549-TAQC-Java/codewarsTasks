@@ -16,6 +16,28 @@ public class SixDataProvider extends DataProviderClass {
         return getObjectCodes(validSixImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "validBalance")
+    public static Object[][] validBalance() {
+        Object[][] param = new Object[][]{
+                {"1000.00!=\n" +
+                "125 Market !=:125.45\n" +
+                "126 Hardware =34.95\n" +
+                "127 Video! 7.45\n" +
+                "128 Book :14.32\n" +
+                "129 Gasoline ::16.10",
+                "Original_Balance: 1000.00 " +
+                        "\n125 Market 125.45 Balance 874,55" +
+                        "\n126 Hardware 34.95 Balance 839,60" +
+                        "\n127 Video 7.45 Balance 832,15" +
+                        "\n128 Book 14.32 Balance 817,83" +
+                        "\n129 Gasoline 16.10 Balance 801,73" +
+                        "\nTotal expense  198,27" +
+                        "\nAverage expense  39,65"}//,
+                //{24723578342962L, -1}
+        };
+        return getObjectCodes(validSixImplPackageProvider(), param);
+    }
+
     @DataProvider
     public Object[][] dataForF() {
         Object[][] param = new Object[][]{
