@@ -8,17 +8,17 @@ public class EightDataProvider extends DataProviderClass {
         Object[][] param = new Object[][]{
                 {10, 3.54f}, {20, 7.08f}};
 
-        return getObjectCodes(validEightImplPackageProvider(),param);
+        return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
     @DataProvider(name = "validSquareOrSquareRootDataProvider")
-    public static Object[][] validSquareOrSquareRootDataProvider(){
+    public static Object[][] validSquareOrSquareRootDataProvider() {
         Object[][] param = new Object[][]{
                 {new int[]{4, 3, 9, 7, 2, 1}, new int[]{2, 9, 3, 49, 4, 1}}
                 , {new int[]{100, 101, 5, 5, 1, 1}, new int[]{10, 10201, 25, 25, 1, 1}}
                 , {new int[]{1, 2, 3, 4, 5, 6}, new int[]{1, 4, 9, 2, 25, 36}}};
 
-        return getObjectCodes(validEightImplPackageProvider(),param);
+        return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
     @DataProvider(name = "validCountPositivesSumNegativesProvider")
@@ -29,18 +29,35 @@ public class EightDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
+
     @DataProvider
     public Object[][] dataForWilsonNumber() {
         Object[][] param = new Object[][]{
                 {7, false},
-                {3,false},
-                {0,false},
-                {-5,false},
-                {13,true},
-                {4,false},
-                {3.14,false}
+                {3, false},
+                {0, false},
+                {-5, false},
+                {13, true},
+                {4, false},
+                {3.14, false}
         };
-        return getObjectCodes(validEightImplPackageProvider(),param);
+        return getObjectCodes(validEightImplPackageProvider(), param);
     }
+
+    @DataProvider(name = "validKeepHydrated")
+    public Object[][] testDataForLitersImpl() {
+        Object[][] param = new Object[][]{
+                {12, 6},
+                {0.97, 0},
+                {14.64, 7},
+                {1600.20, 800 },
+                {80, 40},
+                {24, 12},
+                {48, 24},
+                {96, 48}
+        };
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
+
 
 }

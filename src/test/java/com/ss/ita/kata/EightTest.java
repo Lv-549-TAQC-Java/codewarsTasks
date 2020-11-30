@@ -8,8 +8,10 @@ import java.util.Arrays;
 public class EightTest extends EightDataProvider {
 
 
-    @Test
-    public void testLiters() {
+    @Test(dataProvider = "validKeepHydrated")
+    public void testLiters(Eight impl, double x, double expectedData) {
+        double actualData = impl.liters(x);
+        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
     }
 
     @Test
