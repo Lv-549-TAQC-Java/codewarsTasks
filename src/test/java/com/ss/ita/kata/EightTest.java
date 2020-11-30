@@ -48,8 +48,9 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(impl.amIWilson(number),isWilsonNumber,impl.getClass().getName());
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @Test(dataProvider = "dataForFormattingDecimalPlaces")
+    public void testTwoDecimalPlaces(Eight impl, double actualData, double expectedData) {
+        Assert.assertEquals(impl.twoDecimalPlaces(actualData),expectedData,impl.getClass().getName());
     }
 
     @Test

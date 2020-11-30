@@ -44,6 +44,16 @@ public class EightDataProvider extends DataProviderClass {
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
+    @DataProvider
+    public Object[][] dataForFormattingDecimalPlaces() {
+        Object[][] param = new Object[][]{
+                {4.659725356, 4.66},
+                {12.854266, 12.85},
+                {50.102285, 50.10},
+                {0.00, 0.00}
+        };
+        return getObjectCodes(validEightImplPackageProvider(),param);
+    }
     @DataProvider(name = "validKeepHydrated")
     public Object[][] testDataForLitersImpl() {
         Object[][] param = new Object[][]{
