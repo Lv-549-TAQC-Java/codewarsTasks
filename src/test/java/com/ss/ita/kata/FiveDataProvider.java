@@ -12,6 +12,14 @@ public class FiveDataProvider extends DataProviderClass {
 
         return getObjectCodes(validFiveImplPackageProvider(), param);
     }
+    @DataProvider(name = "invalidArtificialRainDataProvider")
+    public static Object[][] invalidArtificialRainDataProvider() {
+        Object[][] param = new Object[][]{
+                {new int[]{4,3}, 1}, {new int[]{1, 3, 2, 7, 1}, 6},
+                {new int[]{4, 2, 1, 3, 2}, 4}, {new int[]{4, 2, 1, 1, 5}, 3}};
+
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
 
 
     @DataProvider(name = "validGapDataProvider")

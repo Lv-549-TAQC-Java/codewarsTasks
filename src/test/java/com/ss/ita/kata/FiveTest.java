@@ -10,11 +10,16 @@ import static org.testng.Assert.*;
 public class FiveTest extends FiveDataProvider {
 
     @Test(dataProvider = "validArtificialRainDataProvider")
-    public void testArtificialRain(Five impl, int[] inputData, int expectedData) {
+    public void testArtificialRainPositive(Five impl, int[] inputData, int expectedData) {
         int result = impl.artificialRain(inputData);
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
+    @Test(dataProvider = "invalidArtificialRainDataProvider")
+    public void testArtificialRainNegative(Five impl, int[] inputData, int expectedData) {
+        int result = impl.artificialRain(inputData);
+        Assert.assertNotEquals(expectedData, result, impl.getClass().getName());
+    }
 
     @Test(dataProvider ="validGapDataProvider")
     public void testGap(Five impl,int input1, int input2, int input3, long[] expectedData) {
