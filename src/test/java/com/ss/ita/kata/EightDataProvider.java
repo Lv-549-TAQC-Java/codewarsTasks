@@ -12,6 +12,13 @@ public class EightDataProvider extends DataProviderClass {
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "invalidMpgToKpmDataProvider")
+    public static Object[][] invalidMpgToKpmDataProvider() {
+        Object[][] param = new Object[][]{
+                {3.54f, ""},{0.1214,""},{"142",""},{"string",""}};
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
+
     @DataProvider(name = "validSquareOrSquareRootDataProvider")
     public static Object[][] validSquareOrSquareRootDataProvider(){
         Object[][] param = new Object[][]{
