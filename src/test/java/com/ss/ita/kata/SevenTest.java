@@ -10,7 +10,13 @@ public class SevenTest extends SevenDataProvider{
     }
 
     @Test(dataProvider ="validSumOfTheFirstNthDataProvider")
-    public void seriesSum(Seven impl,int inputData,String expectedData){
+    public void seriesSumPositive(Seven impl,int inputData,String expectedData){
+        String result = impl.seriesSum(inputData);
+        Assert.assertEquals(expectedData,result,impl.getClass().getName());
+    }
+
+    @Test(dataProvider ="invalidSumOfTheFirstNthDataProvider",expectedExceptions = IllegalArgumentException.class)
+    public void seriesSumNegative(Seven impl,int inputData,String expectedData){
         String result = impl.seriesSum(inputData);
         Assert.assertEquals(expectedData,result,impl.getClass().getName());
     }
