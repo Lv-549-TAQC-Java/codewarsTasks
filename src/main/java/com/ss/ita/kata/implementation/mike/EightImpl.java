@@ -65,15 +65,15 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if(n < 2){
+        if (n < 2) {
             return false;
-        }
-        for  (int i =2; i * i < n; i++){
-            if(n % i == 0){
-                return false;
+        } else {
+            int fact = 1;
+            for (int i = 1; i < n; i++) {
+                fact *= i;
             }
+            return (fact + 1) / Math.pow(n, 2) % 1 == 0;
         }
-        return true;
     }
 
     @Override
