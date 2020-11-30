@@ -16,8 +16,16 @@ public class EightTest extends EightDataProvider {
     public void testTestLiters() {
     }
 
-    @Test
-    public void testGetVolumeOfCuboid() {
+    @Test(dataProvider = "validGetVolumeOfCuboidDataProvider")
+    public void testGetVolumeOfCuboid1(Eight impl, double l ,double w, double h, double expectedData) {
+        double actualData = impl.getVolumeOfCuboid(l, w, h);
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
+    }
+
+    @Test(dataProvider = "inValidGetVolumeOfCuboidDataProvider", expectedExceptions = RuntimeException.class)
+    public  void testGetVolumeOfCuboid2(Eight impl, double l ,double w, double h) {
+        double actualData = impl.getVolumeOfCuboid(l, w, h);
+
     }
 
     @Test(dataProvider = "validMpgToKpmDataProvider")
