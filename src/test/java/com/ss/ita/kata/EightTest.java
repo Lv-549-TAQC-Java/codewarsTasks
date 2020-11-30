@@ -25,9 +25,15 @@ public class EightTest extends EightDataProvider {
     }
 
     @Test(dataProvider = "validMpgToKpmDataProvider")
-    public void testMpgToKPM(Eight impl, float x, float expectedData) {
-        float actualData = impl.mpgToKPM(x);
-        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
+    public void testMpgToKPMPositive(Eight impl, float inputData, float expectedData) {
+        float result = impl.mpgToKPM(inputData);
+        Assert.assertEquals(expectedData, result, impl.getClass().getName());
+    }
+
+    @Test(dataProvider = "invalidMpgToKpmDataProvider",expectedExceptions = IllegalArgumentException.class)
+    public void testMpgToKPMNegative(Eight impl, float inputData, float expectedData) {
+        float result = impl.mpgToKPM(inputData);
+        Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
     @Test(dataProvider = "validSquareOrSquareRootDataProvider")

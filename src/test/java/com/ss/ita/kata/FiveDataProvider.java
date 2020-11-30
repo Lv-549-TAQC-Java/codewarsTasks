@@ -4,6 +4,24 @@ import org.testng.annotations.DataProvider;
 
 public class FiveDataProvider extends DataProviderClass {
 
+    @DataProvider(name = "validArtificialRainDataProvider")
+    public static Object[][] validArtificialRainDataProvider() {
+        Object[][] param = new Object[][]{
+                {new int[]{2}, 1}, {new int[]{1, 2, 1, 2, 1}, 3},
+                {new int[]{4, 2, 3, 3, 2}, 4}, {new int[]{4, 2, 4, 3, 5}, 3}};
+
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
+    @DataProvider(name = "invalidArtificialRainDataProvider")
+    public static Object[][] invalidArtificialRainDataProvider() {
+        Object[][] param = new Object[][]{
+                {new int[]{4,3}, 1}, {new int[]{1, 3, 2, 7, 1}, 6},
+                {new int[]{4, 2, 1, 3, 2}, 4}, {new int[]{4, 2, 1, 1, 5}, 3}};
+
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
+
+
     @DataProvider(name = "validGapDataProvider")
     public static Object[][] validGapDataProvider() {
         Object[][] param = new Object[][]{
