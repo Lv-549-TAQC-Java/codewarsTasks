@@ -29,6 +29,18 @@ public class EightDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
+
+    @DataProvider (name = "validStringToNumberDataProvider")
+    public Object[][] validStringToNumberDataProvider() {
+        Object[][] param = new Object[][]{
+                {"1234", 1234},
+                {"-3",-3},
+                {"0",0},
+
+        };
+        return getObjectCodes(validEightImplPackageProvider(),param);
+    }
+
     @DataProvider
     public Object[][] dataForWilsonNumber() {
         Object[][] param = new Object[][]{
