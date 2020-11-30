@@ -45,7 +45,9 @@ public class FiveTest extends FiveDataProvider{
         assertFuzzyEquals(impl.solveSum(act),exp);
     }
 
-    @Test
-    public void testSmallest() {
+    @Test(dataProvider = "dataForSmalest")
+    public void testSmallest(Five impl, long act, long[] exp) {
+        long[] actualData = impl.smallest(act);
+        Assert.assertEquals(Arrays.toString(exp), Arrays.toString(actualData), impl.getClass().getName());
     }
 }

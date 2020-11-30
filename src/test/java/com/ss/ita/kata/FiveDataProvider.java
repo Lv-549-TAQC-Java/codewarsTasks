@@ -21,6 +21,16 @@ public class FiveDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validFiveImplPackageProvider(),param);
     }
+    @DataProvider
+    public Object[][] dataForSmalest(){
+        Object[][] param = new Object[][]{
+                {261235, new long[] {126235, 2, 0}},
+                {209917, new long[] {29917, 0, 1}},
+                {285365, new long[] {238565, 3, 1}},
+                {269045, new long[] {26945, 3, 0}}
+        };
+        return getObjectCodes(validFiveImplPackageProvider(),param);
+    }
 
     @DataProvider(name = "validZerosProvider")
     public static Object[][] validZerosProvider() {
