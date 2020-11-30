@@ -29,8 +29,14 @@ public class EightTest extends EightDataProvider {
    @Test(dataProvider = "validSquareOrSquareRootDataProvider")
    public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
           int[] actualData = impl.squareOrSquareRoot(input);
-          Assert.assertEquals(Arrays.toString(actualData),Arrays.toString(expectedData),impl.getClass().getName());
+          Assert.assertEquals(Arrays.toString(expectedData),Arrays.toString(actualData),impl.getClass().getName());
    }
+
+    @Test(dataProvider = "invalidSquareOrSquareRootDataProvider")
+    public void testSquareOrSquareRootInvalid(Eight impl, int[] input, int[] expectedData) {
+        int[] actualData = impl.squareOrSquareRoot(input);
+        Assert.assertNotEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
+    }
 
     @Test(dataProvider = "validCountPositivesSumNegativesProvider")
     public void testCountPositivesSumNegatives(Eight impl, int[] input, int[] expected) {

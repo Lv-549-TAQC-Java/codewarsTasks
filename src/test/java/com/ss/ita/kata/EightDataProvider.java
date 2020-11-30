@@ -21,6 +21,16 @@ public class EightDataProvider extends DataProviderClass {
         return getObjectCodes(validEightImplPackageProvider(),param);
     }
 
+    @DataProvider(name = "invalidSquareOrSquareRootDataProvider")
+    public static Object[][] invalidSquareOrSquareRootDataProvider(){
+        Object[][] param = new Object[][]{
+                {new int[]{5, 13, 2, 16, 7, 9}, new int[]{25, 169, 4, 256, 49, 81}}
+                , {new int[]{10, 11, 5, 4}, new int[]{100, 121, 25, 16}}
+                , {new int[]{1, 2, 3, 4, 5}, new int[]{1, 4, 3, 16, 25}}};
+
+        return getObjectCodes(validEightImplPackageProvider(),param);
+    }
+
     @DataProvider(name = "validCountPositivesSumNegativesProvider")
     public static Object[][] validCountPositivesSumNegativesProvider() {
         Object[][] param = new Object[][]{
