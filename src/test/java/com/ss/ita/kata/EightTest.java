@@ -21,13 +21,13 @@ public class EightTest extends EightDataProvider {
     }
 
     @Test(dataProvider = "validGetVolumeOfCuboidDataProvider")
-    public void testGetVolumeOfCuboid1(Eight impl, double l ,double w, double h, double expectedData) {
+    public void testGetVolumeOfCuboid1(Eight impl, double l, double w, double h, double expectedData) {
         double actualData = impl.getVolumeOfCuboid(l, w, h);
         Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "inValidGetVolumeOfCuboidDataProvider", expectedExceptions = RuntimeException.class)
-    public  void testGetVolumeOfCuboid2(Eight impl, double l ,double w, double h) {
+    public void testGetVolumeOfCuboid2(Eight impl, double l, double w, double h) {
         double actualData = impl.getVolumeOfCuboid(l, w, h);
 
     }
@@ -44,11 +44,11 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
-   @Test(dataProvider = "validSquareOrSquareRootDataProvider")
-   public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
-          int[] actualData = impl.squareOrSquareRoot(input);
-          Assert.assertEquals(Arrays.toString(expectedData),Arrays.toString(actualData),impl.getClass().getName());
-   }
+    @Test(dataProvider = "validSquareOrSquareRootDataProvider")
+    public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
+        int[] actualData = impl.squareOrSquareRoot(input);
+        Assert.assertEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
+    }
 
     @Test(dataProvider = "invalidSquareOrSquareRootDataProvider")
     public void testSquareOrSquareRootInvalid(Eight impl, int[] input, int[] expectedData) {

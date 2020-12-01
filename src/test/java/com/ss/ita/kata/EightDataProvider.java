@@ -29,6 +29,16 @@ public class EightDataProvider extends DataProviderClass {
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "invalidSquareOrSquareRootDataProvider")
+    public static Object[][] invalidSquareOrSquareRootDataProvider() {
+        Object[][] param = new Object[][]{
+                {new int[]{5, 13, 2, 16, 7, 9}, new int[]{25, 169, 4, 256, 49, 81}}
+                , {new int[]{10, 11, 5, 4}, new int[]{100, 121, 25, 16}}
+                , {new int[]{1, 2, 3, 4, 5}, new int[]{1, 4, 3, 16, 25}}};
+
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
+
     @DataProvider(name = "validCountPositivesSumNegativesProvider")
     public static Object[][] validCountPositivesSumNegativesProvider() {
         Object[][] param = new Object[][]{
@@ -37,6 +47,18 @@ public class EightDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
+
+    @DataProvider(name = "validStringToNumberDataProvider")
+    public Object[][] validStringToNumberDataProvider() {
+        Object[][] param = new Object[][]{
+                {"1234", 1234},
+                {"-3", -3},
+                {"0", 0}
+
+        };
+        return getObjectCodes(validEightImplPackageProvider(), param);
+    }
+
 
     @DataProvider
     public Object[][] dataForWilsonNumber() {
@@ -66,7 +88,7 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "validGetVolumeOfCuboidDataProvider")
     public static Object[][] validGetVolumeOfCuboidDataProvider() {
         Object[][] param = new Object[][] {
-                {6.3, 2,5, 63},
+                {6.3, 2, 5, 63},
                 {2, 2, 1, 4},
                 {3, 3, 3, 27},
                 {3, 1, 1, 3}
@@ -76,7 +98,7 @@ public class EightDataProvider extends DataProviderClass {
 
     @DataProvider
     public static Object[][] inValidGetVolumeOfCuboidDataProvider() {
-        Object[][] param = new Object[][] {
+        Object[][] param = new Object[][]{
                 {0, 0, 0},
                 {-5, 1, 1}
         };
