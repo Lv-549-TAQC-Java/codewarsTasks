@@ -10,8 +10,9 @@ public class SixTest extends SixDataProvider {
         Assert.assertEquals((Long) impl.findNb(input), (Long) expected, impl.getClass().getName());
     }
 
-    @Test
-    public void testBalance() {
+    @Test(dataProvider = "validBalance")
+    public void testBalance(Six impl, String input, String expected) {
+        Assert.assertEquals(impl.balance(input), expected, impl.getClass().getName());
     }
 
     @Test(dataProvider = "dataForF")
@@ -81,7 +82,9 @@ public class SixTest extends SixDataProvider {
         Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 
-    @Test
-    public void testStockSummary() {
+    @Test(dataProvider = "validHelpTheBooksellerDataProvider")
+   public void testStockSummary(Six impl, String[] a, String[] b, String expected) {
+        String result = impl.stockSummary(a, b);
+        Assert.assertEquals(result, expected, impl.getClass().getName());
     }
 }

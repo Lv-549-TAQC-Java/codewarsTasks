@@ -3,6 +3,7 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 import static org.testng.Assert.*;
@@ -27,13 +28,22 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
     }
 
+    @Test(dataProvider ="invalidGapDataProvider")
+    public void testGapInvalid(Five impl,int input1, int input2, int input3, long[] expectedData) {
+        long[] actualData = impl.gap(input1, input2, input3);
+        Assert.assertNotEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
+    }
+
     @Test(dataProvider = "validZerosProvider")
     public void testZeros(Five impl, int input, int expected) {
         Assert.assertEquals(impl.zeros(input), expected, impl.getClass().getName());
     }
 
-    @Test
-    public void testPerimeter() {
+    @Test(dataProvider = "validPerimeterDataProvider")
+    public void testPerimeter(Five impl, long input, long expected) {
+        //BigInteger in = input;
+        Assert.assertEquals(impl.perimeter(BigInteger.valueOf(input)), BigInteger.valueOf(expected), impl.getClass().getName());
+
     }
 
     private static void assertFuzzyEquals(double act, double exp){

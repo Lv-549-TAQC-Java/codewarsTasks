@@ -30,6 +30,15 @@ public class FiveDataProvider extends DataProviderClass {
                 ,{8, 300, 400, new long[]{359, 367}}};
         return getObjectCodes(validFiveImplPackageProvider(), param);
     }
+
+    @DataProvider(name = "invalidGapDataProvider")
+    public static Object[][] invalidGapDataProvider() {
+        Object[][] param = new Object[][]{
+                {2, 100, 110, new long[]{103, 105}}, {4, 100, 110, new long[]{101, 107}}
+                ,{10, 300, 400, new long[]{326, 336}}, {8, 300, 400, new long[]{302, 310}}};
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
+
     @DataProvider
     public Object[][] dataForSolveSum(){
         Object[][] param = new Object[][]{
@@ -59,6 +68,15 @@ public class FiveDataProvider extends DataProviderClass {
                 {12, 2},
                 {519687498, 129921866},
                 {62962080, 15740515}
+        };
+        return getObjectCodes(validFiveImplPackageProvider(), param);
+    }
+
+    @DataProvider(name = "validPerimeterDataProvider")
+    public static Object[][] validPerimeterDataProvider() {
+        Object[][] param = new Object[][]{
+                {5,80},
+                {7,216}
         };
         return getObjectCodes(validFiveImplPackageProvider(), param);
     }
