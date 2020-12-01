@@ -72,13 +72,13 @@ public class SixTest extends SixDataProvider {
     @Test(dataProvider = "RankingNba")
     public void testNbaCup(Six impl, String actualData, String toFind, String expectedData) {
         actualData = impl.nbaCup(actualData, toFind);
-        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "NegativeRankingNba")
     public void negativeTestNbaCup(Six impl, String actualData, String toFind, String expectedData) {
         actualData = impl.nbaCup(actualData, toFind);
-        Assert.assertNotEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test

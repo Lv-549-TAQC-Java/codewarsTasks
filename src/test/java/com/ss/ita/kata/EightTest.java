@@ -11,13 +11,13 @@ public class EightTest extends EightDataProvider {
     @Test(dataProvider = "KeepHydrated")
     public void testLiters(Eight impl, double actualData, double expectedData) {
         actualData = impl.liters(actualData);
-        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "NegativeKeepHydrated")
-    public void negativeTestLiters(Eight impl, double expectedData, double actualData) {
+    public void negativeTestLiters(Eight impl, double actualData, double expectedData) {
         actualData = impl.liters(actualData);
-        Assert.assertNotEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
-    @Test(dataProvider = "invalidMpgToKpmDataProvider",expectedExceptions = IllegalArgumentException.class)
+    @Test(dataProvider = "invalidMpgToKpmDataProvider", expectedExceptions = IllegalArgumentException.class)
     public void testMpgToKPMNegative(Eight impl, float inputData, float expectedData) {
         float result = impl.mpgToKPM(inputData);
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
@@ -64,12 +64,12 @@ public class EightTest extends EightDataProvider {
     @Test(dataProvider = "FindNumbersDivisibleBy")
     public void testDivisibleBy(Eight impl, int[] entryArray, int divider, int[] expectedData) {
         int[] actualData = impl.divisibleBy(entryArray, divider);
-        Assert.assertEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "NegativeFindNumbersDivisibleBy")
     public void negativeTestDivisibleBy(Eight impl, int[] entryArray, int divider, int[] expectedData) {
         int[] actualData = impl.divisibleBy(entryArray, divider);
-        Assert.assertNotEquals(expectedData, actualData, impl.getClass().getName());
+        Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 }

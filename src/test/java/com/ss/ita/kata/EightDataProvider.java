@@ -14,7 +14,7 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidMpgToKpmDataProvider")
     public static Object[][] invalidMpgToKpmDataProvider() {
         Object[][] param = new Object[][]{
-                {3.54f, ""},{0.1214,""},{"142",""},{"string",""}};
+                {3.54f, ""}, {0.1214, ""}, {"142", ""}, {"string", ""}};
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
 
@@ -65,10 +65,10 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "KeepHydrated")
     public Object[][] validDataForLiters() {
         Object[][] param = new Object[][]{
-                {6, 12},
-                {0, 0.97},
-                {7, 14.98},
-                {800, 1600.25}
+                {12, 6},
+                {0.97, 0},
+                {14.98, 7},
+                {1600.25, 800}
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
@@ -92,6 +92,7 @@ public class EightDataProvider extends DataProviderClass {
         };
         return getObjectCodes(validEightImplPackageProvider(), param);
     }
+
     @DataProvider(name = "NegativeFindNumbersDivisibleBy")
     public Object[][] invalidDataForDivisibleBy() {
         Object[][] param = new Object[][]{
