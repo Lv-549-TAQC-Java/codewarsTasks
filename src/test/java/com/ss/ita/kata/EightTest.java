@@ -8,22 +8,26 @@ import java.util.Arrays;
 public class EightTest extends EightDataProvider {
 
 
-    @Test
-    public void testLiters() {
+    @Test(dataProvider = "KeepHydrated")
+    public void testLiters(Eight impl, double actualData, double expectedData) {
+        actualData = impl.liters(actualData);
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
-    @Test
-    public void testTestLiters() {
+    @Test(dataProvider = "NegativeKeepHydrated")
+    public void negativeTestLiters(Eight impl, double actualData, double expectedData) {
+        actualData = impl.liters(actualData);
+        Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "validGetVolumeOfCuboidDataProvider")
-    public void testGetVolumeOfCuboid1(Eight impl, double l ,double w, double h, double expectedData) {
+    public void testGetVolumeOfCuboid1(Eight impl, double l, double w, double h, double expectedData) {
         double actualData = impl.getVolumeOfCuboid(l, w, h);
         Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
     }
 
     @Test(dataProvider = "inValidGetVolumeOfCuboidDataProvider", expectedExceptions = RuntimeException.class)
-    public  void testGetVolumeOfCuboid2(Eight impl, double l ,double w, double h) {
+    public void testGetVolumeOfCuboid2(Eight impl, double l, double w, double h) {
         double actualData = impl.getVolumeOfCuboid(l, w, h);
 
     }
@@ -34,17 +38,17 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
-    @Test(dataProvider = "invalidMpgToKpmDataProvider",expectedExceptions = IllegalArgumentException.class)
+    @Test(dataProvider = "invalidMpgToKpmDataProvider", expectedExceptions = IllegalArgumentException.class)
     public void testMpgToKPMNegative(Eight impl, float inputData, float expectedData) {
         float result = impl.mpgToKPM(inputData);
         Assert.assertEquals(expectedData, result, impl.getClass().getName());
     }
 
-   @Test(dataProvider = "validSquareOrSquareRootDataProvider")
-   public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
-          int[] actualData = impl.squareOrSquareRoot(input);
-          Assert.assertEquals(Arrays.toString(expectedData),Arrays.toString(actualData),impl.getClass().getName());
-   }
+    @Test(dataProvider = "validSquareOrSquareRootDataProvider")
+    public void testSquareOrSquareRoot(Eight impl, int[] input, int[] expectedData) {
+        int[] actualData = impl.squareOrSquareRoot(input);
+        Assert.assertEquals(Arrays.toString(expectedData), Arrays.toString(actualData), impl.getClass().getName());
+    }
 
     @Test(dataProvider = "invalidSquareOrSquareRootDataProvider")
     public void testSquareOrSquareRootInvalid(Eight impl, int[] input, int[] expectedData) {
@@ -64,15 +68,23 @@ public class EightTest extends EightDataProvider {
 
     @Test(dataProvider = "dataForWilsonNumber")
     public void testAmIWilson1(Eight impl, double number, boolean isWilsonNumber) {
-        Assert.assertEquals(impl.amIWilson(number),isWilsonNumber,impl.getClass().getName());
+        Assert.assertEquals(impl.amIWilson(number), isWilsonNumber, impl.getClass().getName());
     }
 
     @Test(dataProvider = "dataForFormattingDecimalPlaces")
     public void testTwoDecimalPlaces(Eight impl, double actualData, double expectedData) {
-        Assert.assertEquals(impl.twoDecimalPlaces(actualData),expectedData,impl.getClass().getName());
+        Assert.assertEquals(impl.twoDecimalPlaces(actualData), expectedData, impl.getClass().getName());
     }
 
-    @Test
-    public void testDivisibleBy() {
+    @Test(dataProvider = "FindNumbersDivisibleBy")
+    public void testDivisibleBy(Eight impl, int[] entryArray, int divider, int[] expectedData) {
+        int[] actualData = impl.divisibleBy(entryArray, divider);
+        Assert.assertEquals(actualData, expectedData, impl.getClass().getName());
+    }
+
+    @Test(dataProvider = "NegativeFindNumbersDivisibleBy")
+    public void negativeTestDivisibleBy(Eight impl, int[] entryArray, int divider, int[] expectedData) {
+        int[] actualData = impl.divisibleBy(entryArray, divider);
+        Assert.assertNotEquals(actualData, expectedData, impl.getClass().getName());
     }
 }
