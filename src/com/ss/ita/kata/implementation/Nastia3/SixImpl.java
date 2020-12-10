@@ -22,7 +22,25 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+
+        String []notes = book.split("[^\\w\\d\\.]+");
+        double costsAmount = 0;
+        double costsSum = 0;
+        double currentSum=Double.parseDouble(notes[0]);
+        DecimalFormat df = new DecimalFormat("0.00");
+        String s = df.format(currentSum);
+        String result = "Original Balance: " + s + "\\r\\n";
+
+        for( int i=1; i< notes.length; i=i+3){
+            currentSum = currentSum-Double.parseDouble(notes[i+2]);
+            String strDouble = String.format("%s %s %s Balance %.2f\\r\\n", notes[i], notes[i+1], notes[i+2], currentSum);
+            result += strDouble;
+            costsSum += Double.parseDouble(notes[i+2]);
+            costsAmount++;
+        }
+        String lastLines =String.format("Total expense  %.2f\\r\\nAverage expense  %.2f",costsSum, costsSum/costsAmount);
+        result += lastLines;
+        return result;
     }
 
     @Override
