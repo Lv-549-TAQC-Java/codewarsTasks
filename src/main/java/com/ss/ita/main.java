@@ -7,8 +7,5 @@ public class main {
     public static void main(String[] args) {
        Menu menu = new Menu();
        menu.mainMenu();
-//        ConsoleScanner scanner = new ConsoleScanner();
-//        scanner.readIntArray();
-
     }
 }
