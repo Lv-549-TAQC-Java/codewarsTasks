@@ -2,6 +2,7 @@ package com.ss.ita.kata.implementation.Khrystyna;
 
 import com.ss.ita.kata.Six;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,26 +21,25 @@ public class ImplSix implements Six {
 
     @Override
     public String balance(String book) {
-//        List<String> books = book
-//                .lines()
-//                .map(line -> line.replaceAll("[^\\s\\w.]", ""))
-//                .map(line -> line.replaceAll("\\s{1,5}", " "))
-//                .collect(Collectors.toList());
-//        StringBuilder retString = new StringBuilder("Original Balance: " + books.get(0));
-//        double balance = Double.parseDouble(books.get(0));
-//        books.remove(0);
-//        double totalSum = 0;
-//        for (String myBook : books) {
-//            String[] arr = myBook.split(" ");
-//            double price = Double.parseDouble(arr[arr.length - 1]);
-//            totalSum += price;
-//            balance -= price;
-//            retString.append("\n").append(myBook).append(" Balance ").append(String.format("%.2f", balance));
-//        }
-//        retString.append("\nTotal expense  ").append(String.format("%.2f", totalSum));
-//        retString.append("\nAverage expense  ").append(String.format("%.2f", totalSum / books.size()));
-        return null;
-//                retString.toString();
+        List<String> books = Arrays.stream(book
+                .split("\n"))
+                .map(line -> line.replaceAll("[^\\s\\w.]", ""))
+                .map(line -> line.replaceAll("\\s{1,5}", " "))
+                .collect(Collectors.toList());
+        StringBuilder retString = new StringBuilder("Original Balance: " + books.get(0));
+        double balance = Double.parseDouble(books.get(0));
+        books.remove(0);
+        double totalSum = 0;
+        for (String myBook : books) {
+            String[] arr = myBook.split(" ");
+            double price = Double.parseDouble(arr[arr.length - 1]);
+            totalSum += price;
+            balance -= price;
+            retString.append("\n").append(myBook).append(" Balance ").append(String.format("%.2f", balance));
+        }
+        retString.append("\nTotal expense  ").append(String.format("%.2f", totalSum));
+        retString.append("\nAverage expense  ").append(String.format("%.2f", totalSum / books.size()));
+        return retString.toString();
     }
 
     @Override
