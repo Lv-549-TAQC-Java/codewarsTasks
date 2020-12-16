@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.Nastia3;
 
 import com.ss.ita.kata.Six;
 
+import java.text.DecimalFormat;
+
 public class SixImpl implements Six {
     @Override
 
